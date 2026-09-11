@@ -23,7 +23,9 @@ import {
   getDoc,
   setDoc,
   deleteDoc,
-  runTransaction
+  runTransaction,
+  DocumentReference,
+  DocumentSnapshot
 } from "firebase/firestore";
 
 import { getUserFriendlyErrorMessage } from "../utils/errorMapper";
@@ -384,41 +386,34 @@ export class BookingStore {
     }
   }
 
-  // 11. ATOMIC UPDATE STATUS & RELEASE SLOTS (Cancelled / Completed)
+  // 11. ATOMIC UPDATE STATUS & RELEASE SLOTS (Cancelled / Completed / No Show)
   static async updateBookingStatus(
     bookingId: string,
     status: BookingStatus
   ): Promise<{ success: boolean; error?: string }> {
     try {
-      await runTransaction(db, async (transaction) => {
+      await runTransaction(db, async (tx) => {
+        // ===== FASE 1: TODAS AS LEITURAS =====
         const bookingRef = doc(db, "bookings", bookingId);
-        const bookingSnap = await transaction.get(bookingRef);
+        const bookingSnap = await tx.get(bookingRef);
 
-        let cancelToken = "";
-        let dateStr = "";
-        let startTimeStr = "";
-        let durationMin = 30;
-
-        if (bookingSnap.exists()) {
-          const bData = bookingSnap.data() as Booking;
-          cancelToken = bData.cancelToken;
-          dateStr = bData.date;
-          startTimeStr = bData.startTime;
-          durationMin = bData.serviceDurationMinutes || 30;
-
-          // Update main booking
-          const nowIso = new Date().toISOString();
-          const updateFields: Record<string, any> = {
-            status,
-            updatedAt: nowIso
-          };
-          if (status === "cancelled") {
-            updateFields.cancelledAt = nowIso;
-          }
-          transaction.update(bookingRef, updateFields);
+        if (!bookingSnap.exists()) {
+          throw new Error("Agendamento não encontrado.");
         }
 
-        // If status changes to cancelled, release slot locks
+        const booking = bookingSnap.data() as Booking;
+        const cancelToken = booking.cancelToken;
+        const dateStr = booking.date;
+        const startTimeStr = booking.startTime;
+        const durationMin = booking.serviceDurationMinutes || 30;
+
+        // Read token document if present
+        const tokenRef = cancelToken ? doc(db, "bookingTokens", cancelToken) : null;
+        const tokenSnap = tokenRef ? await tx.get(tokenRef) : null;
+
+        // Read slot documents if status is cancelled
+        let slotRefs: DocumentReference[] = [];
+        let slotSnaps: DocumentSnapshot[] = [];
         if (status === "cancelled" && dateStr && startTimeStr) {
           const slotIds = calculateRequiredSlotIds(
             "gustavinho",
@@ -427,22 +422,38 @@ export class BookingStore {
             durationMin,
             30
           );
-          for (const slotId of slotIds) {
-            const slotRef = doc(db, "bookingSlots", slotId);
-            transaction.delete(slotRef);
-          }
+          slotRefs = slotIds.map((id) => doc(db, "bookingSlots", id));
+          slotSnaps = await Promise.all(slotRefs.map((ref) => tx.get(ref)));
         }
 
-        // Update token document if cancelToken is found
-        if (cancelToken) {
-          const tokenRef = doc(db, "bookingTokens", cancelToken);
-          const tokenSnap = await transaction.get(tokenRef);
-          if (tokenSnap.exists()) {
-            transaction.update(tokenRef, {
-              status,
-              updatedAt: new Date().toISOString()
-            });
-          }
+        // ===== FASE 2: TODAS AS ESCRITAS (nenhum tx.get abaixo desta linha) =====
+        const nowIso = new Date().toISOString();
+        const updateFields: Record<string, any> = {
+          status,
+          updatedAt: nowIso
+        };
+        if (status === "cancelled") {
+          updateFields.cancelledAt = nowIso;
+        }
+
+        // 1. Update main booking document
+        tx.update(bookingRef, updateFields);
+
+        // 2. Update token document
+        if (tokenRef && tokenSnap?.exists()) {
+          tx.update(tokenRef, {
+            status,
+            updatedAt: nowIso
+          });
+        }
+
+        // 3. Delete slot locks ONLY if cancelled (no_show and completed keep slots)
+        if (status === "cancelled") {
+          slotRefs.forEach((ref, idx) => {
+            if (slotSnaps[idx]?.exists()) {
+              tx.delete(ref);
+            }
+          });
         }
       });
 
@@ -451,6 +462,9 @@ export class BookingStore {
       const idx = bookings.findIndex((b) => b.id === bookingId);
       if (idx !== -1) {
         bookings[idx].status = status;
+        if (status === "cancelled") {
+          bookings[idx].cancelledAt = new Date().toISOString();
+        }
         bookings[idx].updatedAt = new Date().toISOString();
         setLocalData(STORAGE_KEYS.BOOKINGS, bookings);
       }
@@ -479,9 +493,10 @@ export class BookingStore {
     }
 
     try {
-      await runTransaction(db, async (transaction) => {
+      await runTransaction(db, async (tx) => {
+        // ===== FASE 1: TODAS AS LEITURAS =====
         const bookingRef = doc(db, "bookings", bookingId);
-        const bookingSnap = await transaction.get(bookingRef);
+        const bookingSnap = await tx.get(bookingRef);
 
         if (!bookingSnap.exists()) {
           throw new Error("Agendamento não encontrado.");
@@ -490,7 +505,11 @@ export class BookingStore {
         const booking = bookingSnap.data() as Booking;
         const duration = booking.serviceDurationMinutes || 30;
 
-        // Old slots to release
+        // Read token doc if exists
+        const tokenRef = booking.cancelToken ? doc(db, "bookingTokens", booking.cancelToken) : null;
+        const tokenSnap = tokenRef ? await tx.get(tokenRef) : null;
+
+        // Old slots
         const oldSlotIds = calculateRequiredSlotIds(
           "gustavinho",
           booking.date,
@@ -498,8 +517,10 @@ export class BookingStore {
           duration,
           30
         );
+        const oldSlotRefs = oldSlotIds.map((id) => doc(db, "bookingSlots", id));
+        const oldSlotSnaps = await Promise.all(oldSlotRefs.map((r) => tx.get(r)));
 
-        // New slots to acquire
+        // New slots
         const newSlotIds = calculateRequiredSlotIds(
           "gustavinho",
           newDate,
@@ -507,58 +528,59 @@ export class BookingStore {
           duration,
           30
         );
+        const newSlotRefs = newSlotIds.map((id) => doc(db, "bookingSlots", id));
+        const newSlotSnaps = await Promise.all(newSlotRefs.map((r) => tx.get(r)));
 
-        // Verify new slots availability
-        for (const newSlotId of newSlotIds) {
-          const newSlotRef = doc(db, "bookingSlots", newSlotId);
-          const newSlotSnap = await transaction.get(newSlotRef);
-          if (newSlotSnap.exists()) {
+        // Verify availability of new slots (skip if same slot being reused from old ones)
+        for (let i = 0; i < newSlotIds.length; i++) {
+          const id = newSlotIds[i];
+          const snap = newSlotSnaps[i];
+          if (snap.exists() && !oldSlotIds.includes(id)) {
             throw new Error("Esse horário acabou de ser reservado. Escolha outro.");
           }
         }
 
-        // Delete old slots
-        for (const oldSlotId of oldSlotIds) {
-          const oldSlotRef = doc(db, "bookingSlots", oldSlotId);
-          transaction.delete(oldSlotRef);
-        }
-
+        // ===== FASE 2: TODAS AS ESCRITAS (nenhum tx.get abaixo desta linha) =====
         const startMin = timeToMinutes(newStartTime);
         const endMin = startMin + duration;
         const newEndTime = minutesToTime(endMin);
+        const nowIso = new Date().toISOString();
 
-        // Set new slots
-        for (const newSlotId of newSlotIds) {
-          const newSlotRef = doc(db, "bookingSlots", newSlotId);
-          transaction.set(newSlotRef, {
+        // 1. Delete old slots that are not in new slots
+        oldSlotRefs.forEach((ref, idx) => {
+          if (oldSlotSnaps[idx]?.exists()) {
+            tx.delete(ref);
+          }
+        });
+
+        // 2. Set new slots
+        newSlotRefs.forEach((ref, idx) => {
+          const slotId = newSlotIds[idx];
+          tx.set(ref, {
             date: newDate,
-            slotTime: newSlotId.split("_").pop() || "",
+            slotTime: slotId.split("_").pop() || "",
             startTime: newStartTime,
             endTime: newEndTime,
-            createdAt: new Date().toISOString()
+            createdAt: nowIso
           });
-        }
+        });
 
-        // Update booking doc
-        transaction.update(bookingRef, {
+        // 3. Update main booking doc
+        tx.update(bookingRef, {
           date: newDate,
           startTime: newStartTime,
           endTime: newEndTime,
-          updatedAt: new Date().toISOString()
+          updatedAt: nowIso
         });
 
-        // Update bookingToken doc
-        if (booking.cancelToken) {
-          const tokenRef = doc(db, "bookingTokens", booking.cancelToken);
-          const tokenSnap = await transaction.get(tokenRef);
-          if (tokenSnap.exists()) {
-            transaction.update(tokenRef, {
-              date: newDate,
-              startTime: newStartTime,
-              endTime: newEndTime,
-              updatedAt: new Date().toISOString()
-            });
-          }
+        // 4. Update token doc
+        if (tokenRef && tokenSnap?.exists()) {
+          tx.update(tokenRef, {
+            date: newDate,
+            startTime: newStartTime,
+            endTime: newEndTime,
+            updatedAt: nowIso
+          });
         }
       });
 
