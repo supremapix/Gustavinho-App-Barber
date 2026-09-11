@@ -73,9 +73,26 @@ export default function Footer() {
               Corte masculino, barba na navalha com toalha quente, selagem, platinado e planos mensais no coração do CIC. Agendamento ágil e direto pelo WhatsApp.
             </p>
 
-            <div className="flex items-center gap-2 text-sm text-[#d4af37] font-bold bg-[#18181b] border border-[#27272a] px-4 py-2.5 rounded-xl w-fit">
-              <ShieldCheck className="w-5 h-5 text-[#d4af37]" />
-              <span>★ 4.9 no Google (+180 avaliações de clientes reais)</span>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 bg-[#18181b] border border-[#d4af37]/40 p-4 rounded-xl w-fit">
+              <a
+                href={BUSINESS_INFO.reviewUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 group"
+              >
+                <img
+                  src={BUSINESS_INFO.qrCodeUrl}
+                  alt="QR Code Avaliação Google"
+                  className="w-14 h-14 object-contain rounded-lg bg-white p-1 border border-[#d4af37] group-hover:scale-105 transition-transform"
+                />
+                <div>
+                  <span className="text-xs font-bold text-[#d4af37] uppercase tracking-wider block">Avalie no Google Maps</span>
+                  <span className="text-sm font-extrabold text-white group-hover:text-[#d4af37] transition-colors">
+                    ★ 5.0 no Google (+150 avaliações)
+                  </span>
+                  <span className="text-xs text-[#a1a1aa] block">Clique ou escaneie o QR Code</span>
+                </div>
+              </a>
             </div>
           </div>
 

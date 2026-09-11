@@ -38,14 +38,24 @@ export default function LocationSection() {
               </div>
             </div>
 
-            <div>
+            <div className="flex flex-col gap-3 pt-4 border-t border-[#27272a]">
               <a
-                href={BUSINESS_INFO.mapsUrl}
+                href={BUSINESS_INFO.mapsShareUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-sm font-bold text-[#d4af37] hover:text-[#e5c158] transition-colors group"
               >
-                <span>Abrir rota no Google Maps</span>
+                <span>Abrir perfil no Google Maps</span>
+                <ArrowRight className="w-4 h-4 text-[#d4af37] group-hover:translate-x-1 transition-transform" />
+              </a>
+
+              <a
+                href={BUSINESS_INFO.reviewUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-[#d4af37] transition-colors group"
+              >
+                <span>★ Avalie no Google Maps (Deixar opinião)</span>
                 <ArrowRight className="w-4 h-4 text-[#d4af37] group-hover:translate-x-1 transition-transform" />
               </a>
             </div>

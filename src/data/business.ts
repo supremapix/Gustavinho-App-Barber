@@ -21,7 +21,10 @@ export const BUSINESS_INFO = {
     latitude: -25.5123,
     longitude: -49.3345
   },
-  mapsUrl: "https://maps.google.com/?q=Rua+Desembargador+Cid+Campelo+5212+CIC+Curitiba+PR",
+  mapsUrl: "https://share.google/2TIynyo3cCeQuoaof",
+  mapsShareUrl: "https://share.google/2TIynyo3cCeQuoaof",
+  reviewUrl: "https://g.page/r/CbmVBLZwTYenEBM/review",
+  qrCodeUrl: "https://img.supremasite.com.br/gustavinho.png",
   googleEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3600.2!2d-49.3345!3d-25.5123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDMwJzQ0LjMiUyA0OcKwMjAnMDQuMiJX!5e0!3m2!1spt-BR!2sbr!4v1620000000000!5m2!1spt-BR!2sbr",
   hours: [
     { days: "Segunda a Sábado", hours: "09:00 às 19:00", isOpenToday: true },
