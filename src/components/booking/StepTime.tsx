@@ -44,13 +44,13 @@ export default function StepTime({
   return (
     <div className="w-full max-w-2xl mx-auto">
       <div className="text-center mb-8">
-        <span className="text-xs font-bold uppercase tracking-widest text-[#d4af37] block mb-1">
+        <span className="text-[11px] font-medium uppercase tracking-wider text-[#d4af37] block mb-1">
           {formattedDate}
         </span>
-        <h2 className="text-2xl sm:text-3xl font-black text-white mb-2">
+        <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">
           Escolha um horário
         </h2>
-        <p className="text-xs sm:text-sm text-[#a1a1aa]">
+        <p className="text-[17px] text-[#a1a1aa] font-normal">
           Selecione o horário desejado. Todos os horários listados abaixo estão totalmente livres.
         </p>
       </div>
@@ -67,9 +67,9 @@ export default function StepTime({
           <button
             type="button"
             onClick={onBackToDate}
-            className="px-6 py-3 rounded-xl bg-[#d4af37] text-[#0f0f0f] text-xs font-black hover:bg-[#e5c158] transition-colors"
+            className="px-6 py-3 rounded-xl bg-[#d4af37] text-[#0f0f0f] text-xs font-bold hover:bg-[#e5c158] transition-colors"
           >
-            ESCOLHER OUTRO DIA
+            Escolher outro dia
           </button>
         </div>
       ) : (
@@ -82,9 +82,9 @@ export default function StepTime({
                 key={timeStr}
                 type="button"
                 onClick={() => onSelectTime(timeStr)}
-                className={`p-4 rounded-xl text-center border font-extrabold text-base transition-all min-h-[56px] flex items-center justify-center gap-2 ${
+                className={`p-4 rounded-xl text-center border font-bold text-[18px] transition-all min-h-[56px] flex items-center justify-center gap-2 ${
                   isSelected
-                    ? "bg-[#d4af37] text-[#0f0f0f] border-[#d4af37] font-extrabold shadow-lg"
+                    ? "bg-[#d4af37] text-[#0f0f0f] border-[#d4af37] shadow-lg"
                     : "bg-[#18181b] border-[#27272a] text-white hover:border-[#d4af37] hover:bg-[#242428]"
                 }`}
               >

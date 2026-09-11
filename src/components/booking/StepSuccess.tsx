@@ -38,15 +38,15 @@ export default function StepSuccess({ booking }: StepSuccessProps) {
         <CheckCircle2 className="w-10 h-10 text-[#d4af37]" />
       </div>
 
-      <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#d4af37] block mb-2">
+      <span className="text-[11px] font-medium uppercase tracking-[0.12em] text-[#d4af37] block mb-2">
         Sucesso!
       </span>
 
-      <h1 className="text-3xl sm:text-4xl font-black text-white tracking-tight mb-2">
-        AGENDAMENTO CONFIRMADO
+      <h1 className="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-2">
+        Agendamento confirmado
       </h1>
 
-      <p className="text-sm text-[#a1a1aa] mb-8">
+      <p className="text-[17px] text-[#a1a1aa] mb-8 font-normal">
         Seu horário está reservado com sucesso no Gustavinho do Corte.
       </p>
 
@@ -74,17 +74,17 @@ export default function StepSuccess({ booking }: StepSuccessProps) {
 
           <div className="flex justify-between">
             <span className="text-[#a1a1aa]">Horário:</span>
-            <span className="font-extrabold text-[#d4af37]">{booking.startTime}</span>
+            <span className="font-bold text-[18px] text-[#d4af37]">{booking.startTime}</span>
           </div>
 
           <div className="flex justify-between">
             <span className="text-[#a1a1aa]">Valor:</span>
-            <span className="font-bold text-[#d4af37]">R$ {booking.servicePrice.toFixed(2).replace(".", ",")}</span>
+            <span className="font-bold text-[18px] text-[#d4af37]">R$ {booking.servicePrice.toFixed(2).replace(".", ",")}</span>
           </div>
 
           <div className="pt-2 border-t border-[#27272a] flex items-start gap-2 text-xs text-[#a1a1aa]">
             <MapPin className="w-4 h-4 text-[#d4af37] shrink-0 mt-0.5" />
-            <span>Rua Desembargador Cid Campelo, 5212 - CIC, Curitiba - PR</span>
+            <span className="text-[17px]">Rua Desembargador Cid Campelo, 5212 - CIC, Curitiba - PR</span>
           </div>
         </div>
       </div>
@@ -98,7 +98,7 @@ export default function StepSuccess({ booking }: StepSuccessProps) {
           className="p-3.5 rounded-xl bg-[#242428] border border-[#27272a] text-white text-xs font-bold hover:border-[#d4af37] flex items-center justify-center gap-2 transition-all min-h-[48px]"
         >
           <CalendarPlus className="w-4 h-4 text-[#d4af37]" />
-          <span>ADICIONAR À AGENDA</span>
+          <span>Adicionar à agenda</span>
         </a>
 
         <a
@@ -108,17 +108,17 @@ export default function StepSuccess({ booking }: StepSuccessProps) {
           className="p-3.5 rounded-xl bg-[#242428] border border-[#27272a] text-white text-xs font-bold hover:border-[#d4af37] flex items-center justify-center gap-2 transition-all min-h-[48px]"
         >
           <Navigation className="w-4 h-4 text-[#d4af37]" />
-          <span>COMO CHEGAR</span>
+          <span>Como chegar</span>
         </a>
 
         <a
           href={waUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="sm:col-span-2 p-4 rounded-xl bg-[#d4af37] text-[#0f0f0f] hover:bg-[#e5c158] text-xs font-black flex items-center justify-center gap-2 transition-all min-h-[48px]"
+          className="sm:col-span-2 p-4 rounded-xl bg-[#d4af37] text-[#0f0f0f] hover:bg-[#e5c158] text-xs font-bold flex items-center justify-center gap-2 transition-all min-h-[48px]"
         >
           <MessageCircle className="w-4 h-4 text-[#0f0f0f]" />
-          <span>FALAR NO WHATSAPP COM SEU CÓDIGO</span>
+          <span>Falar no WhatsApp com seu código</span>
         </a>
       </div>
 
@@ -128,7 +128,7 @@ export default function StepSuccess({ booking }: StepSuccessProps) {
           className="inline-flex items-center gap-2 text-xs font-bold text-[#a1a1aa] hover:text-[#d4af37]"
         >
           <Home className="w-4 h-4" />
-          <span>VOLTAR AO INÍCIO DO SITE</span>
+          <span>Voltar ao início do site</span>
         </Link>
       </div>
     </div>

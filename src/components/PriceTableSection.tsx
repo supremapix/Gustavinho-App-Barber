@@ -10,10 +10,10 @@ export default function PriceTableSection() {
     <section className="py-16 sm:py-24 bg-[#0f0f0f] border-t border-[#27272a]/60">
       <div className="max-w-4xl mx-auto px-5 sm:px-6 lg:px-8">
         <div className="text-left mb-10">
-          <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#d4af37] block mb-2">
-            PREÇOS
+          <span className="text-[11px] font-medium uppercase tracking-[0.12em] text-[#d4af37] block mb-2">
+            Preços
           </span>
-          <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
             Valores Principais
           </h2>
         </div>
@@ -23,15 +23,15 @@ export default function PriceTableSection() {
           {highlightPrices.map((item) => (
             <div key={item.id} className="border-b border-[#27272a] pb-4">
               <div className="flex items-baseline justify-between gap-4">
-                <span className="text-base sm:text-lg font-bold text-white">
+                <span className="text-base sm:text-lg font-semibold text-white">
                   {item.title}
                 </span>
                 <div className="flex-1 border-b border-dotted border-[#27272a] mx-2 hidden sm:block" />
-                <span className="text-base sm:text-lg font-extrabold text-[#d4af37] shrink-0">
+                <span className="text-base sm:text-[18px] font-bold text-[#d4af37] shrink-0">
                   {item.formattedPrice}
                 </span>
               </div>
-              <p className="text-xs text-[#a1a1aa] mt-1">
+              <p className="text-[17px] text-[#a1a1aa] mt-1 font-normal">
                 {item.shortDesc}
               </p>
             </div>

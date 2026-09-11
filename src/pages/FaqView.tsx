@@ -21,13 +21,13 @@ export default function FaqView() {
           <span className="text-[#d4af37] font-semibold">Perguntas Frequentes</span>
         </div>
 
-        <span className="text-xs font-bold uppercase tracking-widest text-[#d4af37] block mb-2">
+        <span className="text-[11px] font-medium uppercase tracking-[0.12em] text-[#d4af37] block mb-2">
           Dúvidas Frequentes
         </span>
-        <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight mb-4">
+        <h1 className="text-3xl sm:text-4xl font-serif-brand font-bold text-white tracking-tight mb-4">
           Perguntas & Respostas Frequentes
         </h1>
-        <p className="text-sm sm:text-base text-[#a1a1aa] leading-relaxed">
+        <p className="text-[17px] text-[#a1a1aa] leading-relaxed font-normal">
           Tudo o que você precisa saber sobre valores, horários, localização, serviços e agendamentos no Gustavinho do Corte no CIC.
         </p>
       </div>
@@ -42,7 +42,7 @@ export default function FaqView() {
             >
               <button
                 onClick={() => toggle(idx)}
-                className="w-full p-5 text-left font-bold text-white text-base sm:text-lg flex items-center justify-between gap-4 focus:outline-none min-h-[56px]"
+                className="w-full p-5 text-left font-semibold text-white text-base flex items-center justify-between gap-4 focus:outline-none min-h-[56px]"
               >
                 <span>{item.question}</span>
                 {isOpen ? (
@@ -53,7 +53,7 @@ export default function FaqView() {
               </button>
 
               {isOpen && (
-                <div className="px-5 pb-5 pt-0 text-xs sm:text-sm text-[#a1a1aa] leading-relaxed border-t border-[#27272a]/60 pt-3">
+                <div className="px-5 pb-5 pt-0 text-[17px] text-[#a1a1aa] leading-relaxed border-t border-[#27272a]/60 pt-3 font-normal">
                   {item.answer}
                 </div>
               )}

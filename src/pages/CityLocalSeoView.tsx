@@ -31,17 +31,17 @@ export default function CityLocalSeoView() {
           <span>Atendimento Regional no CIC</span>
         </div>
 
-        <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight mb-4">
+        <h1 className="text-3xl sm:text-4xl font-serif-brand font-bold text-white tracking-tight mb-4">
           {bairroInfo.heroTitle}
         </h1>
 
         {/* Clear transparent notice about location */}
-        <div className="p-4 rounded-xl bg-[#18181b] border border-[#27272a] text-xs sm:text-sm text-[#a1a1aa] leading-relaxed mb-6">
+        <div className="p-4 rounded-xl bg-[#18181b] border border-[#27272a] text-[17px] text-[#a1a1aa] leading-relaxed mb-6 font-normal">
           <strong className="text-white">Nota Transparente de Localização:</strong> O <span className="text-[#d4af37] font-semibold">Gustavinho do Corte</span> está sediado no bairro <strong>CIC em Curitiba</strong> (Rua Desembargador Cid Campelo, 5212) e atende diariamente clientes vindos de {bairroInfo.name} com fácil acesso de carro, aplicativo ou transporte coletivo.
         </div>
 
         {/* Distance & Transport Badges */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-[#f4f4f5]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-[17px] text-[#f4f4f5] font-normal">
           <div className="p-4 rounded-xl bg-[#18181b]/80 border border-[#27272a]">
             <span className="text-xs font-bold uppercase text-[#d4af37] block mb-1">Tempo Estimado</span>
             <p>{bairroInfo.estimatedDriveTime}</p>
@@ -59,7 +59,7 @@ export default function CityLocalSeoView() {
           <h2 className="text-xl sm:text-2xl font-bold text-white mb-3">
             Por que escolher a Barbearia Gustavinho do Corte para quem mora em {bairroInfo.name}?
           </h2>
-          <p className="text-xs sm:text-sm text-[#a1a1aa] leading-relaxed mb-6">
+          <p className="text-[17px] text-[#a1a1aa] leading-relaxed mb-6 font-normal">
             {bairroInfo.description}
           </p>
 
@@ -68,10 +68,10 @@ export default function CityLocalSeoView() {
               href={BUSINESS_INFO.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="py-3 px-6 rounded-xl text-xs font-black bg-[#d4af37] text-[#0f0f0f] hover:bg-[#e5c158] flex items-center justify-center gap-2 transition-colors"
+              className="py-3 px-6 rounded-xl text-xs font-bold bg-[#d4af37] text-[#0f0f0f] hover:bg-[#e5c158] flex items-center justify-center gap-2 transition-colors"
             >
               <Calendar className="w-4 h-4 text-[#0f0f0f]" />
-              <span>AGENDAR HORÁRIO DO {bairroInfo.name.toUpperCase()}</span>
+              <span>Agendar horário do {bairroInfo.name}</span>
             </a>
 
             <a
@@ -81,7 +81,7 @@ export default function CityLocalSeoView() {
               className="py-3 px-6 rounded-xl text-xs font-bold bg-[#242428] border border-[#27272a] text-white flex items-center justify-center gap-2 hover:border-[#d4af37]"
             >
               <Navigation className="w-4 h-4 text-[#d4af37]" />
-              <span>VER ROTA NO MAPS</span>
+              <span>Ver rota no Maps</span>
             </a>
           </div>
         </div>

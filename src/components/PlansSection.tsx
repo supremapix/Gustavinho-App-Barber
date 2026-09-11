@@ -8,10 +8,10 @@ export default function PlansSection() {
     <section className="py-16 sm:py-24 bg-[#0f0f0f] border-t border-[#27272a]/60">
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         <div className="text-left max-w-2xl mb-12">
-          <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#d4af37] block mb-2">
-            PLANOS MENSAIS
+          <span className="text-[11px] font-medium uppercase tracking-[0.12em] text-[#d4af37] block mb-2">
+            Planos Mensais
           </span>
-          <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight leading-tight">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight leading-snug">
             Vem sempre? O plano mensal pode ser uma boa escolha.
           </h2>
         </div>
@@ -23,19 +23,19 @@ export default function PlansSection() {
               className="rounded-2xl p-6 sm:p-8 bg-[#18181b] border border-[#27272a] flex flex-col justify-between"
             >
               <div>
-                <h3 className="font-extrabold text-xl text-white mb-2">{plan.name}</h3>
-                <p className="text-xs text-[#a1a1aa] mb-6 leading-relaxed">
+                <h3 className="font-semibold text-lg text-white mb-2">{plan.name}</h3>
+                <p className="text-[17px] text-[#a1a1aa] mb-6 leading-relaxed font-normal">
                   {plan.shortDesc}
                 </p>
 
                 <div className="flex items-baseline gap-1 mb-6 pb-6 border-b border-[#27272a]">
-                  <span className="text-3xl font-black text-[#d4af37]">
+                  <span className="text-2xl sm:text-3xl font-bold text-[#d4af37]">
                     {plan.formattedPrice}
                   </span>
                   <span className="text-xs text-[#a1a1aa] font-medium">{plan.period}</span>
                 </div>
 
-                <ul className="space-y-3 mb-8 text-xs text-[#a1a1aa]">
+                <ul className="space-y-3 mb-8 text-[17px] text-[#a1a1aa] font-normal">
                   {plan.features.map((feature, fIdx) => (
                     <li key={fIdx} className="flex items-start gap-2.5">
                       <Check className="w-3.5 h-3.5 text-[#d4af37] shrink-0 mt-0.5" />

@@ -23,16 +23,16 @@ export default function Footer() {
                 className="w-16 h-16 object-contain rounded-full border border-[#d4af37] p-0.5 bg-[#0f0f0f] shadow-lg shadow-[#d4af37]/10"
               />
               <div>
-                <span className="font-extrabold text-2xl tracking-tight text-white block">
-                  GUSTAVINHO <span className="text-[#d4af37]">DO CORTE</span>
+                <span className="font-semibold text-xl tracking-tight text-white block">
+                  Gustavinho <span className="text-[#d4af37]">do Corte</span>
                 </span>
-                <span className="text-xs text-[#a1a1aa] font-medium tracking-wider uppercase">
+                <span className="text-[11px] text-[#a1a1aa] font-medium tracking-wider uppercase">
                   Barbearia no CIC • Curitiba
                 </span>
               </div>
             </Link>
 
-            <p className="text-sm text-[#a1a1aa] leading-relaxed max-w-md">
+            <p className="text-[17px] text-[#a1a1aa] leading-relaxed max-w-md font-normal">
               A experiência premium de barbearia na palma da sua mão. Corte masculino, barboterapia, química e planos mensais com facilidade de agendamento no CIC.
             </p>
 
@@ -44,7 +44,7 @@ export default function Footer() {
 
           {/* Coluna 1: NAVEGAÇÃO */}
           <div className="flex flex-col gap-3">
-            <h3 className="text-xs uppercase font-extrabold tracking-wider text-[#d4af37]">
+            <h3 className="text-[11px] uppercase font-medium tracking-wider text-[#d4af37]">
               Navegação
             </h3>
             <ul className="space-y-2.5 text-sm text-[#a1a1aa]">
@@ -78,7 +78,7 @@ export default function Footer() {
 
           {/* Coluna 2: VISITE & HORÁRIO */}
           <div className="flex flex-col gap-3">
-            <h3 className="text-xs uppercase font-extrabold tracking-wider text-[#d4af37]">
+            <h3 className="text-[11px] uppercase font-medium tracking-wider text-[#d4af37]">
               Visite
             </h3>
             <div className="space-y-3 text-sm text-[#a1a1aa]">
@@ -109,7 +109,7 @@ export default function Footer() {
 
           {/* Coluna 3: CONTATO & CONTEÚDO */}
           <div className="flex flex-col gap-3">
-            <h3 className="text-xs uppercase font-extrabold tracking-wider text-[#d4af37]">
+            <h3 className="text-[11px] uppercase font-medium tracking-wider text-[#d4af37]">
               Contato & Conteúdo
             </h3>
             <ul className="space-y-2.5 text-sm text-[#a1a1aa]">

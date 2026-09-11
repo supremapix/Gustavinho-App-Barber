@@ -47,7 +47,8 @@ service cloud.firestore {
     // Strictly protected: Get, List, Update, Delete ONLY permitted for authenticated admins!
     // Public create allowed during atomic booking transaction
     match /bookings/{bookingId} {
-      allow get, list, update, delete: if isAdmin();
+      allow list, delete: if isAdmin();
+      allow get, update: if isAdmin() || (resource.data.status == "confirmed" && request.resource.data.status == "cancelled");
       allow create: if request.resource.data.status == "confirmed"
                     && request.resource.data.customerName is string
                     && request.resource.data.customerPhone is string;

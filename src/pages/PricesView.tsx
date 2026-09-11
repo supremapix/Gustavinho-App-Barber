@@ -16,13 +16,13 @@ export default function PricesView() {
           <span className="text-[#d4af37] font-semibold">Tabela de Preços</span>
         </div>
 
-        <span className="text-xs font-bold uppercase tracking-widest text-[#d4af37] block mb-2">
+        <span className="text-[11px] font-medium uppercase tracking-[0.12em] text-[#d4af37] block mb-2">
           Transparência e Respeito
         </span>
-        <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight mb-4">
+        <h1 className="text-3xl sm:text-4xl font-serif-brand font-bold text-white tracking-tight mb-4">
           Tabela de Preços Atualizada
         </h1>
-        <p className="text-sm sm:text-base text-[#a1a1aa] max-w-xl leading-relaxed">
+        <p className="text-[17px] text-[#a1a1aa] max-w-xl leading-relaxed font-normal">
           Confira os valores de todos os serviços de corte, barba, químicos e tratamentos da barbearia Gustavinho do Corte no CIC Curitiba.
         </p>
       </div>
@@ -38,7 +38,7 @@ export default function PricesView() {
               >
                 <div>
                   <div className="flex items-center gap-2 mb-1">
-                    <h2 className="font-extrabold text-lg text-white group-hover:text-[#d4af37] transition-colors">
+                    <h2 className="font-semibold text-base text-white group-hover:text-[#d4af37] transition-colors">
                       {service.title}
                     </h2>
                     {service.isPopular && (
@@ -47,13 +47,13 @@ export default function PricesView() {
                       </span>
                     )}
                   </div>
-                  <p className="text-xs text-[#a1a1aa] leading-relaxed max-w-lg">
+                  <p className="text-[17px] text-[#a1a1aa] leading-relaxed max-w-lg font-normal">
                     {service.shortDesc} • Duração aproximada: {service.duration}
                   </p>
                 </div>
 
                 <div className="flex items-center justify-between sm:justify-end gap-4">
-                  <span className="text-2xl font-black text-[#d4af37]">
+                  <span className="text-xl sm:text-2xl font-bold text-[#d4af37]">
                     {service.formattedPrice}
                   </span>
 
@@ -61,9 +61,9 @@ export default function PricesView() {
                     href={`${BUSINESS_INFO.whatsappUrl}&text=Ol%C3%A1%2C%20quero%20agendar%20um%20${encodeURIComponent(service.title)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-4 py-2 rounded-xl bg-[#d4af37] text-[#0f0f0f] hover:bg-[#e5c158] text-xs font-black active:scale-95 transition-all min-h-[40px] flex items-center"
+                    className="px-4 py-2 rounded-xl bg-[#d4af37] text-[#0f0f0f] hover:bg-[#e5c158] text-xs font-bold active:scale-95 transition-all min-h-[40px] flex items-center"
                   >
-                    AGENDAR
+                    Agendar
                   </a>
                 </div>
               </div>

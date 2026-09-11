@@ -47,10 +47,10 @@ export default function Header() {
               />
             </div>
             <div className="flex flex-col">
-              <span className="font-extrabold text-base sm:text-xl tracking-tight text-white group-hover:text-[#d4af37] transition-colors duration-200">
-                GUSTAVINHO <span className="text-[#d4af37]">DO CORTE</span>
+              <span className="font-semibold text-lg sm:text-xl tracking-tight text-white group-hover:text-[#d4af37] transition-colors duration-200">
+                Gustavinho <span className="text-[#d4af37]">do Corte</span>
               </span>
-              <span className="text-[10px] sm:text-xs text-[#a1a1aa] tracking-wider uppercase font-medium hidden sm:block">
+              <span className="text-[11px] text-[#a1a1aa] tracking-wider uppercase font-medium hidden sm:block">
                 Barbearia no CIC • Curitiba
               </span>
             </div>
@@ -121,10 +121,10 @@ export default function Header() {
 
             <Link
               to="/agendar"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-extrabold bg-[#d4af37] text-[#0f0f0f] hover:bg-[#e5c158] transition-all duration-200"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold bg-[#d4af37] text-[#0f0f0f] hover:bg-[#e5c158] transition-all duration-200"
             >
               <Calendar className="w-4 h-4 text-[#0f0f0f]" />
-              <span>AGENDAR HORÁRIO</span>
+              <span>Agendar horário</span>
             </Link>
           </div>
 

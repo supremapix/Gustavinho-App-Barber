@@ -15,13 +15,13 @@ export default function PlansView() {
           <span className="text-[#d4af37] font-semibold">Planos de Assinatura</span>
         </div>
 
-        <span className="text-xs font-bold uppercase tracking-widest text-[#d4af37] block mb-2">
+        <span className="text-[11px] font-medium uppercase tracking-[0.12em] text-[#d4af37] block mb-2">
           Clube de Assinatura
         </span>
-        <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight mb-4">
+        <h1 className="text-3xl sm:text-4xl font-serif-brand font-bold text-white tracking-tight mb-4">
           Planos Mensais sem Fidelidade Forçada
         </h1>
-        <p className="text-sm sm:text-base text-[#a1a1aa] max-w-xl leading-relaxed">
+        <p className="text-[17px] text-[#a1a1aa] max-w-xl leading-relaxed font-normal">
           Economize e mantenha o visual em dia o mês inteiro. Escolha o plano ideal e agende com prioridade no CIC Curitiba.
         </p>
       </div>
@@ -45,19 +45,19 @@ export default function PlansView() {
               )}
 
               <div>
-                <h2 className="font-extrabold text-2xl text-white mb-2">{plan.name}</h2>
-                <p className="text-xs text-[#a1a1aa] mb-6 leading-relaxed">
+                <h2 className="font-semibold text-xl text-white mb-2">{plan.name}</h2>
+                <p className="text-[17px] text-[#a1a1aa] mb-6 leading-relaxed font-normal">
                   {plan.shortDesc}
                 </p>
 
                 <div className="flex items-baseline gap-1 mb-6 pb-6 border-b border-[#27272a]">
-                  <span className="text-4xl font-black text-[#d4af37]">
+                  <span className="text-3xl font-bold text-[#d4af37]">
                     {plan.formattedPrice}
                   </span>
                   <span className="text-xs text-[#a1a1aa] font-medium">{plan.period}</span>
                 </div>
 
-                <ul className="space-y-3.5 mb-8 text-xs sm:text-sm text-[#f4f4f5]">
+                <ul className="space-y-3.5 mb-8 text-[17px] text-[#f4f4f5] font-normal">
                   {plan.features.map((feature, fIdx) => (
                     <li key={fIdx} className="flex items-start gap-2.5">
                       <div className="w-4 h-4 rounded-full bg-[#d4af37]/20 flex items-center justify-center shrink-0 mt-0.5">
@@ -73,7 +73,7 @@ export default function PlansView() {
                 href={`${BUSINESS_INFO.whatsappUrl}&text=Ol%C3%A1%2C%20tenho%20interesse%20em%20assinar%20o%20${encodeURIComponent(plan.name)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`w-full py-4 px-4 rounded-xl text-xs sm:text-sm font-extrabold flex items-center justify-center gap-2 active:scale-95 transition-all ${
+                className={`w-full py-4 px-4 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-2 active:scale-95 transition-all ${
                   plan.isPopular
                     ? "bg-[#d4af37] text-[#0f0f0f] hover:bg-[#e5c158]"
                     : "bg-[#242428] border border-[#27272a] text-white hover:border-[#d4af37] hover:text-[#d4af37]"
@@ -92,9 +92,9 @@ export default function PlansView() {
         <div className="bg-[#18181b] border border-[#27272a] p-6 sm:p-8 rounded-2xl">
           <div className="flex items-center gap-3 mb-4">
             <HelpCircle className="w-6 h-6 text-[#d4af37]" />
-            <h3 className="text-xl font-bold text-white">Como funciona o plano de assinatura?</h3>
+            <h3 className="text-lg font-semibold text-white">Como funciona o plano de assinatura?</h3>
           </div>
-          <div className="space-y-3 text-xs sm:text-sm text-[#a1a1aa] leading-relaxed">
+          <div className="space-y-3 text-[17px] text-[#a1a1aa] leading-relaxed font-normal">
             <p>1. <strong>Sem carência:</strong> Você assina mensalmente e pode cancelar a qualquer momento diretamente pelo WhatsApp.</p>
             <p>2. <strong>Agendamento Simples:</strong> Os agendamentos continuam sendo feitos com antecedência pelo WhatsApp, mas você recebe prioridade na escolha de horários de pico (ex: sextas e sábados).</p>
             <p>3. <strong>Desconto em Produtos:</strong> Assinantes garantem desconto em produtos de tratamento e finalização capilar ou de barba na própria barbearia.</p>

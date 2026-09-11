@@ -18,10 +18,10 @@ export default function StepService({
   return (
     <div className="w-full">
       <div className="text-center mb-8">
-        <h2 className="text-2xl sm:text-3xl font-black text-white mb-2">
+        <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">
           O que você quer fazer?
         </h2>
-        <p className="text-xs sm:text-sm text-[#a1a1aa]">
+        <p className="text-[17px] text-[#a1a1aa] font-normal">
           Selecione o serviço desejado para ver as datas e horários livres.
         </p>
       </div>
@@ -56,12 +56,12 @@ export default function StepService({
                 )}
 
                 <div className="flex items-start justify-between gap-2 mb-2">
-                  <h3 className="text-lg font-bold text-white group-hover:text-[#d4af37] transition-colors">
+                  <h3 className="text-base sm:text-lg font-semibold text-white group-hover:text-[#d4af37] transition-colors">
                     {service.name}
                   </h3>
 
                   {!service.imageUrl && (
-                    <span className="text-lg font-black text-[#d4af37] shrink-0">
+                    <span className="text-base sm:text-[18px] font-bold text-[#d4af37] shrink-0">
                       {service.formattedPrice}
                     </span>
                   )}
@@ -72,7 +72,7 @@ export default function StepService({
                   <span>aprox. {service.durationMinutes} min</span>
                 </div>
 
-                <p className="text-xs text-[#a1a1aa] leading-relaxed mb-4">
+                <p className="text-[17px] text-[#a1a1aa] leading-relaxed mb-4 font-normal">
                   {service.description}
                 </p>
               </div>
@@ -84,13 +84,13 @@ export default function StepService({
 
                 <button
                   type="button"
-                  className={`px-4 py-2 rounded-xl text-xs font-extrabold flex items-center gap-1 min-h-[40px] transition-all ${
+                  className={`px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-1 min-h-[40px] transition-all ${
                     isSelected
                       ? "bg-[#d4af37] text-[#0f0f0f]"
                       : "bg-[#242428] text-white border border-[#27272a] group-hover:border-[#d4af37] group-hover:text-[#d4af37]"
                   }`}
                 >
-                  <span>ESCOLHER</span>
+                  <span>Escolher</span>
                   <ChevronRight className="w-4 h-4" />
                 </button>
               </div>

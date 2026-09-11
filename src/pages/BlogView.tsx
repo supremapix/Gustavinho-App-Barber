@@ -14,13 +14,13 @@ export default function BlogView() {
           <span className="text-[#d4af37] font-semibold">Blog</span>
         </div>
 
-        <span className="text-xs font-bold uppercase tracking-widest text-[#d4af37] block mb-2">
+        <span className="text-[11px] font-medium uppercase tracking-[0.12em] text-[#d4af37] block mb-2">
           Estilo & Cuidados
         </span>
-        <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight mb-4">
+        <h1 className="text-3xl sm:text-4xl font-serif-brand font-bold text-white tracking-tight mb-4">
           Blog de Estilo Masculino
         </h1>
-        <p className="text-sm sm:text-base text-[#a1a1aa] leading-relaxed">
+        <p className="text-[17px] text-[#a1a1aa] leading-relaxed font-normal">
           Dicas práticas de barbeiro sobre manutenção do corte, visagismo, cuidados com a barba e tendências masculinas em Curitiba.
         </p>
       </div>
@@ -51,11 +51,11 @@ export default function BlogView() {
                     <span>{post.readTime}</span>
                   </div>
 
-                  <h2 className="text-lg font-bold text-white mb-2 group-hover:text-[#d4af37] transition-colors leading-snug">
+                  <h2 className="text-lg font-semibold text-white mb-2 group-hover:text-[#d4af37] transition-colors leading-snug">
                     {post.title}
                   </h2>
 
-                  <p className="text-xs text-[#a1a1aa] line-clamp-3 leading-relaxed mb-4">
+                  <p className="text-[17px] text-[#a1a1aa] line-clamp-3 leading-relaxed mb-4 font-normal">
                     {post.excerpt}
                   </p>
                 </div>

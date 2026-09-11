@@ -60,10 +60,10 @@ export default function StepCustomer({
   return (
     <div className="w-full max-w-lg mx-auto">
       <div className="text-center mb-8">
-        <h2 className="text-2xl sm:text-3xl font-black text-white mb-2">
+        <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">
           Seus dados para contato
         </h2>
-        <p className="text-xs sm:text-sm text-[#a1a1aa]">
+        <p className="text-[17px] text-[#a1a1aa] font-normal">
           Usamos esses dados para confirmar seu agendamento e enviar o lembrete.
         </p>
       </div>
@@ -76,7 +76,7 @@ export default function StepCustomer({
         )}
 
         <div>
-          <label className="block text-xs font-bold uppercase tracking-wider text-[#d4af37] mb-2">
+          <label className="block text-[11px] font-medium uppercase tracking-wider text-[#d4af37] mb-2">
             Seu Nome Completo *
           </label>
           <div className="relative">
@@ -93,7 +93,7 @@ export default function StepCustomer({
         </div>
 
         <div>
-          <label className="block text-xs font-bold uppercase tracking-wider text-[#d4af37] mb-2">
+          <label className="block text-[11px] font-medium uppercase tracking-wider text-[#d4af37] mb-2">
             WhatsApp para Confirmação *
           </label>
           <div className="relative">
@@ -113,7 +113,7 @@ export default function StepCustomer({
         </div>
 
         <div>
-          <label className="block text-xs font-bold uppercase tracking-wider text-[#a1a1aa] mb-2">
+          <label className="block text-[11px] font-medium uppercase tracking-wider text-[#a1a1aa] mb-2">
             Observações (Opcional)
           </label>
           <div className="relative">
@@ -130,9 +130,9 @@ export default function StepCustomer({
 
         <button
           type="submit"
-          className="w-full py-4 rounded-xl font-extrabold text-sm bg-[#d4af37] text-[#0f0f0f] hover:bg-[#e5c158] flex items-center justify-center gap-2 active:scale-95 transition-all min-h-[48px]"
+          className="w-full py-4 rounded-xl font-bold text-sm bg-[#d4af37] text-[#0f0f0f] hover:bg-[#e5c158] flex items-center justify-center gap-2 active:scale-95 transition-all min-h-[48px]"
         >
-          <span>CONTINUAR PARA REVISÃO</span>
+          <span>Continuar para revisão</span>
           <ChevronRight className="w-4 h-4 text-[#0f0f0f]" />
         </button>
       </form>

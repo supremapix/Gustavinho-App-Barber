@@ -65,13 +65,13 @@ export default function ResultsView() {
           <span className="text-[#d4af37] font-semibold">Galeria de Resultados</span>
         </div>
 
-        <span className="text-xs font-bold uppercase tracking-widest text-[#d4af37] block mb-2">
+        <span className="text-[11px] font-medium uppercase tracking-[0.12em] text-[#d4af37] block mb-2">
           Portfólio Real
         </span>
-        <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight mb-4">
+        <h1 className="text-3xl sm:text-4xl font-serif-brand font-bold text-white tracking-tight mb-4">
           Cortes e Transformações
         </h1>
-        <p className="text-sm sm:text-base text-[#a1a1aa] max-w-2xl leading-relaxed">
+        <p className="text-[17px] text-[#a1a1aa] max-w-2xl leading-relaxed font-normal">
           Confira o padrão de qualidade dos cortes, degradês, barbas e químicas realizados diariamente no Gustavinho do Corte no CIC Curitiba.
         </p>
       </div>
@@ -119,10 +119,10 @@ export default function ResultsView() {
                 </div>
 
                 <div className="p-6">
-                  <h2 className="text-lg font-bold text-white mb-2 group-hover:text-[#d4af37] transition-colors">
+                  <h2 className="text-lg font-semibold text-white mb-2 group-hover:text-[#d4af37] transition-colors">
                     {item.title}
                   </h2>
-                  <p className="text-xs sm:text-sm text-[#a1a1aa] leading-relaxed mb-4">
+                  <p className="text-[17px] text-[#a1a1aa] leading-relaxed mb-4 font-normal">
                     {item.desc}
                   </p>
                 </div>

@@ -16,13 +16,13 @@ export default function ServicesView() {
           <span className="text-[#d4af37] font-semibold">Serviços</span>
         </div>
 
-        <span className="text-xs font-bold uppercase tracking-widest text-[#d4af37] block mb-2">
+        <span className="text-[11px] font-medium uppercase tracking-[0.12em] text-[#d4af37] block mb-2">
           Catálogo Completo
         </span>
-        <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight mb-4">
+        <h1 className="text-3xl sm:text-4xl font-serif-brand font-bold text-white tracking-tight mb-4">
           Serviços de Cabelo, Barba e Estilo
         </h1>
-        <p className="text-sm sm:text-base text-[#a1a1aa] max-w-2xl leading-relaxed">
+        <p className="text-[17px] text-[#a1a1aa] max-w-2xl leading-relaxed font-normal">
           Atendimento personalizado com técnica de visagismo, produtos de alta performance e transparência total de preços no CIC Curitiba.
         </p>
       </div>
@@ -43,7 +43,7 @@ export default function ServicesView() {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     loading="lazy"
                   />
-                  <div className="absolute top-3 right-3 px-3 py-1 rounded-lg bg-[#0f0f0f]/90 border border-[#d4af37]/60 backdrop-blur-md font-black text-[#d4af37]">
+                  <div className="absolute top-3 right-3 px-3 py-1 rounded-lg bg-[#0f0f0f]/90 border border-[#d4af37]/60 backdrop-blur-md font-bold text-[#d4af37] text-[18px]">
                     {service.formattedPrice}
                   </div>
                 </div>
@@ -54,11 +54,11 @@ export default function ServicesView() {
                     <span>Duração: {service.duration}</span>
                   </div>
 
-                  <h2 className="text-xl font-bold text-white mb-2 group-hover:text-[#d4af37] transition-colors">
+                  <h2 className="text-lg font-semibold text-white mb-2 group-hover:text-[#d4af37] transition-colors">
                     {service.title}
                   </h2>
 
-                  <p className="text-xs sm:text-sm text-[#a1a1aa] leading-relaxed mb-4">
+                  <p className="text-[17px] text-[#a1a1aa] leading-relaxed mb-4 font-normal">
                     {service.shortDesc}
                   </p>
 
@@ -85,10 +85,10 @@ export default function ServicesView() {
                   href={`${BUSINESS_INFO.whatsappUrl}&text=Ol%C3%A1%2C%20gostaria%20de%20agendar%3A%20${encodeURIComponent(service.title)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 py-3 px-3 rounded-xl text-xs font-black bg-[#d4af37] text-[#0f0f0f] hover:bg-[#e5c158] text-center flex items-center justify-center gap-1 active:scale-95 transition-all min-h-[44px]"
+                  className="flex-1 py-3 px-3 rounded-xl text-xs font-bold bg-[#d4af37] text-[#0f0f0f] hover:bg-[#e5c158] text-center flex items-center justify-center gap-1 active:scale-95 transition-all min-h-[44px]"
                 >
                   <Calendar className="w-3.5 h-3.5 text-[#0f0f0f]" />
-                  <span>AGENDAR</span>
+                  <span>Agendar</span>
                 </a>
               </div>
             </div>

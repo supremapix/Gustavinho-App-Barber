@@ -10,18 +10,18 @@ export default function LocationSection() {
           {/* Info Side */}
           <div className="lg:col-span-5 text-left flex flex-col justify-between space-y-8">
             <div>
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#d4af37] block mb-2">
-                LOCALIZAÇÃO
+              <span className="text-[11px] font-medium uppercase tracking-[0.12em] text-[#d4af37] block mb-2">
+                Localização
               </span>
-              <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight leading-tight mb-6">
+              <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight leading-snug mb-6">
                 Fácil de encontrar <br />no CIC
               </h2>
 
-              <div className="space-y-6 text-sm text-[#a1a1aa]">
+              <div className="space-y-6 text-[17px] text-[#a1a1aa]">
                 <div className="flex items-start gap-3">
                   <MapPin className="w-5 h-5 text-[#d4af37] shrink-0 mt-0.5" />
                   <div>
-                    <p className="font-bold text-white text-base">
+                    <p className="font-bold text-white text-[18px]">
                       {BUSINESS_INFO.address.street}
                     </p>
                     <p>CIC · Curitiba - PR</p>

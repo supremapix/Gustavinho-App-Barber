@@ -14,15 +14,15 @@ export default function ServicesShowcase() {
           {/* Left Column: Heading & Photography */}
           <div className="lg:col-span-5 text-left space-y-6">
             <div>
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#d4af37] block mb-2">
-                SERVIÇOS
+              <span className="text-[11px] font-medium uppercase tracking-[0.12em] text-[#d4af37] block mb-2">
+                Serviços
               </span>
-              <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight leading-tight">
+              <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight leading-snug">
                 Menu de Serviços <br />& Estilo
               </h2>
             </div>
 
-            <p className="text-sm text-[#a1a1aa] leading-relaxed max-w-md">
+            <p className="text-[17px] text-[#a1a1aa] leading-relaxed max-w-md">
               Atendimento personalizado para quem busca precisão no corte, barba alinhada e cuidado completo no bairro CIC.
             </p>
 
@@ -42,15 +42,15 @@ export default function ServicesShowcase() {
               {priorityServices.map((service) => (
                 <div key={service.id} className="border-b border-[#27272a] pb-6">
                   <div className="flex items-baseline justify-between gap-4 mb-2">
-                    <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
+                    <h3 className="text-base sm:text-lg font-semibold text-white tracking-tight">
                       {service.title}
                     </h3>
                     <div className="flex-1 border-b border-dotted border-[#27272a] mx-2 hidden sm:block" />
-                    <span className="text-base sm:text-lg font-extrabold text-[#d4af37] shrink-0">
+                    <span className="text-base sm:text-[18px] font-bold text-[#d4af37] shrink-0">
                       {service.formattedPrice}
                     </span>
                   </div>
-                  <p className="text-xs sm:text-sm text-[#a1a1aa] leading-relaxed max-w-xl">
+                  <p className="text-[17px] text-[#a1a1aa] leading-relaxed max-w-xl font-normal">
                     {service.shortDesc}
                   </p>
                 </div>

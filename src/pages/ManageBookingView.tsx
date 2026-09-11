@@ -131,10 +131,10 @@ export default function ManageBookingView() {
     <div className="w-full pt-28 pb-16 bg-[#0f0f0f] min-h-screen">
       <div className="max-w-lg mx-auto px-4">
         <div className="text-center mb-8">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#d4af37] block mb-1">
+          <span className="text-[11px] font-medium uppercase tracking-[0.12em] text-[#d4af37] block mb-1">
             Gestão do Cliente
           </span>
-          <h1 className="text-2xl sm:text-3xl font-black text-white">
+          <h1 className="text-2xl sm:text-3xl font-serif-brand font-bold text-white">
             Meu Agendamento
           </h1>
         </div>
@@ -164,30 +164,30 @@ export default function ManageBookingView() {
             </div>
           </div>
 
-          <div className="space-y-3 text-xs sm:text-sm text-[#f4f4f5]">
+          <div className="space-y-3.5 text-[17px] text-[#f4f4f5] font-normal">
             <div className="flex justify-between">
               <span className="text-[#a1a1aa]">Cliente:</span>
-              <span className="font-bold">{booking.customerName}</span>
+              <span className="font-semibold">{booking.customerName}</span>
             </div>
 
             <div className="flex justify-between">
               <span className="text-[#a1a1aa]">Serviço:</span>
-              <span className="font-bold">{booking.serviceName}</span>
+              <span className="font-semibold">{booking.serviceName}</span>
             </div>
 
             <div className="flex justify-between">
               <span className="text-[#a1a1aa]">Data:</span>
-              <span className="font-bold capitalize">{formattedDate}</span>
+              <span className="font-semibold capitalize text-[18px] text-white">{formattedDate}</span>
             </div>
 
             <div className="flex justify-between">
               <span className="text-[#a1a1aa]">Horário:</span>
-              <span className="font-black text-[#d4af37]">{booking.startTime}</span>
+              <span className="font-semibold text-[18px] text-[#d4af37]">{booking.startTime}</span>
             </div>
 
             <div className="flex justify-between">
               <span className="text-[#a1a1aa]">Valor:</span>
-              <span className="font-bold text-[#d4af37]">R$ {booking.servicePrice.toFixed(2).replace(".", ",")}</span>
+              <span className="font-semibold text-[18px] text-[#d4af37]">R$ {booking.servicePrice.toFixed(2).replace(".", ",")}</span>
             </div>
           </div>
         </div>
@@ -195,7 +195,7 @@ export default function ManageBookingView() {
         {/* Reschedule Drawer/Form */}
         {isRescheduling ? (
           <div className="bg-[#18181b] border border-[#d4af37] p-6 rounded-2xl mb-8 space-y-4">
-            <h3 className="font-extrabold text-sm text-white">Escolha nova data e horário:</h3>
+            <h3 className="font-semibold text-base text-white">Escolha nova data e horário:</h3>
             <div>
               <label className="text-xs text-[#a1a1aa] block mb-1">Nova Data:</label>
               <input
@@ -229,14 +229,14 @@ export default function ManageBookingView() {
                 type="button"
                 onClick={handleConfirmReschedule}
                 disabled={!newTime}
-                className="flex-1 py-3 rounded-xl bg-[#d4af37] text-[#0f0f0f] font-bold text-xs disabled:opacity-50"
+                className="flex-1 py-3 rounded-xl bg-[#d4af37] text-[#0f0f0f] font-bold text-xs disabled:opacity-50 min-h-[48px]"
               >
-                Salvar Novo Horário
+                Salvar novo horário
               </button>
               <button
                 type="button"
                 onClick={() => setIsRescheduling(false)}
-                className="px-4 py-3 rounded-xl bg-[#242428] text-white font-bold text-xs"
+                className="px-4 py-3 rounded-xl bg-[#242428] text-white font-bold text-xs min-h-[48px]"
               >
                 Cancelar
               </button>
@@ -248,10 +248,10 @@ export default function ManageBookingView() {
               <button
                 type="button"
                 onClick={() => setIsRescheduling(true)}
-                className="w-full py-3.5 rounded-xl bg-[#242428] border border-[#27272a] text-white font-bold text-xs hover:border-[#d4af37] flex items-center justify-center gap-2"
+                className="w-full py-3.5 rounded-xl bg-[#242428] border border-[#27272a] text-white font-bold text-xs hover:border-[#d4af37] flex items-center justify-center gap-2 min-h-[48px]"
               >
                 <RefreshCw className="w-4 h-4 text-[#d4af37]" />
-                <span>REMARCAR ATENDIMENTO</span>
+                <span>Remarcar atendimento</span>
               </button>
 
               <button
@@ -260,7 +260,7 @@ export default function ManageBookingView() {
                 className="w-full py-3.5 rounded-xl bg-red-950/40 border border-red-900/60 text-red-300 font-bold text-xs hover:bg-red-900/60 flex items-center justify-center gap-2 min-h-[48px]"
               >
                 <XCircle className="w-4 h-4 text-red-400" />
-                <span>CANCELAR AGENDAMENTO</span>
+                <span>Cancelar agendamento</span>
               </button>
             </div>
           )

@@ -10,10 +10,10 @@ export default function ReviewsSection() {
     <section className="py-16 sm:py-24 bg-[#0f0f0f] border-t border-[#27272a]/60">
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         <div className="text-left mb-10">
-          <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#d4af37] block mb-2">
-            AVALIAÇÕES
+          <span className="text-[11px] font-medium uppercase tracking-[0.12em] text-[#d4af37] block mb-2">
+            Avaliações
           </span>
-          <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
             Quem corta recomenda
           </h2>
         </div>
@@ -32,7 +32,7 @@ export default function ReviewsSection() {
                   ))}
                 </div>
 
-                <p className="text-sm text-[#a1a1aa] leading-relaxed mb-6">
+                <p className="text-[17px] text-[#a1a1aa] leading-relaxed mb-6 font-normal">
                   "{rev.comment}"
                 </p>
               </div>

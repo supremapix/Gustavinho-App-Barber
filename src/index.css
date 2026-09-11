@@ -5,6 +5,16 @@
     --font-heading: 'Cinzel', serif;
     --font-body: 'Plus Jakarta Sans', sans-serif;
 
+    /* Typographic Scale Tokens (Ratio ~1.25) */
+    --ts-12: 12px;
+    --ts-14: 14px;
+    --ts-17: 17px;
+    --ts-20: 20px;
+    --ts-25: 25px;
+    --ts-31: 31px;
+    --ts-39: 39px;
+    --ts-49: 49px;
+
     /* Design System Tokens extracted STRICTLY from Logo Palette */
     --brand-primary: #D4AF37;
     --brand-secondary: #B8860B;
@@ -22,12 +32,19 @@
     scroll-behavior: smooth;
     background-color: var(--brand-dark);
     color: var(--brand-light);
+    font-size: 17px;
+    line-height: 1.6;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-heading);
-    letter-spacing: 0.01em;
+    font-family: var(--font-body);
+    letter-spacing: -0.015em;
+    line-height: 1.2;
   }
+}
+
+.font-serif-brand {
+  font-family: var(--font-heading);
 }
 
 /* Custom Scrollbar */

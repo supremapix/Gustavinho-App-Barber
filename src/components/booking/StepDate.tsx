@@ -81,10 +81,10 @@ export default function StepDate({
   return (
     <div className="w-full max-w-3xl mx-auto">
       <div className="text-center mb-8">
-        <h2 className="text-2xl sm:text-3xl font-black text-white mb-2">
+        <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">
           Qual dia fica melhor para você?
         </h2>
-        <p className="text-xs sm:text-sm text-[#a1a1aa]">
+        <p className="text-[17px] text-[#a1a1aa] font-normal">
           Dias sem horários disponíveis ou fechados ficam desabilitados.
         </p>
       </div>

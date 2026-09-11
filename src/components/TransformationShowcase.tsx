@@ -50,10 +50,10 @@ export default function TransformationShowcase() {
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
           <div className="text-left">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#d4af37] block mb-2">
-              PORTFÓLIO
+            <span className="text-[11px] font-medium uppercase tracking-[0.12em] text-[#d4af37] block mb-2">
+              Portfólio
             </span>
-            <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
+            <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
               Resultados Reais
             </h2>
           </div>

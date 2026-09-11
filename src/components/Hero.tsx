@@ -21,18 +21,18 @@ export default function Hero() {
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="max-w-2xl text-left">
           {/* Brand Identification Eyebrow */}
-          <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#d4af37] mb-3 block">
-            GUSTAVINHO DO CORTE
+          <span className="text-[11px] font-medium uppercase tracking-[0.12em] text-[#d4af37] mb-3 block">
+            Gustavinho do Corte
           </span>
 
-          {/* H1 Headline */}
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.1] mb-4">
+          {/* H1 Headline - Signature Serif */}
+          <h1 className="text-3xl sm:text-5xl lg:text-5xl font-serif-brand font-bold text-white tracking-tight leading-[1.15] mb-4">
             Barbearia no CIC <br className="hidden sm:inline" />
             <span className="text-[#d4af37]">em Curitiba</span>
           </h1>
 
           {/* Short Subtitle */}
-          <p className="text-base sm:text-lg text-[#a1a1aa] font-normal leading-relaxed mb-8 max-w-xl">
+          <p className="text-[17px] text-[#a1a1aa] font-normal leading-relaxed mb-8 max-w-xl">
             Corte, barba e estilo no CIC. Agende seu horário online.
           </p>
 
@@ -40,9 +40,9 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 mb-10">
             <Link
               to="/agendar"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-base font-extrabold bg-[#d4af37] text-[#0f0f0f] hover:bg-[#e5c158] transition-all duration-200"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-base font-bold bg-[#d4af37] text-[#0f0f0f] hover:bg-[#e5c158] transition-all duration-200"
             >
-              <span>AGENDAR HORÁRIO</span>
+              <span>Agendar horário</span>
               <ArrowRight className="w-4 h-4 text-[#0f0f0f]" />
             </Link>
 

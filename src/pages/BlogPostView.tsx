@@ -48,7 +48,7 @@ export default function BlogPostView() {
           {post.category}
         </span>
 
-        <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight mb-4">
+        <h1 className="text-3xl sm:text-4xl font-serif-brand font-bold text-white tracking-tight leading-snug mb-4">
           {post.title}
         </h1>
 
@@ -71,7 +71,7 @@ export default function BlogPostView() {
           />
         </div>
 
-        <div className="bg-[#18181b] border border-[#27272a] p-6 sm:p-10 rounded-2xl text-[#f4f4f5] leading-relaxed space-y-4 whitespace-pre-line text-sm sm:text-base">
+        <div className="bg-[#18181b] border border-[#27272a] p-6 sm:p-10 rounded-2xl text-[#f4f4f5] font-normal text-[17px] leading-relaxed space-y-4 whitespace-pre-line">
           {post.content}
         </div>
       </div>

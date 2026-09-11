@@ -38,10 +38,10 @@ export default function StepReview({
   return (
     <div className="w-full max-w-lg mx-auto">
       <div className="text-center mb-8">
-        <h2 className="text-2xl sm:text-3xl font-black text-white mb-2">
-          CONFIRA SEU AGENDAMENTO
+        <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">
+          Confira seu agendamento
         </h2>
-        <p className="text-xs sm:text-sm text-[#a1a1aa]">
+        <p className="text-[17px] text-[#a1a1aa] font-normal">
           Revise os detalhes abaixo antes de confirmar seu horário.
         </p>
       </div>
@@ -70,16 +70,16 @@ export default function StepReview({
               <Scissors className="w-5 h-5 text-[#d4af37]" />
             </div>
             <div>
-              <span className="text-[10px] font-bold uppercase tracking-wider text-[#a1a1aa] block">
+              <span className="text-[11px] font-medium uppercase tracking-wider text-[#a1a1aa] block">
                 Serviço
               </span>
-              <h3 className="font-extrabold text-base text-white">{service.name}</h3>
+              <h3 className="font-semibold text-base text-white">{service.name}</h3>
               <p className="text-xs text-[#a1a1aa]">Duração: {service.durationMinutes} min</p>
             </div>
           </div>
 
           <div className="text-right">
-            <span className="text-xl font-black text-[#d4af37]">{service.formattedPrice}</span>
+            <span className="text-[18px] font-bold text-[#d4af37]">{service.formattedPrice}</span>
             <button
               type="button"
               onClick={() => onEditStep(1)}
@@ -97,11 +97,11 @@ export default function StepReview({
               <Calendar className="w-5 h-5 text-[#d4af37]" />
             </div>
             <div>
-              <span className="text-[10px] font-bold uppercase tracking-wider text-[#a1a1aa] block">
+              <span className="text-[11px] font-medium uppercase tracking-wider text-[#a1a1aa] block">
                 Data & Horário
               </span>
-              <h4 className="font-extrabold text-sm text-white capitalize">{formattedDate}</h4>
-              <p className="text-xs font-bold text-[#d4af37]">Horário: {timeStr}</p>
+              <h4 className="font-semibold text-sm text-white capitalize">{formattedDate}</h4>
+              <p className="text-[18px] font-bold text-[#d4af37]">Horário: {timeStr}</p>
             </div>
           </div>
 
@@ -121,10 +121,10 @@ export default function StepReview({
               <User className="w-5 h-5 text-[#d4af37]" />
             </div>
             <div>
-              <span className="text-[10px] font-bold uppercase tracking-wider text-[#a1a1aa] block">
+              <span className="text-[11px] font-medium uppercase tracking-wider text-[#a1a1aa] block">
                 Cliente
               </span>
-              <h4 className="font-extrabold text-sm text-white">{customerName}</h4>
+              <h4 className="font-semibold text-sm text-white">{customerName}</h4>
               <p className="text-xs text-[#a1a1aa]">{customerPhone}</p>
               {notes && <p className="text-xs text-[#a1a1aa] italic mt-1">Obs: {notes}</p>}
             </div>
@@ -145,17 +145,17 @@ export default function StepReview({
           type="button"
           disabled={isSubmitting}
           onClick={onConfirm}
-          className="w-full py-4 rounded-xl font-extrabold text-base bg-[#d4af37] text-[#0f0f0f] hover:bg-[#e5c158] flex items-center justify-center gap-2 active:scale-95 transition-all min-h-[52px] disabled:opacity-50"
+          className="w-full py-4 rounded-xl font-bold text-base bg-[#d4af37] text-[#0f0f0f] hover:bg-[#e5c158] flex items-center justify-center gap-2 active:scale-95 transition-all min-h-[52px] disabled:opacity-50"
         >
           {isSubmitting ? (
             <>
               <Loader2 className="w-5 h-5 animate-spin text-[#0f0f0f]" />
-              <span>CONFIRMANDO SEU HORÁRIO...</span>
+              <span>Confirmando seu horário...</span>
             </>
           ) : (
             <>
               <CheckCircle className="w-5 h-5 text-[#0f0f0f]" />
-              <span>CONFIRMAR AGENDAMENTO</span>
+              <span>Confirmar agendamento</span>
             </>
           )}
         </button>
@@ -167,7 +167,7 @@ export default function StepReview({
           className="w-full py-3 rounded-xl bg-[#18181b] border border-[#27272a] text-white text-xs font-bold hover:border-[#d4af37] flex items-center justify-center gap-1.5"
         >
           <Edit3 className="w-4 h-4 text-[#d4af37]" />
-          <span>ALTERAR DADOS</span>
+          <span>Alterar dados</span>
         </button>
       </div>
     </div>
