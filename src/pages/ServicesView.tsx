@@ -39,7 +39,8 @@ export default function ServicesView() {
                 <div className="relative h-48 overflow-hidden bg-[#0f0f0f]">
                   <img
                     src={service.imageUrl}
-                    alt={service.title}
+                    alt={service.altText || service.title}
+                    title={service.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     loading="lazy"
                   />

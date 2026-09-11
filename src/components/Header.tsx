@@ -57,7 +57,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-8 text-sm font-medium">
+          <nav className="hidden lg:flex items-center gap-5 xl:gap-7 text-sm font-medium">
             <Link
               to="/"
               className={`transition-colors duration-200 hover:text-[#d4af37] ${
@@ -125,31 +125,10 @@ export default function Header() {
           </nav>
 
           {/* Desktop Right CTA */}
-          <div className="hidden lg:flex items-center gap-3">
-            <a
-              href={`tel:${BUSINESS_INFO.phoneRaw}`}
-              className="px-3.5 py-2.5 rounded-xl border border-[#27272a] bg-[#18181b] text-[#f4f4f5] hover:border-[#d4af37] hover:text-[#d4af37] transition-all duration-200 flex items-center gap-2 text-xs font-bold"
-              title="Ligar para a barbearia"
-              aria-label="Ligar para a barbearia"
-            >
-              <Phone className="w-4 h-4 text-[#d4af37]" />
-              <span>(41) 99838-4885</span>
-            </a>
-
-            <a
-              href={BUSINESS_INFO.whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2.5 rounded-xl border border-[#27272a] bg-[#18181b] text-[#25D366] hover:border-[#25D366] transition-all duration-200"
-              title="Falar no WhatsApp"
-              aria-label="Falar no WhatsApp"
-            >
-              <MessageCircle className="w-4 h-4" />
-            </a>
-
+          <div className="hidden lg:flex items-center">
             <Link
               to="/agendar"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black bg-[#d4af37] hover:bg-[#e5c158] text-[#0f0f0f] transition-all duration-200 shadow-md active:scale-95"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black bg-[#d4af37] hover:bg-[#e5c158] text-[#0f0f0f] transition-all duration-200 shadow-md active:scale-95 whitespace-nowrap"
             >
               <Calendar className="w-4 h-4 text-[#0f0f0f]" />
               <span>Agendar Horário</span>

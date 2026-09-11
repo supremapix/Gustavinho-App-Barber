@@ -54,7 +54,8 @@ export default function ServiceDetailView() {
           <div className="md:col-span-5 relative min-h-[280px] md:min-h-[400px]">
             <img
               src={service.imageUrl}
-              alt={service.title}
+              alt={service.altText || service.title}
+              title={service.title}
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#18181b] via-transparent to-transparent md:hidden" />

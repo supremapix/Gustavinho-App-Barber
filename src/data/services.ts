@@ -10,6 +10,7 @@ export interface ServiceItem {
   category: 'cabelo' | 'barba' | 'combo' | 'quimica' | 'cuidado';
   isPopular?: boolean;
   imageUrl: string;
+  altText: string;
   benefits: string[];
 }
 
@@ -25,7 +26,8 @@ export const SERVICES_DATA: ServiceItem[] = [
     fullDesc: "Corte de cabelo masculino com técnica apurada e visagismo. Inclui higienização, consultoria de estilo no CIC, corte detalhado e finalização de alto padrão.",
     category: "cabelo",
     isPopular: true,
-    imageUrl: "https://images.unsplash.com/photo-1622286342621-4bd786c2447c?q=80&w=800&auto=format&fit=crop",
+    imageUrl: "https://img.supremasite.com.br/gusta/01-servico-corte-masculino.jpg",
+    altText: "Imagem ilustrativa de corte masculino com degradê e topo texturizado.",
     benefits: [
       "Consultoria de visagismo masculino",
       "Degradê / Fade de alta precisão",
@@ -44,7 +46,8 @@ export const SERVICES_DATA: ServiceItem[] = [
     fullDesc: "O pacote mais procurado. Renove completamente o visual com corte personalizado e barba modelada com toalha quente e navalha descartável.",
     category: "combo",
     isPopular: true,
-    imageUrl: "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=800&auto=format&fit=crop",
+    imageUrl: "https://img.supremasite.com.br/gusta/02-servico-cabelo-e-barba.jpg",
+    altText: "Imagem ilustrativa de cabelo com degradê e barba alinhada.",
     benefits: [
       "Corte masculino completo à sua escolha",
       "Barboterapia completa com toalha quente",
@@ -63,7 +66,8 @@ export const SERVICES_DATA: ServiceItem[] = [
     fullDesc: "Experiência tradicional de barboterapia. Toalha quente para abrir os poros e amaciar os pelos, lâmina descartável para linhas perfeitas e pós-barba refrescante.",
     category: "barba",
     isPopular: true,
-    imageUrl: "https://images.unsplash.com/photo-1517832606299-7ae9b720a186?q=80&w=800&auto=format&fit=crop",
+    imageUrl: "https://img.supremasite.com.br/gusta/03-servico-barba-completa.jpg",
+    altText: "Imagem ilustrativa de barboterapia com toalha e barba bem cuidada.",
     benefits: [
       "Toalha quente relaxante amaciante",
       "Desenho preciso na navalha descartável",
@@ -81,7 +85,8 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDesc: "Alinhamento e limpeza precisa respeitando o formato masculino natural do olhar.",
     fullDesc: "Remoção de pelos sobressalentes e harmonização do olhar masculino feita com rapidez e precisão na lâmina descartável.",
     category: "cuidado",
-    imageUrl: "https://images.unsplash.com/photo-1605497788044-5a32c7078486?q=80&w=800&auto=format&fit=crop",
+    imageUrl: "https://img.supremasite.com.br/gusta/04-servico-sobrancelha.jpg",
+    altText: "Imagem ilustrativa de sobrancelha masculina com acabamento natural.",
     benefits: [
       "Design masculino natural",
       "Limpeza rápida entre as sobrancelhas",
@@ -98,7 +103,8 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDesc: "Remoção higiênica e rápida dos pelos nasais com cera morna hipoalergênica.",
     fullDesc: "Procedimento seguro e rápido que retira os pelos visíveis do nariz com conforto e máxima higiene, garantindo respiração livre e visual limpo.",
     category: "cuidado",
-    imageUrl: "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=800&auto=format&fit=crop",
+    imageUrl: "https://img.supremasite.com.br/gusta/04-servico-sobrancelha.jpg",
+    altText: "Procedimento de cuidado facial masculino.",
     benefits: [
       "Cera morna hipoalergênica",
       "Procedimento rápido e indolor",
@@ -115,7 +121,8 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDesc: "Limpeza precisa dos pelos das orelhas e canal auricular externo com cera morna.",
     fullDesc: "Elimina pelos incômodos nas orelhas de forma higiênica e duradoura com produto específico e aplicação cuidadosa.",
     category: "cuidado",
-    imageUrl: "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=800&auto=format&fit=crop",
+    imageUrl: "https://img.supremasite.com.br/gusta/04-servico-sobrancelha.jpg",
+    altText: "Procedimento de cuidado facial masculino.",
     benefits: [
       "Aplicação cuidadosa e segura",
       "Eliminação completa dos pelos visíveis",
@@ -132,7 +139,8 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDesc: "Recuperação do brilho, maciez e vitalidade dos fios com máscara nutritiva profissional.",
     fullDesc: "Tratamento de nutrição intensa para cabelos secos ou danificados pelo sol e poluição. Devolve maciez, brilho e maleabilidade.",
     category: "cabelo",
-    imageUrl: "https://images.unsplash.com/photo-1622286342621-4bd786c2447c?q=80&w=800&auto=format&fit=crop",
+    imageUrl: "https://img.supremasite.com.br/gusta/01-servico-corte-masculino.jpg",
+    altText: "Tratamento e hidratação capilar masculina.",
     benefits: [
       "Máscara nutritiva profissional",
       "Redução de ressecamento e opacidade",
@@ -149,7 +157,8 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDesc: "Esfoliação facial, remoção de impurezas e oleosidade excessiva com máscara purificante.",
     fullDesc: "Cuidado facial masculino que renova a pele, desobstrui poros e remove células mortas, deixando o rosto revigorado e hidratado.",
     category: "cuidado",
-    imageUrl: "https://images.unsplash.com/photo-1517832606299-7ae9b720a186?q=80&w=800&auto=format&fit=crop",
+    imageUrl: "https://img.supremasite.com.br/gusta/03-servico-barba-completa.jpg",
+    altText: "Limpeza de pele e barboterapia masculina.",
     benefits: [
       "Esfoliação e máscara purificante",
       "Controle de oleosidade e brilho excessivo",
@@ -166,7 +175,8 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDesc: "Tratamento profundo para fios ásperos ou ressecados, proporcionando maciez e alinhamento.",
     fullDesc: "Nutrição específica para os fios da barba com produtos de alta absorção. Evita coceiras, pontas duplas e fios espetados.",
     category: "barba",
-    imageUrl: "https://images.unsplash.com/photo-1517832606299-7ae9b720a186?q=80&w=800&auto=format&fit=crop",
+    imageUrl: "https://img.supremasite.com.br/gusta/03-servico-barba-completa.jpg",
+    altText: "Hidratação e alinhamento de barba.",
     benefits: [
       "Nutrição profunda dos fios da barba",
       "Toque macio e sedoso",
@@ -183,7 +193,8 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDesc: "Redução de volume e frizz, alinhando os fios com aspecto natural e fácil manutenção.",
     fullDesc: "Procedimento que alinha a estrutura dos fios, fecha as cutículas capilares e elimina o frizz sem perder a naturalidade do corte masculino.",
     category: "quimica",
-    imageUrl: "https://images.unsplash.com/photo-1622286342621-4bd786c2447c?q=80&w=800&auto=format&fit=crop",
+    imageUrl: "https://img.supremasite.com.br/gusta/01-servico-corte-masculino.jpg",
+    altText: "Selagem e alinhamento capilar masculino.",
     benefits: [
       "Redução controlada de volume",
       "Eliminação do frizz diário",
@@ -200,7 +211,8 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDesc: "Mechas e reflexos com descoloração controlada na touca ou pente para efeito luminoso.",
     fullDesc: "Clareamento uniforme em mechas distribuídas estrategicamente para criar destaque e modernidade no corte com produtos que protegem os fios.",
     category: "quimica",
-    imageUrl: "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?q=80&w=800&auto=format&fit=crop",
+    imageUrl: "https://img.supremasite.com.br/gusta/07-galeria-platinado-nevou.jpg",
+    altText: "Luzes e reflexos em cabelo masculino.",
     benefits: [
       "Descoloração profissional dosada",
       "Matização para evitar tons amarelados",
@@ -217,7 +229,8 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDesc: "Alisamento duradouro e disciplina dos fios com brilho e maleabilidade.",
     fullDesc: "Tratamento de alisamento capilar masculino com fórmula moderna que sela a fibra capilar, elimina ondas rebeldes e dura semanas.",
     category: "quimica",
-    imageUrl: "https://images.unsplash.com/photo-1622286342621-4bd786c2447c?q=80&w=800&auto=format&fit=crop",
+    imageUrl: "https://img.supremasite.com.br/gusta/01-servico-corte-masculino.jpg",
+    altText: "Progressiva e alisamento capilar masculino.",
     benefits: [
       "Alisamento duradouro e uniforme",
       "Facilidade ao lavar e secar",
@@ -234,7 +247,8 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDesc: "Descoloração profissional uniforme (Nevou) com matização prata/branco neve de respeito.",
     fullDesc: "Processo técnico de descoloração e matização para atingir o loiro platinado ou branco neve perfeito. Utilizamos protetor capilar e hidratação para manter a saúde dos fios.",
     category: "quimica",
-    imageUrl: "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?q=80&w=800&auto=format&fit=crop",
+    imageUrl: "https://img.supremasite.com.br/gusta/07-galeria-platinado-nevou.jpg",
+    altText: "Inspiração de cabelo platinado com laterais em degradê.",
     benefits: [
       "Nevou perfeito e uniforme",
       "Matização cinza/branco sem amarelo",
