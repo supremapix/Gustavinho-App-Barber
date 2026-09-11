@@ -8,6 +8,7 @@ import {
   Clock,
   Phone,
   MessageCircle,
+  Calendar,
   Award,
   HelpCircle,
   ChevronRight,
@@ -61,60 +62,72 @@ export default function MobileMenuOverlay({ isOpen, onClose }: MobileMenuOverlay
       </div>
 
       <div className="p-4 sm:p-6 flex-1 flex flex-col justify-between max-w-lg mx-auto w-full pb-12">
-        {/* Notice for seniors / customers */}
-        <div className="mb-5 bg-[#1f1f23] border border-[#d4af37]/30 rounded-2xl p-4 text-left">
-          <span className="text-xs font-bold uppercase tracking-wider text-[#d4af37] block mb-1">
-            Atendimento Rápido
-          </span>
-          <p className="text-white text-sm sm:text-base font-medium leading-relaxed">
-            Agendamento exclusivo pelo WhatsApp ou ligue diretamente para a barbearia.
-          </p>
-        </div>
-
-        {/* Priority 1: Large WhatsApp Direct Action Button */}
+        {/* Priority 1: Online Booking System */}
         <div className="space-y-3 mb-6">
+          <Link
+            to="/agendar"
+            onClick={onClose}
+            className="w-full p-4 rounded-2xl bg-[#d4af37] hover:bg-[#e5c158] text-[#0f0f0f] font-extrabold flex items-center justify-between shadow-xl active:scale-[0.98] transition-all min-h-[64px]"
+          >
+            <div className="flex items-center gap-3.5">
+              <div className="w-12 h-12 rounded-xl bg-black/10 flex items-center justify-center shrink-0">
+                <Calendar className="w-7 h-7 text-[#0f0f0f]" />
+              </div>
+              <div className="flex flex-col text-left">
+                <span className="text-[10px] font-black uppercase tracking-wider text-black/70">
+                  Agendamento Online
+                </span>
+                <span className="text-lg sm:text-xl font-black leading-tight text-[#0f0f0f]">
+                  Agendar Horário
+                </span>
+                <span className="text-xs font-semibold text-black/80">
+                  Escolha serviço, dia e horário no sistema
+                </span>
+              </div>
+            </div>
+            <ChevronRight className="w-6 h-6 text-[#0f0f0f] shrink-0" />
+          </Link>
+
+          {/* Priority 2: WhatsApp for direct inquiries & support */}
           <a
             href={BUSINESS_INFO.whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
             onClick={onClose}
-            className="w-full p-4 rounded-2xl bg-[#25D366] hover:bg-[#20bd5a] text-[#0f0f0f] font-extrabold flex items-center justify-between shadow-lg active:scale-[0.98] transition-all min-h-[64px]"
+            className="w-full p-3.5 rounded-2xl bg-[#18181b] hover:bg-[#222227] border border-[#25D366]/40 text-white flex items-center justify-between min-h-[56px] active:scale-[0.98] transition-all"
           >
             <div className="flex items-center gap-3.5">
-              <div className="w-12 h-12 rounded-xl bg-black/10 flex items-center justify-center shrink-0">
-                <MessageCircle className="w-7 h-7 text-[#0f0f0f]" />
+              <div className="w-10 h-10 rounded-xl bg-[#25D366]/20 flex items-center justify-center shrink-0">
+                <MessageCircle className="w-6 h-6 text-[#25D366]" />
               </div>
               <div className="flex flex-col text-left">
-                <span className="text-xs font-bold uppercase tracking-wider text-black/70">
-                  Agendamento Exclusivo
+                <span className="text-sm font-bold text-white leading-tight">
+                  Dúvidas no WhatsApp
                 </span>
-                <span className="text-lg sm:text-xl font-black leading-tight text-[#0f0f0f]">
-                  Chamar no WhatsApp
-                </span>
-                <span className="text-xs font-semibold text-black/80">
-                  (41) 99838-4885 • Resposta rápida
+                <span className="text-xs text-[#a1a1aa]">
+                  (41) 99838-4885 • Fale com nossa equipe
                 </span>
               </div>
             </div>
-            <ChevronRight className="w-6 h-6 text-[#0f0f0f] shrink-0" />
+            <ChevronRight className="w-5 h-5 text-[#a1a1aa] shrink-0" />
           </a>
 
-          {/* Priority 2: Traditional Phone Call Button for elderly clients */}
+          {/* Priority 3: Traditional Phone Call Button for elderly clients */}
           <a
             href={`tel:${BUSINESS_INFO.phoneRaw}`}
             onClick={onClose}
-            className="w-full p-4 rounded-2xl bg-[#1f1f23] hover:bg-[#27272a] border-2 border-[#3f3f46] hover:border-[#d4af37] text-white flex items-center justify-between min-h-[58px] active:scale-[0.98] transition-all"
+            className="w-full p-3.5 rounded-2xl bg-[#18181b] hover:bg-[#222227] border border-[#3f3f46] text-white flex items-center justify-between min-h-[56px] active:scale-[0.98] transition-all"
           >
             <div className="flex items-center gap-3.5">
-              <div className="w-11 h-11 rounded-xl bg-[#27272a] flex items-center justify-center shrink-0">
-                <Phone className="w-6 h-6 text-[#d4af37]" />
+              <div className="w-10 h-10 rounded-xl bg-[#27272a] flex items-center justify-center shrink-0">
+                <Phone className="w-5 h-5 text-[#d4af37]" />
               </div>
               <div className="flex flex-col text-left">
-                <span className="text-base font-bold text-white leading-tight">
-                  Ligar pelo Telefone
+                <span className="text-sm font-bold text-white leading-tight">
+                  Ligar por Telefone
                 </span>
                 <span className="text-xs text-[#a1a1aa]">
-                  (41) 99838-4885 • Chamada normal
+                  (41) 99838-4885 • Ligação normal
                 </span>
               </div>
             </div>

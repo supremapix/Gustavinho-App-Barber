@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Tag, Phone, MessageCircle, Clock, MapPin, Check, Sparkles, ShoppingBag, ShieldCheck } from "lucide-react";
+import { Tag, Phone, Calendar, MessageCircle, Clock, MapPin, Check, Sparkles, ShoppingBag, ShieldCheck } from "lucide-react";
 import { SERVICES_DATA } from "../data/services";
 import { PRODUCTS_DATA } from "../data/products";
 import { SUBSCRIPTION_PLANS } from "../data/plans";
@@ -31,32 +31,43 @@ export default function PricesView() {
           </p>
         </div>
 
-        {/* Prominent Agendamento Exclusivo Card (Highly Visible for Seniors & Laypeople) */}
-        <div className="mb-12 bg-[#18181b] border-2 border-[#25D366] rounded-2xl p-5 sm:p-7 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 shadow-xl">
+        {/* Prominent Agendamento Online Card */}
+        <div className="mb-12 bg-[#18181b] border-2 border-[#d4af37] rounded-2xl p-5 sm:p-7 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 shadow-xl">
           <div className="space-y-1 text-left">
             <div className="flex items-center gap-2">
-              <span className="w-3 h-3 rounded-full bg-[#25D366] animate-pulse"></span>
-              <span className="text-xs font-black uppercase tracking-wider text-[#25D366]">
-                Agendamento Exclusivo
+              <span className="w-3 h-3 rounded-full bg-[#d4af37] animate-pulse"></span>
+              <span className="text-xs font-black uppercase tracking-wider text-[#d4af37]">
+                Sistema de Agendamento Online
               </span>
             </div>
             <h2 className="text-xl sm:text-2xl font-bold text-white leading-tight">
-              Agende seu horário pelo WhatsApp: (41) 99838-4885
+              Agende seu horário online com confirmação imediata
             </h2>
             <p className="text-sm text-[#a1a1aa]">
-              Atendimento rápido sem complicação. Segunda a Sábado das 09:00 às 19:00.
+              Escolha seu serviço, o barbeiro e o horário sem precisar esperar. Dúvidas? WhatsApp (41) 99838-4885.
             </p>
           </div>
 
-          <a
-            href={BUSINESS_INFO.whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full sm:w-auto px-6 py-4 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-[#0f0f0f] font-black text-base flex items-center justify-center gap-2.5 shadow-lg active:scale-95 transition-all shrink-0 min-h-[52px]"
-          >
-            <MessageCircle className="w-5 h-5 text-[#0f0f0f]" />
-            <span>Chamar no WhatsApp</span>
-          </a>
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto shrink-0">
+            <Link
+              to="/agendar"
+              className="px-6 py-3.5 rounded-xl bg-[#d4af37] hover:bg-[#e5c158] text-[#0f0f0f] font-black text-sm flex items-center justify-center gap-2 shadow-lg active:scale-95 transition-all min-h-[48px]"
+            >
+              <Calendar className="w-4 h-4 text-[#0f0f0f]" />
+              <span>Agendar Horário Online</span>
+            </Link>
+
+            <a
+              href={BUSINESS_INFO.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-3.5 rounded-xl bg-[#27272a] hover:bg-[#3f3f46] text-[#25D366] font-bold text-xs flex items-center justify-center gap-1.5 transition-all min-h-[48px]"
+              title="Falar no WhatsApp"
+            >
+              <MessageCircle className="w-4 h-4" />
+              <span>Dúvidas no WhatsApp</span>
+            </a>
+          </div>
         </div>
 
         {/* ━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -116,16 +127,14 @@ export default function PricesView() {
                       </td>
 
                       <td className="py-4 px-4 sm:px-6 text-right whitespace-nowrap">
-                        <a
-                          href={`${BUSINESS_INFO.whatsappUrl}&text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20${encodeURIComponent(service.title)}%20(Gustavinho%20do%20Corte%20CIC).`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-[#0f0f0f] font-bold text-xs active:scale-95 transition-all"
-                          aria-label={`Agendar ${service.title} pelo WhatsApp`}
+                        <Link
+                          to={`/agendar?service=${service.id}`}
+                          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#d4af37] hover:bg-[#e5c158] text-[#0f0f0f] font-black text-xs active:scale-95 transition-all shadow-sm"
+                          aria-label={`Agendar ${service.title} online`}
                         >
-                          <MessageCircle className="w-4 h-4 text-[#0f0f0f]" />
-                          <span className="hidden sm:inline">WhatsApp</span>
-                        </a>
+                          <Calendar className="w-3.5 h-3.5 text-[#0f0f0f]" />
+                          <span>Agendar</span>
+                        </Link>
                       </td>
                     </tr>
                   ))}

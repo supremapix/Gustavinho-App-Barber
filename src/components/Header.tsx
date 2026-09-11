@@ -124,11 +124,20 @@ export default function Header() {
               href={BUSINESS_INFO.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black bg-[#25D366] hover:bg-[#20bd5a] text-[#0f0f0f] transition-all duration-200 shadow-md active:scale-95"
+              className="p-2.5 rounded-xl border border-[#27272a] bg-[#18181b] text-[#25D366] hover:border-[#25D366] transition-all duration-200"
+              title="Falar no WhatsApp"
+              aria-label="Falar no WhatsApp"
             >
-              <MessageCircle className="w-4 h-4 text-[#0f0f0f]" />
-              <span>WhatsApp</span>
+              <MessageCircle className="w-4 h-4" />
             </a>
+
+            <Link
+              to="/agendar"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black bg-[#d4af37] hover:bg-[#e5c158] text-[#0f0f0f] transition-all duration-200 shadow-md active:scale-95"
+            >
+              <Calendar className="w-4 h-4 text-[#0f0f0f]" />
+              <span>Agendar Horário</span>
+            </Link>
           </div>
 
           {/* Mobile Menu Button - Regra: [ LOGO ] [ MENU ] */}

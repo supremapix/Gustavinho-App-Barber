@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, MessageCircle, Tag, Phone } from "lucide-react";
+import { ArrowRight, Calendar, MessageCircle, Tag, Phone } from "lucide-react";
 import { SERVICES_DATA } from "../data/services";
 import { BUSINESS_INFO } from "../data/business";
 
@@ -20,29 +20,27 @@ export default function PriceTableSection() {
             Tabela de Preços e Serviços
           </h2>
           <p className="text-base text-[#d4d4d8]">
-            Agendamento exclusivo pelo WhatsApp: <strong className="text-white">(41) 99838-4885</strong>
+            Agende online pelo nosso sistema com confirmação imediata. Dúvidas pelo WhatsApp: <strong className="text-white">(41) 99838-4885</strong>
           </p>
         </div>
 
         {/* Highlight Alert for Easy Booking */}
-        <div className="bg-[#18181b] border border-[#25D366]/40 rounded-2xl p-4 sm:p-5 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div className="bg-[#18181b] border border-[#d4af37]/40 rounded-2xl p-4 sm:p-5 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
             <div className="text-sm font-bold text-white">
               Quer garantir seu corte sem esperar?
             </div>
             <div className="text-xs text-[#a1a1aa]">
-              Envie uma mensagem no WhatsApp com o dia e horário que você prefere.
+              Escolha seu serviço, veja os horários disponíveis e agende pelo nosso sistema online.
             </div>
           </div>
-          <a
-            href={BUSINESS_INFO.whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-[#0f0f0f] font-black text-xs active:scale-95 transition-all shadow-md shrink-0"
+          <Link
+            to="/agendar"
+            className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#d4af37] hover:bg-[#e5c158] text-[#0f0f0f] font-black text-xs active:scale-95 transition-all shadow-md shrink-0"
           >
-            <MessageCircle className="w-4 h-4 text-[#0f0f0f]" />
-            <span>Agendar no WhatsApp</span>
-          </a>
+            <Calendar className="w-4 h-4 text-[#0f0f0f]" />
+            <span>Agendar Horário Online</span>
+          </Link>
         </div>
 
         {/* Clear Table Format */}
@@ -73,14 +71,12 @@ export default function PriceTableSection() {
                   {item.formattedPrice}
                 </span>
 
-                <a
-                  href={`${BUSINESS_INFO.whatsappUrl}&text=Ol%C3%A1!%20Quero%20agendar%20um%20${encodeURIComponent(item.title)}%20no%20Gustavinho%20do%20Corte.`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-3 py-1.5 rounded-lg bg-[#27272a] hover:bg-[#d4af37] text-[#d4af37] hover:text-[#0f0f0f] font-bold text-xs transition-colors"
+                <Link
+                  to={`/agendar?service=${item.id}`}
+                  className="px-3.5 py-1.5 rounded-lg bg-[#27272a] hover:bg-[#d4af37] text-[#d4af37] hover:text-[#0f0f0f] font-bold text-xs transition-colors"
                 >
                   Agendar
-                </a>
+                </Link>
               </div>
             </div>
           ))}

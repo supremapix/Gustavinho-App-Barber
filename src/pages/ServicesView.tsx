@@ -81,15 +81,13 @@ export default function ServicesView() {
                   Detalhes
                 </Link>
 
-                <a
-                  href={`${BUSINESS_INFO.whatsappUrl}&text=Ol%C3%A1%2C%20gostaria%20de%20agendar%3A%20${encodeURIComponent(service.title)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  to={`/agendar?service=${service.id}`}
                   className="flex-1 py-3 px-3 rounded-xl text-xs font-bold bg-[#d4af37] text-[#0f0f0f] hover:bg-[#e5c158] text-center flex items-center justify-center gap-1 active:scale-95 transition-all min-h-[44px]"
                 >
                   <Calendar className="w-3.5 h-3.5 text-[#0f0f0f]" />
                   <span>Agendar</span>
-                </a>
+                </Link>
               </div>
             </div>
           ))}

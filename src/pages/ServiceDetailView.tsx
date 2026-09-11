@@ -104,15 +104,13 @@ export default function ServiceDetailView() {
 
             {/* CTA Button */}
             <div className="pt-6 border-t border-[#27272a] flex flex-col sm:flex-row gap-3">
-              <a
-                href={`${BUSINESS_INFO.whatsappUrl}&text=Ol%C3%A1%2C%20quero%20agendar%20o%20servi%C3%A7o%3A%20${encodeURIComponent(service.title)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 py-4 px-6 rounded-xl text-sm font-extrabold bg-[#d4af37] text-[#0f0f0f] hover:bg-[#e5c158] flex items-center justify-center gap-2 active:scale-95 transition-all"
+              <Link
+                to={`/agendar?service=${service.id}`}
+                className="flex-1 py-4 px-6 rounded-xl text-sm font-extrabold bg-[#d4af37] text-[#0f0f0f] hover:bg-[#e5c158] flex items-center justify-center gap-2 active:scale-95 transition-all shadow-lg"
               >
                 <Calendar className="w-4 h-4 text-[#0f0f0f]" />
-                <span>AGENDAR {service.title.toUpperCase()}</span>
-              </a>
+                <span>AGENDAR {service.title.toUpperCase()} NO SISTEMA</span>
+              </Link>
             </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { MessageCircle, ShieldCheck } from "lucide-react";
 import BookingStepper from "../components/booking/BookingStepper";
 import StepService from "../components/booking/StepService";
@@ -20,6 +20,8 @@ import { BUSINESS_INFO } from "../data/business";
 import { DEFAULT_BUSINESS_SETTINGS } from "../utils/availabilityEngine";
 
 export default function BookingView() {
+  const [searchParams] = useSearchParams();
+  const preselectedServiceId = searchParams.get("service");
   const [currentStep, setCurrentStep] = useState<number>(1);
 
   // Data states
@@ -56,6 +58,19 @@ export default function BookingView() {
         setExistingBookings(bks);
         setBlockedPeriods(blks);
         setSettings(stts);
+
+        if (preselectedServiceId) {
+          const match = srvs.find(
+            (s) =>
+              s.id === preselectedServiceId ||
+              s.id.toLowerCase() === preselectedServiceId.toLowerCase() ||
+              s.name.toLowerCase() === preselectedServiceId.toLowerCase()
+          );
+          if (match) {
+            setSelectedService(match);
+            setCurrentStep(2);
+          }
+        }
       } catch (err) {
         console.error("Error loading booking store data", err);
       } finally {

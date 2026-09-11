@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { MapPin, Phone, MessageCircle, Clock, ShieldCheck, ChevronRight, ArrowRight } from "lucide-react";
+import { MapPin, Phone, MessageCircle, Calendar, Clock, ShieldCheck, ChevronRight, ArrowRight } from "lucide-react";
 import { BUSINESS_INFO } from "../data/business";
 
 export default function Footer() {
@@ -14,14 +14,22 @@ export default function Footer() {
               Atendimento no CIC Curitiba
             </span>
             <h3 className="text-xl sm:text-2xl font-bold text-white leading-tight">
-              Agendamento Exclusivo pelo WhatsApp
+              Agendamento Online ou por Telefone
             </h3>
             <p className="text-base text-[#d4d4d8] max-w-xl leading-relaxed">
-              Tire dúvidas, consulte produtos e garanta seu horário de corte e barba com rapidez.
+              Agende pelo sistema online em poucos cliques ou tire dúvidas direto no WhatsApp e ligação.
             </p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+            <Link
+              to="/agendar"
+              className="inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl bg-[#d4af37] hover:bg-[#e5c158] text-[#0f0f0f] text-base font-black shadow-md active:scale-95 transition-all min-h-[52px]"
+            >
+              <Calendar className="w-5 h-5 text-[#0f0f0f]" />
+              <span>Agendar no Sistema</span>
+            </Link>
+
             <a
               href={BUSINESS_INFO.whatsappUrl}
               target="_blank"
@@ -29,15 +37,15 @@ export default function Footer() {
               className="inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-[#0f0f0f] text-base font-extrabold shadow-md active:scale-95 transition-all min-h-[52px]"
             >
               <MessageCircle className="w-5 h-5 text-[#0f0f0f]" />
-              <span>(41) 99838-4885</span>
+              <span>WhatsApp</span>
             </a>
 
             <a
               href={`tel:${BUSINESS_INFO.phoneRaw}`}
-              className="inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl bg-[#27272a] hover:bg-[#3f3f46] text-white border border-[#3f3f46] hover:border-[#d4af37] text-base font-bold active:scale-95 transition-all min-h-[52px]"
+              className="inline-flex items-center justify-center gap-2.5 px-5 py-4 rounded-xl bg-[#27272a] hover:bg-[#3f3f46] text-white border border-[#3f3f46] hover:border-[#d4af37] text-base font-bold active:scale-95 transition-all min-h-[52px]"
             >
               <Phone className="w-5 h-5 text-[#d4af37]" />
-              <span>Ligar no Telefone</span>
+              <span>Ligar</span>
             </a>
           </div>
         </div>
@@ -74,9 +82,14 @@ export default function Footer() {
           {/* Coluna 1: SERVIÇOS & VALORES */}
           <div className="flex flex-col gap-3">
             <h3 className="text-xs uppercase font-extrabold tracking-wider text-[#d4af37]">
-              Serviços & Valores
+              Serviços & Agendamento
             </h3>
             <ul className="space-y-3 text-base text-[#d4d4d8]">
+              <li>
+                <Link to="/agendar" className="text-[#d4af37] hover:text-white transition-colors flex items-center gap-1.5 font-bold">
+                  <Calendar className="w-4 h-4 text-[#d4af37]" /> Agendar Horário
+                </Link>
+              </li>
               <li>
                 <Link to="/precos" className="hover:text-white transition-colors flex items-center gap-1.5 font-medium">
                   <ChevronRight className="w-4 h-4 text-[#d4af37]" /> Tabela de Preços
