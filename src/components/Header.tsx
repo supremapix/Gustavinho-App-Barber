@@ -99,6 +99,22 @@ export default function Header() {
               Resultados
             </Link>
             <Link
+              to="/bairros"
+              className={`transition-colors duration-200 hover:text-[#d4af37] ${
+                location.pathname.startsWith("/bairros") ? "text-[#d4af37] font-semibold" : "text-[#f4f4f5]"
+              }`}
+            >
+              Bairros
+            </Link>
+            <Link
+              to="/blog"
+              className={`transition-colors duration-200 hover:text-[#d4af37] ${
+                location.pathname.startsWith("/blog") ? "text-[#d4af37] font-semibold" : "text-[#f4f4f5]"
+              }`}
+            >
+              Blog
+            </Link>
+            <Link
               to="/localizacao"
               className={`transition-colors duration-200 hover:text-[#d4af37] ${
                 location.pathname === "/localizacao" ? "text-[#d4af37] font-semibold" : "text-[#f4f4f5]"

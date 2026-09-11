@@ -199,6 +199,44 @@ export default function MobileMenuOverlay({ isOpen, onClose }: MobileMenuOverlay
           </Link>
 
           <Link
+            to="/bairros"
+            onClick={onClose}
+            className="w-full p-4 rounded-2xl bg-[#18181b] border border-[#27272a] hover:border-[#d4af37] flex items-center justify-between min-h-[56px] active:scale-[0.98] transition-all"
+          >
+            <div className="flex items-center gap-3.5">
+              <MapPin className="w-6 h-6 text-[#d4af37] shrink-0" />
+              <div className="text-left">
+                <span className="font-bold text-base text-white block">
+                  Bairros Atendidos (126 Regiões)
+                </span>
+                <span className="text-xs text-[#a1a1aa]">
+                  Localidades, vilas e rotas de acesso
+                </span>
+              </div>
+            </div>
+            <ChevronRight className="w-5 h-5 text-[#a1a1aa] shrink-0" />
+          </Link>
+
+          <Link
+            to="/blog"
+            onClick={onClose}
+            className="w-full p-4 rounded-2xl bg-[#18181b] border border-[#27272a] hover:border-[#d4af37] flex items-center justify-between min-h-[56px] active:scale-[0.98] transition-all"
+          >
+            <div className="flex items-center gap-3.5">
+              <Sparkles className="w-6 h-6 text-[#d4af37] shrink-0" />
+              <div className="text-left">
+                <span className="font-bold text-base text-white block">
+                  Blog & Cuidados Masculinos
+                </span>
+                <span className="text-xs text-[#a1a1aa]">
+                  Dicas de barba, químicas e tendências
+                </span>
+              </div>
+            </div>
+            <ChevronRight className="w-5 h-5 text-[#a1a1aa] shrink-0" />
+          </Link>
+
+          <Link
             to="/localizacao"
             onClick={onClose}
             className="w-full p-4 rounded-2xl bg-[#18181b] border border-[#27272a] hover:border-[#d4af37] flex items-center justify-between min-h-[56px] active:scale-[0.98] transition-all"

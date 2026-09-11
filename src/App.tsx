@@ -16,6 +16,7 @@ import AboutView from "./pages/AboutView";
 import FaqView from "./pages/FaqView";
 import BlogView from "./pages/BlogView";
 import BlogPostView from "./pages/BlogPostView";
+import NeighborhoodIndexView from "./pages/NeighborhoodIndexView";
 import CityLocalSeoView from "./pages/CityLocalSeoView";
 import NotFoundView from "./pages/NotFoundView";
 
@@ -24,17 +25,17 @@ import ManageBookingView from "./pages/ManageBookingView";
 import AdminView from "./pages/AdminView";
 import AdminLoginView from "./pages/AdminLoginView";
 
-import { BAIRROS_DATA } from "./data/bairros";
+import { getLocalidadeBySlug } from "./data/bairros";
 import { generateLocalBusinessSchema } from "./utils/schema";
 
 function AppContent() {
   const location = useLocation();
 
-  // Inject dynamic JSON-LD schema into head on route change
+  // Inject dynamic JSON-LD schema & geo meta into head on route change
   useEffect(() => {
     const canonicalUrl = `https://www.barbeiro.curitiba.br${location.pathname}`;
     const pageTitle = document.title || "Gustavinho do Corte | Barbearia no CIC em Curitiba";
-    const pageDesc = "Barbearia no CIC em Curitiba. Corte de cabelo masculino, barba, sobrancelha, platinado e planos mensais.";
+    const pageDesc = "Barbearia no CIC em Curitiba. Corte de cabelo masculino, barba, sobrancelha, platinado e planos mensais. Agendamento online pelo sistema ou pelo WhatsApp.";
 
     const schemaJson = generateLocalBusinessSchema(canonicalUrl, pageTitle, pageDesc);
 
@@ -47,7 +48,40 @@ function AppContent() {
     }
     scriptTag.textContent = schemaJson;
 
-    // Manage noindex meta tag for private routes
+    // Ensure Geo Meta Tags exist on all pages
+    let regionMeta = document.querySelector<HTMLMetaElement>('meta[name="geo.region"]');
+    if (!regionMeta) {
+      regionMeta = document.createElement("meta");
+      regionMeta.setAttribute("name", "geo.region");
+      regionMeta.setAttribute("content", "BR-PR");
+      document.head.appendChild(regionMeta);
+    }
+
+    let placenameMeta = document.querySelector<HTMLMetaElement>('meta[name="geo.placename"]');
+    if (!placenameMeta) {
+      placenameMeta = document.createElement("meta");
+      placenameMeta.setAttribute("name", "geo.placename");
+      placenameMeta.setAttribute("content", "Curitiba, Paraná, Brasil");
+      document.head.appendChild(placenameMeta);
+    }
+
+    let positionMeta = document.querySelector<HTMLMetaElement>('meta[name="geo.position"]');
+    if (!positionMeta) {
+      positionMeta = document.createElement("meta");
+      positionMeta.setAttribute("name", "geo.position");
+      positionMeta.setAttribute("content", "-25.4856;-49.33098");
+      document.head.appendChild(positionMeta);
+    }
+
+    let icbmMeta = document.querySelector<HTMLMetaElement>('meta[name="ICBM"]');
+    if (!icbmMeta) {
+      icbmMeta = document.createElement("meta");
+      icbmMeta.setAttribute("name", "ICBM");
+      icbmMeta.setAttribute("content", "-25.4856, -49.33098");
+      document.head.appendChild(icbmMeta);
+    }
+
+    // Manage noindex meta tag for private admin / agendamento token routes
     let robotsMeta = document.querySelector<HTMLMetaElement>('meta[name="robots"]');
     const isPrivateRoute = location.pathname.startsWith("/admin") || location.pathname.startsWith("/agendamento");
     if (isPrivateRoute) {
@@ -58,7 +92,7 @@ function AppContent() {
       }
       robotsMeta.setAttribute("content", "noindex, nofollow");
     } else if (robotsMeta) {
-      robotsMeta.setAttribute("content", "index, follow");
+      robotsMeta.setAttribute("content", "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1");
     }
   }, [location.pathname]);
 
@@ -82,29 +116,18 @@ function AppContent() {
             <Route path="/blog" element={<BlogView />} />
             <Route path="/blog/:slug" element={<BlogPostView />} />
 
+            {/* Bairros / Geo Localities Routes */}
+            <Route path="/bairros" element={<NeighborhoodIndexView />} />
+            <Route path="/bairros/:slug" element={<CityLocalSeoView />} />
+
             {/* Booking System Routes */}
             <Route path="/agendar" element={<BookingView />} />
             <Route path="/agendamento/:token" element={<ManageBookingView />} />
             <Route path="/admin/login" element={<AdminLoginView />} />
             <Route path="/admin" element={<AdminView />} />
 
-            {/* Explicit Neighborhood / Bairros Local SEO Routes */}
-            <Route path="/barbearia-no-cic" element={<CityLocalSeoView />} />
-            <Route path="/barbearia-no-xaxim" element={<CityLocalSeoView />} />
-            <Route path="/barbearia-no-pinheirinho" element={<CityLocalSeoView />} />
-            <Route path="/barbearia-no-sitio-cercado" element={<CityLocalSeoView />} />
-            <Route path="/barbearia-no-capao-raso" element={<CityLocalSeoView />} />
-            <Route path="/barbearia-no-portao" element={<CityLocalSeoView />} />
-            <Route path="/barbearia-na-fazendinha" element={<CityLocalSeoView />} />
-            <Route path="/barbearia-no-novo-mundo" element={<CityLocalSeoView />} />
-            <Route path="/barbearia-no-tatuquara" element={<CityLocalSeoView />} />
-            <Route path="/barbearia-em-curitiba" element={<CityLocalSeoView />} />
-
-            {/* Dynamic Bairro Routing Fallback Check (React Router v6 strict safety rule) */}
-            <Route
-              path="*"
-              element={<CatchAllFallback />}
-            />
+            {/* Catch-All Fallback (React Router v6 strict routing safety rule) */}
+            <Route path="*" element={<CatchAllFallback />} />
           </Routes>
         </RouteTransition>
       </main>
@@ -115,12 +138,14 @@ function AppContent() {
   );
 }
 
-// Fallback component to safely handle any neighborhood slug without illegal wildcard patterns
+// Fallback component to safely handle any legacy or alternative neighborhood slug
 function CatchAllFallback() {
   const location = useLocation();
-  const cleanPath = location.pathname.toLowerCase().replace(/^\//, "");
+  const rawPath = location.pathname.toLowerCase().replace(/^\//, "");
 
-  if (cleanPath.startsWith("barbearia-") || cleanPath in BAIRROS_DATA) {
+  // Check if it matches any of the 126 localidades or barbearia- prefixes
+  const loc = getLocalidadeBySlug(rawPath);
+  if (loc || rawPath.startsWith("barbearia-") || rawPath.startsWith("bairros/")) {
     return <CityLocalSeoView />;
   }
 
