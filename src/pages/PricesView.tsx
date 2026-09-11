@@ -5,31 +5,20 @@ import { SERVICES_DATA } from "../data/services";
 import { PRODUCTS_DATA } from "../data/products";
 import { SUBSCRIPTION_PLANS } from "../data/plans";
 import { BUSINESS_INFO } from "../data/business";
+import PageHeroHeader from "../components/PageHeroHeader";
 
 export default function PricesView() {
   return (
-    <div className="w-full pt-28 pb-20 bg-[#121214] min-h-screen text-[#f4f4f5]">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Breadcrumb */}
-        <div className="flex items-center gap-2 text-sm text-[#a1a1aa] mb-6">
-          <Link to="/" className="hover:text-white transition-colors">Início</Link>
-          <span>/</span>
-          <span className="text-[#d4af37] font-semibold">Tabela de Preços e Valores</span>
-        </div>
+    <div className="w-full pb-20 bg-[#121214] min-h-screen text-[#f4f4f5]">
+      {/* Page Hero Header */}
+      <PageHeroHeader
+        breadcrumbs={[{ label: "Tabela de Preços e Valores" }]}
+        badge="Valores Oficiais • CIC Curitiba"
+        title="Tabela de Preços — Gustavinho do Corte"
+        description="Consulte a lista completa de serviços, produtos para cuidado diário e planos de assinatura da barbearia no CIC Curitiba."
+      />
 
-        {/* Page Header */}
-        <div className="mb-10 text-left">
-          <span className="inline-block text-xs uppercase font-extrabold tracking-wider text-[#d4af37] bg-[#18181b] border border-[#d4af37]/30 px-3 py-1 rounded-md mb-3">
-            Valores Oficiais • CIC Curitiba
-          </span>
-          <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight mb-4">
-            Tabela de Preços — Gustavinho do Corte
-          </h1>
-          <p className="text-base sm:text-lg text-[#d4d4d8] max-w-2xl leading-relaxed">
-            Consulte a lista completa de serviços, produtos para cuidado diário e planos de assinatura da barbearia no CIC Curitiba.
-          </p>
-        </div>
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Prominent Agendamento Online Card */}
         <div className="mb-12 bg-[#18181b] border-2 border-[#d4af37] rounded-2xl p-5 sm:p-7 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 shadow-xl">

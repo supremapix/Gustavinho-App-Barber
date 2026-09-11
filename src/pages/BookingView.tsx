@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { MessageCircle, ShieldCheck } from "lucide-react";
+import PageHeroHeader from "../components/PageHeroHeader";
 import BookingStepper from "../components/booking/BookingStepper";
 import StepService from "../components/booking/StepService";
 import StepDate from "../components/booking/StepDate";
@@ -148,22 +149,18 @@ export default function BookingView() {
   }
 
   return (
-    <div className="w-full pt-28 pb-16 bg-[#0f0f0f] min-h-screen">
+    <div className="w-full bg-[#0f0f0f] pb-16 min-h-screen">
+      {/* Header Breadcrumb / Title */}
+      {currentStep < 6 && (
+        <PageHeroHeader
+          breadcrumbs={[{ label: "Agendamento Online" }]}
+          badge="Agendamento Online"
+          title="Agendar Horário"
+          description="Escolha seu serviço e encontre um horário disponível sem sair do site."
+        />
+      )}
+
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header Breadcrumb / Title */}
-        {currentStep < 6 && (
-          <div className="text-center mb-6">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#d4af37] block mb-1">
-              Agendamento Online
-            </span>
-            <h1 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
-              Agendar Horário
-            </h1>
-            <p className="text-xs sm:text-sm text-[#a1a1aa] mt-1">
-              Escolha seu serviço e encontre um horário disponível sem sair do site.
-            </p>
-          </div>
-        )}
 
         {/* Stepper */}
         {currentStep < 6 && (

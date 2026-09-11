@@ -6,6 +6,7 @@ import TransformationShowcase from "../components/TransformationShowcase";
 import PriceTableSection from "../components/PriceTableSection";
 import PlansSection from "../components/PlansSection";
 import ReviewsSection from "../components/ReviewsSection";
+import InstagramFeed from "../components/InstagramFeed";
 import LocationSection from "../components/LocationSection";
 import FinalCtaSection from "../components/FinalCtaSection";
 
@@ -19,6 +20,7 @@ export default function HomeView() {
       <PriceTableSection />
       <PlansSection />
       <ReviewsSection />
+      <InstagramFeed />
       <LocationSection />
       <FinalCtaSection />
     </div>

@@ -6,13 +6,15 @@ import { BUSINESS_INFO } from "../data/business";
 export default function Hero() {
   return (
     <section className="relative min-h-[85vh] lg:min-h-[90vh] flex items-center pt-24 pb-16 overflow-hidden bg-[#0f0f0f]">
-      {/* Background Image with Dark Overlay */}
+      {/* Background Video with Dark Overlay */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <img
-          src={BUSINESS_INFO.images.hero}
-          alt="Barbearia Gustavinho do Corte no CIC Curitiba"
-          className="w-full h-full object-cover object-center opacity-25"
-          loading="eager"
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover object-center opacity-35 scale-105 pointer-events-none"
+          src="https://img.supremasite.com.br/gusta/video-barber.mp4"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0f0f0f] via-[#0f0f0f]/80 to-[#0f0f0f]/50" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0f0f0f] via-[#0f0f0f]/60 to-transparent" />

@@ -4,27 +4,17 @@ import { Sparkles, Check, MessageCircle, HelpCircle } from "lucide-react";
 import { SUBSCRIPTION_PLANS } from "../data/plans";
 import { BUSINESS_INFO } from "../data/business";
 import FinalCtaSection from "../components/FinalCtaSection";
+import PageHeroHeader from "../components/PageHeroHeader";
 
 export default function PlansView() {
   return (
-    <div className="w-full pt-28 pb-16 bg-[#0f0f0f]">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-        <div className="flex items-center gap-2 text-xs text-[#a1a1aa] mb-4">
-          <Link to="/" className="hover:text-white">Início</Link>
-          <span>/</span>
-          <span className="text-[#d4af37] font-semibold">Planos de Assinatura</span>
-        </div>
-
-        <span className="text-[11px] font-medium uppercase tracking-[0.12em] text-[#d4af37] block mb-2">
-          Clube de Assinatura
-        </span>
-        <h1 className="text-3xl sm:text-4xl font-serif-brand font-bold text-white tracking-tight mb-4">
-          Planos Mensais sem Fidelidade Forçada
-        </h1>
-        <p className="text-[17px] text-[#a1a1aa] max-w-xl leading-relaxed font-normal">
-          Economize e mantenha o visual em dia o mês inteiro. Escolha o plano ideal e agende com prioridade no CIC Curitiba.
-        </p>
-      </div>
+    <div className="w-full bg-[#0f0f0f] pb-16">
+      <PageHeroHeader
+        breadcrumbs={[{ label: "Planos de Assinatura" }]}
+        badge="Clube de Assinatura"
+        title="Planos Mensais sem Fidelidade Forçada"
+        description="Economize e mantenha o visual em dia o mês inteiro. Escolha o plano ideal e agende com prioridade no CIC Curitiba."
+      />
 
       {/* Plans List */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">

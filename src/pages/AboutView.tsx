@@ -3,27 +3,17 @@ import { Link } from "react-router-dom";
 import { ShieldCheck, Award, Heart, Scissors, Calendar } from "lucide-react";
 import { BUSINESS_INFO } from "../data/business";
 import FinalCtaSection from "../components/FinalCtaSection";
+import PageHeroHeader from "../components/PageHeroHeader";
 
 export default function AboutView() {
   return (
-    <div className="w-full pt-28 pb-16 bg-[#0f0f0f]">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-        <div className="flex items-center gap-2 text-xs text-[#a1a1aa] mb-4">
-          <Link to="/" className="hover:text-white">Início</Link>
-          <span>/</span>
-          <span className="text-[#d4af37] font-semibold">Sobre Nós</span>
-        </div>
-
-        <span className="text-[11px] font-medium uppercase tracking-[0.12em] text-[#d4af37] block mb-2">
-          História & Conceito
-        </span>
-        <h1 className="text-3xl sm:text-4xl font-serif-brand font-bold text-white tracking-tight mb-4">
-          Sobre o Gustavinho do Corte
-        </h1>
-        <p className="text-[17px] text-[#a1a1aa] max-w-2xl leading-relaxed font-normal">
-          A barbearia que combina técnica apurada de visagismo com o verdadeiro espírito de comunidade do bairro CIC em Curitiba.
-        </p>
-      </div>
+    <div className="w-full bg-[#0f0f0f] pb-16">
+      <PageHeroHeader
+        breadcrumbs={[{ label: "Sobre Nós" }]}
+        badge="História & Conceito"
+        title="Sobre o Gustavinho do Corte"
+        description="A barbearia que combina técnica apurada de visagismo com o verdadeiro espírito de comunidade do bairro CIC em Curitiba."
+      />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 space-y-12">
         {/* Story Block */}

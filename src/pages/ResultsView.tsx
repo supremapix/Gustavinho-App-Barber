@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Award, Calendar, ExternalLink } from "lucide-react";
 import { BUSINESS_INFO } from "../data/business";
 import FinalCtaSection from "../components/FinalCtaSection";
+import PageHeroHeader from "../components/PageHeroHeader";
 
 export interface GalleryItem {
   id: number;
@@ -88,24 +89,13 @@ export default function ResultsView() {
     : GALLERY_ITEMS.filter(p => p.category === activeCategory);
 
   return (
-    <div className="w-full pt-28 pb-16 bg-[#0f0f0f]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-        <div className="flex items-center gap-2 text-xs text-[#a1a1aa] mb-4">
-          <Link to="/" className="hover:text-white">Início</Link>
-          <span>/</span>
-          <span className="text-[#d4af37] font-semibold">Galeria de Resultados</span>
-        </div>
-
-        <span className="text-[11px] font-medium uppercase tracking-[0.12em] text-[#d4af37] block mb-2">
-          Portfólio Real
-        </span>
-        <h1 className="text-3xl sm:text-4xl font-serif-brand font-bold text-white tracking-tight mb-4">
-          Cortes e Transformações
-        </h1>
-        <p className="text-[17px] text-[#a1a1aa] max-w-2xl leading-relaxed font-normal">
-          Confira a galeria de fotos reais com os cortes masculinos, degradês, barbas, platinados e acabamentos realizados no Gustavinho do Corte no CIC Curitiba.
-        </p>
-      </div>
+    <div className="w-full bg-[#0f0f0f] pb-16">
+      <PageHeroHeader
+        breadcrumbs={[{ label: "Galeria de Resultados" }]}
+        badge="Portfólio Real"
+        title="Cortes e Transformações"
+        description="Confira a galeria de fotos reais com os cortes masculinos, degradês, barbas, platinados e acabamentos realizados no Gustavinho do Corte no CIC Curitiba."
+      />
 
       {/* Filter Tabs */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 flex flex-wrap gap-2 justify-center">

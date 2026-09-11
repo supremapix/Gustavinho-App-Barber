@@ -3,27 +3,17 @@ import { Link } from "react-router-dom";
 import { MapPin, Navigation, Phone, MessageCircle, Clock, ExternalLink } from "lucide-react";
 import { BUSINESS_INFO } from "../data/business";
 import FinalCtaSection from "../components/FinalCtaSection";
+import PageHeroHeader from "../components/PageHeroHeader";
 
 export default function LocationView() {
   return (
-    <div className="w-full pt-28 pb-16 bg-[#0f0f0f]">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-        <div className="flex items-center gap-2 text-xs text-[#a1a1aa] mb-4">
-          <Link to="/" className="hover:text-white">Início</Link>
-          <span>/</span>
-          <span className="text-[#d4af37] font-semibold">Localização</span>
-        </div>
-
-        <span className="text-[11px] font-medium uppercase tracking-[0.12em] text-[#d4af37] block mb-2">
-          Endereço & Rotas
-        </span>
-        <h1 className="text-3xl sm:text-4xl font-serif-brand font-bold text-white tracking-tight mb-4">
-          Como Chegar na Barbearia no CIC
-        </h1>
-        <p className="text-[17px] text-[#a1a1aa] max-w-xl leading-relaxed font-normal">
-          Localização privileged na Rua Desembargador Cid Campelo, 5212 no bairro CIC em Curitiba - PR.
-        </p>
-      </div>
+    <div className="w-full bg-[#0f0f0f] pb-16">
+      <PageHeroHeader
+        breadcrumbs={[{ label: "Localização" }]}
+        badge="Endereço & Rotas"
+        title="Como Chegar na Barbearia no CIC"
+        description="Localização privilegiada na Rua Desembargador Cid Campelo, 5212 no bairro CIC em Curitiba - PR."
+      />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">

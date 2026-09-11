@@ -3,27 +3,17 @@ import { Link } from "react-router-dom";
 import { BookOpen, Clock, ChevronRight } from "lucide-react";
 import { BLOG_POSTS } from "../data/blog";
 import FinalCtaSection from "../components/FinalCtaSection";
+import PageHeroHeader from "../components/PageHeroHeader";
 
 export default function BlogView() {
   return (
-    <div className="w-full pt-28 pb-16 bg-[#0f0f0f]">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-        <div className="flex items-center gap-2 text-xs text-[#a1a1aa] mb-4">
-          <Link to="/" className="hover:text-white">Início</Link>
-          <span>/</span>
-          <span className="text-[#d4af37] font-semibold">Blog</span>
-        </div>
-
-        <span className="text-[11px] font-medium uppercase tracking-[0.12em] text-[#d4af37] block mb-2">
-          Estilo & Cuidados
-        </span>
-        <h1 className="text-3xl sm:text-4xl font-serif-brand font-bold text-white tracking-tight mb-4">
-          Blog de Estilo Masculino
-        </h1>
-        <p className="text-[17px] text-[#a1a1aa] leading-relaxed font-normal">
-          Dicas práticas de barbeiro sobre manutenção do corte, visagismo, cuidados com a barba e tendências masculinas em Curitiba.
-        </p>
-      </div>
+    <div className="w-full bg-[#0f0f0f] pb-16">
+      <PageHeroHeader
+        breadcrumbs={[{ label: "Blog" }]}
+        badge="Estilo & Cuidados"
+        title="Blog de Estilo Masculino"
+        description="Dicas práticas de barbeiro sobre manutenção do corte, visagismo, cuidados com a barba e tendências masculinas em Curitiba."
+      />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

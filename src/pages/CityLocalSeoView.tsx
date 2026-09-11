@@ -8,6 +8,8 @@ import PlansSection from "../components/PlansSection";
 import FinalCtaSection from "../components/FinalCtaSection";
 import TransformationShowcase from "../components/TransformationShowcase";
 
+import PageHeroHeader from "../components/PageHeroHeader";
+
 export default function CityLocalSeoView() {
   const { slug } = useParams<{ slug?: string }>();
   const location = useLocation();
@@ -155,26 +157,20 @@ export default function CityLocalSeoView() {
   const mapsRouteUrl = `https://www.google.com/maps/dir/?api=1&destination=-25.4856,-49.33098&origin=${encodeURIComponent(loc.name + ", Curitiba, PR")}`;
 
   return (
-    <div className="w-full pt-28 pb-16 bg-[#0f0f0f] text-[#f4f4f5]">
+    <div className="w-full bg-[#0f0f0f] text-[#f4f4f5]">
       {/* 1. Breadcrumb & 2. H1 Hero Header */}
+      <PageHeroHeader
+        breadcrumbs={[
+          { label: "Bairros", href: "/bairros" },
+          { label: loc.name }
+        ]}
+        badge={`Atendimento Próximo ao ${loc.name}`}
+        title={`Barbearia perto do ${loc.name} — Gustavinho do Corte`}
+        description={`Procurando uma barbearia com corte de alta precisão e atendimento pontual perto do ${loc.name}? A Gustavinho do Corte está localizada no CIC, a apenas ${loc.distancia} de distância.`}
+      />
+
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-        <div className="flex items-center gap-2 text-xs text-[#a1a1aa] mb-4">
-          <Link to="/" className="hover:text-white">Início</Link>
-          <span>/</span>
-          <Link to="/bairros" className="hover:text-white">Bairros</Link>
-          <span>/</span>
-          <span className="text-[#d4af37] font-semibold">{loc.name}</span>
-        </div>
-
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#18181b] border border-[#d4af37]/40 text-xs text-[#d4af37] font-bold mb-3">
-          <MapPin className="w-3.5 h-3.5" />
-          <span>Atendimento Próximo ao {loc.name}</span>
-        </div>
-
-        {/* H1 Requirement */}
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
-          Barbearia perto do {loc.name} — Gustavinho do Corte
-        </h1>
+        {/* Opening Paragraph */}
 
         {/* 3. Opening Paragraph */}
         <div className="p-5 rounded-2xl bg-[#18181b] border border-[#27272a] text-base text-[#d4d4d8] leading-relaxed mb-8">
