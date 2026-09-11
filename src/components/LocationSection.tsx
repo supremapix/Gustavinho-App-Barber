@@ -1,0 +1,68 @@
+import React from "react";
+import { ArrowRight, MapPin, Clock } from "lucide-react";
+import { BUSINESS_INFO } from "../data/business";
+
+export default function LocationSection() {
+  return (
+    <section className="py-16 sm:py-24 bg-[#0f0f0f] border-t border-[#27272a]/60">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-stretch">
+          {/* Info Side */}
+          <div className="lg:col-span-5 text-left flex flex-col justify-between space-y-8">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#d4af37] block mb-2">
+                LOCALIZAÇÃO
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight leading-tight mb-6">
+                Fácil de encontrar <br />no CIC
+              </h2>
+
+              <div className="space-y-6 text-sm text-[#a1a1aa]">
+                <div className="flex items-start gap-3">
+                  <MapPin className="w-5 h-5 text-[#d4af37] shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-bold text-white text-base">
+                      {BUSINESS_INFO.address.street}
+                    </p>
+                    <p>CIC · Curitiba - PR</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <Clock className="w-5 h-5 text-[#d4af37] shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-bold text-white">Segunda a Sábado</p>
+                    <p>09:00 às 19:00</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <a
+                href={BUSINESS_INFO.mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm font-bold text-[#d4af37] hover:text-[#e5c158] transition-colors group"
+              >
+                <span>Abrir rota no Google Maps</span>
+                <ArrowRight className="w-4 h-4 text-[#d4af37] group-hover:translate-x-1 transition-transform" />
+              </a>
+            </div>
+          </div>
+
+          {/* Map Side */}
+          <div className="lg:col-span-7 rounded-2xl overflow-hidden border border-[#27272a] min-h-[300px]">
+            <iframe
+              title="Mapa Barbearia Gustavinho do Corte CIC Curitiba"
+              src={BUSINESS_INFO.googleEmbedUrl}
+              className="w-full h-full min-h-[300px] border-0 filter grayscale contrast-125 invert-[0.9]"
+              loading="lazy"
+              allowFullScreen
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

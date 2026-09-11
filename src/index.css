@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-heading: 'Cinzel', serif;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
+
+    /* Design System Tokens extracted STRICTLY from Logo Palette */
+    --brand-primary: #D4AF37;
+    --brand-secondary: #B8860B;
+    --brand-accent: #E5C158;
+    --brand-dark: #0F0F0F;
+    --brand-light: #F4F4F5;
+    --brand-surface: #18181B;
+    --brand-surface-hover: #242428;
+    --brand-muted: #A1A1AA;
+    --brand-border: #27272A;
+  }
+
+  html {
+    font-family: var(--font-body);
+    scroll-behavior: smooth;
+    background-color: var(--brand-dark);
+    color: var(--brand-light);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    letter-spacing: 0.01em;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0f0f0f;
+}
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d4af37;
+}
+
+/* Gold Gradient Effects derived from Brand Palette */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #FFF 10%, #E5C158 50%, #D4AF37 80%, #B8860B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-gradient-bg {
+  background: linear-gradient(135deg, #E5C158 0%, #D4AF37 50%, #B8860B 100%);
+}
+
+.gold-border-glow {
+  box-shadow: 0 0 20px -5px rgba(212, 175, 55, 0.25);
+}
+
+/* Mobile Safe Area Bottom Padding for Fixed App Bar */
+.pb-safe-nav {
+  padding-bottom: calc(5rem + env(safe-area-inset-bottom, 0px));
+}
+
+/* Focus styles for Accessibility */
+:focus-visible {
+  outline: 2px solid #D4AF37;
+  outline-offset: 2px;
+}

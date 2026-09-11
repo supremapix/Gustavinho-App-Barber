@@ -1,0 +1,6 @@
+{
+  "name": "Gustavinho do Corte | Barbearia no CIC em Curitiba",
+  "description": "Barbearia no CIC em Curitiba. Corte de cabelo masculino, barba, sobrancelha, platinado e planos mensais. Agende seu horário pelo WhatsApp.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
