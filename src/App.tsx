@@ -46,6 +46,20 @@ function AppContent() {
       document.head.appendChild(scriptTag);
     }
     scriptTag.textContent = schemaJson;
+
+    // Manage noindex meta tag for private routes
+    let robotsMeta = document.querySelector<HTMLMetaElement>('meta[name="robots"]');
+    const isPrivateRoute = location.pathname.startsWith("/admin") || location.pathname.startsWith("/agendamento");
+    if (isPrivateRoute) {
+      if (!robotsMeta) {
+        robotsMeta = document.createElement("meta");
+        robotsMeta.setAttribute("name", "robots");
+        document.head.appendChild(robotsMeta);
+      }
+      robotsMeta.setAttribute("content", "noindex, nofollow");
+    } else if (robotsMeta) {
+      robotsMeta.setAttribute("content", "index, follow");
+    }
   }, [location.pathname]);
 
   return (
