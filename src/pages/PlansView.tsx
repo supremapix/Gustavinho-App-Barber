@@ -27,37 +27,47 @@ export default function PlansView() {
       </div>
 
       {/* Plans List */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {SUBSCRIPTION_PLANS.map((plan) => (
             <div
               key={plan.id}
-              className={`rounded-2xl p-8 transition-all flex flex-col justify-between border relative ${
+              className={`rounded-2xl p-6 transition-all flex flex-col justify-between border relative shadow-xl ${
                 plan.isPopular
-                  ? "bg-[#18181b] border-[#d4af37] shadow-2xl shadow-[#d4af37]/20 scale-[1.02]"
-                  : "bg-[#18181b]/80 border-[#27272a]"
+                  ? "bg-[#18181b] border-[#d4af37] ring-1 ring-[#d4af37]/50"
+                  : "bg-[#18181b] border-[#27272a]"
               }`}
             >
               {plan.highlightTag && (
-                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-[#d4af37] text-[#0f0f0f] text-[10px] font-black uppercase tracking-wider">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-[#d4af37] text-[#0f0f0f] text-[10px] font-black uppercase tracking-wider whitespace-nowrap">
                   {plan.highlightTag}
                 </div>
               )}
 
               <div>
-                <h2 className="font-semibold text-xl text-white mb-2">{plan.name}</h2>
-                <p className="text-[17px] text-[#a1a1aa] mb-6 leading-relaxed font-normal">
-                  {plan.shortDesc}
-                </p>
+                <h2 className="font-bold text-xl text-white mb-1">{plan.name}</h2>
+                <div className="text-xs font-semibold text-[#d4af37] mb-3">
+                  {plan.days}
+                </div>
 
-                <div className="flex items-baseline gap-1 mb-6 pb-6 border-b border-[#27272a]">
-                  <span className="text-3xl font-bold text-[#d4af37]">
+                <div className="flex items-baseline gap-1 mb-2">
+                  <span className="text-3xl font-black text-white">
                     {plan.formattedPrice}
                   </span>
                   <span className="text-xs text-[#a1a1aa] font-medium">{plan.period}</span>
                 </div>
 
-                <ul className="space-y-3.5 mb-8 text-[17px] text-[#f4f4f5] font-normal">
+                <div className="mb-4">
+                  <span className="inline-block text-xs font-black text-[#25D366] bg-[#25D366]/10 px-2.5 py-1 rounded-md">
+                    Economiza {plan.economy}/mês
+                  </span>
+                </div>
+
+                <p className="text-xs text-[#a1a1aa] mb-5 leading-relaxed">
+                  {plan.shortDesc}
+                </p>
+
+                <ul className="space-y-3 mb-8 text-xs text-[#d4d4d8]">
                   {plan.features.map((feature, fIdx) => (
                     <li key={fIdx} className="flex items-start gap-2.5">
                       <div className="w-4 h-4 rounded-full bg-[#d4af37]/20 flex items-center justify-center shrink-0 mt-0.5">
@@ -70,13 +80,13 @@ export default function PlansView() {
               </div>
 
               <a
-                href={`${BUSINESS_INFO.whatsappUrl}&text=Ol%C3%A1%2C%20tenho%20interesse%20em%20assinar%20o%20${encodeURIComponent(plan.name)}`}
+                href={`${BUSINESS_INFO.whatsappUrl}&text=Ol%C3%A1!%20Tenho%20interesse%20em%20assinar%20o%20${encodeURIComponent(plan.name)}%20(${plan.formattedPrice}%2Fm%C3%AAs).`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`w-full py-4 px-4 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-2 active:scale-95 transition-all ${
+                className={`w-full py-3.5 px-4 rounded-xl text-xs sm:text-sm font-black flex items-center justify-center gap-2 active:scale-95 transition-all shadow-md ${
                   plan.isPopular
                     ? "bg-[#d4af37] text-[#0f0f0f] hover:bg-[#e5c158]"
-                    : "bg-[#242428] border border-[#27272a] text-white hover:border-[#d4af37] hover:text-[#d4af37]"
+                    : "bg-[#27272a] text-white hover:bg-[#3f3f46] hover:text-[#d4af37]"
                 }`}
               >
                 <MessageCircle className="w-4 h-4" />

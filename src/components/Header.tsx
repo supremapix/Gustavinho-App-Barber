@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, Calendar, Phone } from "lucide-react";
+import { Menu, Calendar, Phone, MessageCircle } from "lucide-react";
 import { BUSINESS_INFO } from "../data/business";
 import MobileMenuOverlay from "./MobileMenuOverlay";
 
@@ -109,23 +109,26 @@ export default function Header() {
           </nav>
 
           {/* Desktop Right CTA */}
-          <div className="hidden lg:flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-3">
             <a
               href={`tel:${BUSINESS_INFO.phoneRaw}`}
-              className="p-2.5 rounded-xl border border-[#27272a] bg-[#18181b] text-[#f4f4f5] hover:border-[#d4af37] hover:text-[#d4af37] transition-all duration-200"
+              className="px-3.5 py-2.5 rounded-xl border border-[#27272a] bg-[#18181b] text-[#f4f4f5] hover:border-[#d4af37] hover:text-[#d4af37] transition-all duration-200 flex items-center gap-2 text-xs font-bold"
               title="Ligar para a barbearia"
               aria-label="Ligar para a barbearia"
             >
-              <Phone className="w-4 h-4" />
+              <Phone className="w-4 h-4 text-[#d4af37]" />
+              <span>(41) 99838-4885</span>
             </a>
 
-            <Link
-              to="/agendar"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold bg-[#d4af37] text-[#0f0f0f] hover:bg-[#e5c158] transition-all duration-200"
+            <a
+              href={BUSINESS_INFO.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black bg-[#25D366] hover:bg-[#20bd5a] text-[#0f0f0f] transition-all duration-200 shadow-md active:scale-95"
             >
-              <Calendar className="w-4 h-4 text-[#0f0f0f]" />
-              <span>Agendar horário</span>
-            </Link>
+              <MessageCircle className="w-4 h-4 text-[#0f0f0f]" />
+              <span>WhatsApp</span>
+            </a>
           </div>
 
           {/* Mobile Menu Button - Regra: [ LOGO ] [ MENU ] */}

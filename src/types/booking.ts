@@ -51,6 +51,8 @@ export interface Booking {
   endTime: string; // HH:mm
   status: BookingStatus;
   notes?: string;
+  cancelledAt?: string;
+  cancellationReason?: string;
   createdAt: string; // ISO string
   updatedAt: string; // ISO string
 }

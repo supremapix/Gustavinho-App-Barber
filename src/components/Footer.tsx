@@ -1,165 +1,198 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { MapPin, Phone, MessageCircle, Clock, ShieldCheck, ChevronRight } from "lucide-react";
+import { MapPin, Phone, MessageCircle, Clock, ShieldCheck, ChevronRight, ArrowRight } from "lucide-react";
 import { BUSINESS_INFO } from "../data/business";
 
 export default function Footer() {
   return (
-    <footer className="relative bg-[#0f0f0f] text-[#f4f4f5] border-t border-[#27272a] overflow-hidden pt-16 pb-24 lg:pb-16">
-      {/* Top Gold Geometric Line Graphic */}
-      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#d4af37] to-transparent opacity-80" />
+    <footer className="relative bg-[#121214] text-[#f4f4f5] border-t-2 border-[#27272a] pt-14 pb-28 lg:pb-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Prominent Senior-Friendly Direct Agendamento Banner */}
+        <div className="mb-12 bg-[#18181b] border-2 border-[#d4af37]/40 rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-xl">
+          <div className="space-y-2">
+            <span className="inline-block text-xs uppercase tracking-widest font-extrabold text-[#d4af37]">
+              Atendimento no CIC Curitiba
+            </span>
+            <h3 className="text-xl sm:text-2xl font-bold text-white leading-tight">
+              Agendamento Exclusivo pelo WhatsApp
+            </h3>
+            <p className="text-base text-[#d4d4d8] max-w-xl leading-relaxed">
+              Tire dúvidas, consulte produtos e garanta seu horário de corte e barba com rapidez.
+            </p>
+          </div>
 
-      {/* Radial Gold Ambient Glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-[#d4af37]/5 blur-[120px] pointer-events-none rounded-full" />
+          <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+            <a
+              href={BUSINESS_INFO.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-[#0f0f0f] text-base font-extrabold shadow-md active:scale-95 transition-all min-h-[52px]"
+            >
+              <MessageCircle className="w-5 h-5 text-[#0f0f0f]" />
+              <span>(41) 99838-4885</span>
+            </a>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <a
+              href={`tel:${BUSINESS_INFO.phoneRaw}`}
+              className="inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl bg-[#27272a] hover:bg-[#3f3f46] text-white border border-[#3f3f46] hover:border-[#d4af37] text-base font-bold active:scale-95 transition-all min-h-[52px]"
+            >
+              <Phone className="w-5 h-5 text-[#d4af37]" />
+              <span>Ligar no Telefone</span>
+            </a>
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-[#27272a]">
           {/* Brand Info Column */}
           <div className="lg:col-span-2 flex flex-col gap-5">
-            <Link to="/" className="flex items-center gap-3 group w-fit">
+            <Link to="/" className="flex items-center gap-3.5 group w-fit">
               <img
                 src={BUSINESS_INFO.logoUrl}
-                alt="Gustavinho do Corte Logo Official"
-                className="w-16 h-16 object-contain rounded-full border border-[#d4af37] p-0.5 bg-[#0f0f0f] shadow-lg shadow-[#d4af37]/10"
+                alt="Gustavinho do Corte Logo Oficial"
+                className="w-14 h-14 object-contain rounded-full border-2 border-[#d4af37] p-0.5 bg-[#0f0f0f]"
               />
               <div>
-                <span className="font-semibold text-xl tracking-tight text-white block">
+                <span className="font-bold text-xl sm:text-2xl tracking-tight text-white block">
                   Gustavinho <span className="text-[#d4af37]">do Corte</span>
                 </span>
-                <span className="text-[11px] text-[#a1a1aa] font-medium tracking-wider uppercase">
+                <span className="text-xs text-[#a1a1aa] font-medium tracking-wide uppercase">
                   Barbearia no CIC • Curitiba
                 </span>
               </div>
             </Link>
 
-            <p className="text-[17px] text-[#a1a1aa] leading-relaxed max-w-md font-normal">
-              A experiência premium de barbearia na palma da sua mão. Corte masculino, barboterapia, química e planos mensais com facilidade de agendamento no CIC.
+            <p className="text-base text-[#d4d4d8] leading-relaxed max-w-md">
+              Corte masculino, barba na navalha com toalha quente, selagem, platinado e planos mensais no coração do CIC. Agendamento ágil e direto pelo WhatsApp.
             </p>
 
-            <div className="flex items-center gap-3 text-xs text-[#d4af37] font-semibold bg-[#18181b] border border-[#27272a] px-3.5 py-2 rounded-lg w-fit">
-              <ShieldCheck className="w-4 h-4 text-[#d4af37]" />
+            <div className="flex items-center gap-2 text-sm text-[#d4af37] font-bold bg-[#18181b] border border-[#27272a] px-4 py-2.5 rounded-xl w-fit">
+              <ShieldCheck className="w-5 h-5 text-[#d4af37]" />
               <span>★ 4.9 no Google (+180 avaliações de clientes reais)</span>
             </div>
           </div>
 
-          {/* Coluna 1: NAVEGAÇÃO */}
+          {/* Coluna 1: SERVIÇOS & VALORES */}
           <div className="flex flex-col gap-3">
-            <h3 className="text-[11px] uppercase font-medium tracking-wider text-[#d4af37]">
-              Navegação
+            <h3 className="text-xs uppercase font-extrabold tracking-wider text-[#d4af37]">
+              Serviços & Valores
             </h3>
-            <ul className="space-y-2.5 text-sm text-[#a1a1aa]">
+            <ul className="space-y-3 text-base text-[#d4d4d8]">
               <li>
-                <Link to="/servicos" className="hover:text-white transition-colors duration-150 flex items-center gap-1">
-                  <ChevronRight className="w-3 h-3 text-[#d4af37]" /> Serviços
+                <Link to="/precos" className="hover:text-white transition-colors flex items-center gap-1.5 font-medium">
+                  <ChevronRight className="w-4 h-4 text-[#d4af37]" /> Tabela de Preços
                 </Link>
               </li>
               <li>
-                <Link to="/precos" className="hover:text-white transition-colors duration-150 flex items-center gap-1">
-                  <ChevronRight className="w-3 h-3 text-[#d4af37]" /> Preços
+                <Link to="/servicos" className="hover:text-white transition-colors flex items-center gap-1.5 font-medium">
+                  <ChevronRight className="w-4 h-4 text-[#d4af37]" /> Todos os Serviços
                 </Link>
               </li>
               <li>
-                <Link to="/planos" className="hover:text-white transition-colors duration-150 flex items-center gap-1">
-                  <ChevronRight className="w-3 h-3 text-[#d4af37]" /> Planos Mensais
+                <Link to="/planos" className="hover:text-white transition-colors flex items-center gap-1.5 font-medium">
+                  <ChevronRight className="w-4 h-4 text-[#d4af37]" /> Planos Mensais
                 </Link>
               </li>
               <li>
-                <Link to="/resultados" className="hover:text-white transition-colors duration-150 flex items-center gap-1">
-                  <ChevronRight className="w-3 h-3 text-[#d4af37]" /> Resultados / Galeria
+                <Link to="/resultados" className="hover:text-white transition-colors flex items-center gap-1.5 font-medium">
+                  <ChevronRight className="w-4 h-4 text-[#d4af37]" /> Galeria de Cortes
                 </Link>
               </li>
               <li>
-                <Link to="/sobre" className="hover:text-white transition-colors duration-150 flex items-center gap-1">
-                  <ChevronRight className="w-3 h-3 text-[#d4af37]" /> Sobre o Gustavinho
+                <Link to="/faq" className="hover:text-white transition-colors flex items-center gap-1.5 font-medium">
+                  <ChevronRight className="w-4 h-4 text-[#d4af37]" /> Perguntas Frequentes
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Coluna 2: VISITE & HORÁRIO */}
+          {/* Coluna 2: LOCALIZAÇÃO & HORÁRIO */}
           <div className="flex flex-col gap-3">
-            <h3 className="text-[11px] uppercase font-medium tracking-wider text-[#d4af37]">
-              Visite
+            <h3 className="text-xs uppercase font-extrabold tracking-wider text-[#d4af37]">
+              Endereço no CIC
             </h3>
-            <div className="space-y-3 text-sm text-[#a1a1aa]">
-              <div className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 text-[#d4af37] shrink-0 mt-0.5" />
+            <div className="space-y-3.5 text-base text-[#d4d4d8]">
+              <div className="flex items-start gap-2.5">
+                <MapPin className="w-5 h-5 text-[#d4af37] shrink-0 mt-0.5" />
                 <span className="leading-snug">
+                  <strong className="text-white block font-semibold">Gustavinho do Corte</strong>
                   {BUSINESS_INFO.address.street}<br />
-                  {BUSINESS_INFO.address.neighborhood} • {BUSINESS_INFO.address.city} - {BUSINESS_INFO.address.state}
+                  CIC, Curitiba — PR
                 </span>
               </div>
 
-              <div className="flex items-start gap-2">
-                <Clock className="w-4 h-4 text-[#d4af37] shrink-0 mt-0.5" />
+              <div className="flex items-start gap-2.5">
+                <Clock className="w-5 h-5 text-[#d4af37] shrink-0 mt-0.5" />
                 <div>
-                  <span className="text-white font-medium block">Segunda a Sábado</span>
-                  <span className="text-xs">09:00 às 19:00</span>
+                  <span className="text-white font-semibold block">Segunda a Sábado</span>
+                  <span className="text-sm text-[#a1a1aa]">09:00 às 19:00</span>
                 </div>
               </div>
 
               <Link
                 to="/localizacao"
-                className="inline-flex items-center gap-1 text-xs font-bold text-[#d4af37] hover:underline"
+                className="inline-flex items-center gap-1.5 text-sm font-bold text-[#d4af37] hover:underline pt-1"
               >
-                Como Chegar →
+                <span>Ver Mapa e Como Chegar</span>
+                <ArrowRight className="w-4 h-4 text-[#d4af37]" />
               </Link>
             </div>
           </div>
 
-          {/* Coluna 3: CONTATO & CONTEÚDO */}
+          {/* Coluna 3: CONTATO DIRETO */}
           <div className="flex flex-col gap-3">
-            <h3 className="text-[11px] uppercase font-medium tracking-wider text-[#d4af37]">
-              Contato & Conteúdo
+            <h3 className="text-xs uppercase font-extrabold tracking-wider text-[#d4af37]">
+              Falar Conosco
             </h3>
-            <ul className="space-y-2.5 text-sm text-[#a1a1aa]">
+            <ul className="space-y-3.5 text-base text-[#d4d4d8]">
               <li>
                 <a
                   href={BUSINESS_INFO.whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-white transition-colors flex items-center gap-2 text-white font-medium"
+                  className="hover:text-white transition-colors flex items-center gap-2 text-white font-semibold"
                 >
-                  <MessageCircle className="w-4 h-4 text-[#d4af37]" /> WhatsApp Direct
+                  <MessageCircle className="w-5 h-5 text-[#25D366]" />
+                  <span>WhatsApp: (41) 99838-4885</span>
                 </a>
               </li>
               <li>
                 <a
                   href={`tel:${BUSINESS_INFO.phoneRaw}`}
-                  className="hover:text-white transition-colors flex items-center gap-2"
+                  className="hover:text-white transition-colors flex items-center gap-2 font-medium"
                 >
-                  <Phone className="w-4 h-4 text-[#d4af37]" /> {BUSINESS_INFO.phone}
+                  <Phone className="w-5 h-5 text-[#d4af37]" />
+                  <span>Ligar: {BUSINESS_INFO.phone}</span>
                 </a>
               </li>
               <li>
-                <Link to="/blog" className="hover:text-white transition-colors flex items-center gap-1">
-                  <ChevronRight className="w-3 h-3 text-[#d4af37]" /> Blog de Estilo
+                <Link to="/sobre" className="hover:text-white transition-colors flex items-center gap-1.5 font-medium">
+                  <ChevronRight className="w-4 h-4 text-[#d4af37]" /> Sobre o Gustavinho
                 </Link>
               </li>
               <li>
-                <Link to="/faq" className="hover:text-white transition-colors flex items-center gap-1">
-                  <ChevronRight className="w-3 h-3 text-[#d4af37]" /> Perguntas Frequentes
-                </Link>
-              </li>
-              <li>
-                <Link to="/barbearia-no-cic" className="hover:text-white transition-colors flex items-center gap-1">
-                  <ChevronRight className="w-3 h-3 text-[#d4af37]" /> Bairros Atendidos
+                <Link to="/barbearia-no-cic" className="hover:text-white transition-colors flex items-center gap-1.5 font-medium">
+                  <ChevronRight className="w-4 h-4 text-[#d4af37]" /> Atendimento CIC Curitiba
                 </Link>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Bottom Rights & Entity NAP */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#a1a1aa]">
+        {/* Bottom Rights */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-[#a1a1aa]">
           <div>
-            © {new Date().getFullYear()} Gustavinho do Corte. Todos os direitos reservados.
+            © {new Date().getFullYear()} Gustavinho do Corte • Barbearia no CIC Curitiba
           </div>
-          <div className="flex items-center gap-4 text-[11px]">
-            <span>CIC • Curitiba - PR</span>
+          <div className="flex items-center gap-4 text-xs">
+            <span>Rua Desembargador Cid Campelo, 5212 — CIC</span>
             <span>•</span>
-            <a href={BUSINESS_INFO.mapsUrl} target="_blank" rel="noopener noreferrer" className="hover:text-[#d4af37]">
-              Google Maps
+            <a
+              href={BUSINESS_INFO.mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#d4af37] font-semibold hover:underline"
+            >
+              Abrir no Google Maps
             </a>
           </div>
         </div>
@@ -167,3 +200,4 @@ export default function Footer() {
     </footer>
   );
 }
+

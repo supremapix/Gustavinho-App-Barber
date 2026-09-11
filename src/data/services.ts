@@ -7,7 +7,7 @@ export interface ServiceItem {
   duration: string;
   shortDesc: string;
   fullDesc: string;
-  category: 'cabelo' | 'barba' | 'combo' | 'quimica';
+  category: 'cabelo' | 'barba' | 'combo' | 'quimica' | 'cuidado';
   isPopular?: boolean;
   imageUrl: string;
   benefits: string[];
@@ -18,144 +18,227 @@ export const SERVICES_DATA: ServiceItem[] = [
     id: "corte-masculino",
     slug: "corte-masculino",
     title: "Corte Masculino",
-    price: 35,
-    formattedPrice: "R$ 35,00",
+    price: 50,
+    formattedPrice: "R$ 50,00",
     duration: "35 min",
-    shortDesc: "Visual renovado sem complicação. Tesoura, máquina, degradê e alinhamento perfeito.",
-    fullDesc: "Corte de cabelo masculino executado com técnica apurada. Inclui lavagem com shampoo específico, consultoria de visagismo rápida para escolher o melhor estilo (fade, taper, social ou moderno), corte preciso e finalização com pomada de alta fixação.",
+    shortDesc: "Corte executado na tesoura e máquina com degradê preciso, fade alinhado e acabamento impecável.",
+    fullDesc: "Corte de cabelo masculino com técnica apurada e visagismo. Inclui higienização, consultoria de estilo no CIC, corte detalhado e finalização de alto padrão.",
     category: "cabelo",
     isPopular: true,
     imageUrl: "https://images.unsplash.com/photo-1622286342621-4bd786c2447c?q=80&w=800&auto=format&fit=crop",
     benefits: [
-      "Consultoria prévia de formato de rosto e estilo",
-      "Lavagem higienizante inclusa",
-      "Degradê / Fade limpo e disfarçado",
-      "Pezinho navalhado e nuca impecável",
+      "Consultoria de visagismo masculino",
+      "Degradê / Fade de alta precisão",
+      "Pezinho e contorno navalhado",
       "Finalização com produto premium"
     ]
   },
   {
-    id: "barba-completa",
-    slug: "barba-completa",
-    title: "Barba Completa / Barboterapia",
-    price: 30,
-    formattedPrice: "R$ 30,00",
-    duration: "30 min",
-    shortDesc: "Modelagem, toalha quente, alinhamento navalhado e hidratação profunda.",
-    fullDesc: "Experiência relaxante de barboterapia. Iniciamos com óleo pré-barba, aplicação de toalha quente aromática para dilatação dos poros, desenho preciso das linhas do rosto na navalha descartável, pós-barba acalmante e balm hidratante.",
-    category: "barba",
-    isPopular: true,
-    imageUrl: "https://images.unsplash.com/photo-1517832606299-7ae9b720a186?q=80&w=800&auto=format&fit=crop",
-    benefits: [
-      "Toalha quente amaciante para barbear sem irritação",
-      "Alinhamento milimétrico na navalha",
-      "Óleos essenciais e balm revitalizante",
-      "Massagem facial relaxante na aplicação"
-    ]
-  },
-  {
-    id: "combo-corte-barba",
-    slug: "combo-corte-barba",
-    title: "Combo Corte + Barba",
-    price: 60,
-    formattedPrice: "R$ 60,00",
+    id: "cabelo-e-barba",
+    slug: "cabelo-e-barba",
+    title: "Cabelo + Barba",
+    price: 80,
+    formattedPrice: "R$ 80,00",
     duration: "60 min",
-    shortDesc: "A experiência completa. Corte de cabelo no seu estilo + barboterapia completa.",
-    fullDesc: "O pacote VIP indispensável para quem quer sair da barbearia renovado dos pés à cabeça. Economia direta e atendimento contínuo cobrindo todo o visual capilar e facial.",
+    shortDesc: "Combo completo: corte de cabelo masculino no seu estilo e alinhamento de barba.",
+    fullDesc: "O pacote mais procurado. Renove completamente o visual com corte personalizado e barba modelada com toalha quente e navalha descartável.",
     category: "combo",
     isPopular: true,
     imageUrl: "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=800&auto=format&fit=crop",
     benefits: [
       "Corte masculino completo à sua escolha",
       "Barboterapia completa com toalha quente",
-      "Economia de R$ 5,00 em relação aos serviços individuais",
-      "Finalização completa de barba e cabelo"
+      "Economia direta no combo",
+      "Finalização capilar e facial completa"
     ]
   },
   {
-    id: "sobrancelha-navalhada",
-    slug: "sobrancelha-navalhada",
-    title: "Sobrancelha Navalhada",
+    id: "barba-completa",
+    slug: "barba-completa",
+    title: "Barba Completa",
+    price: 50,
+    formattedPrice: "R$ 50,00",
+    duration: "35 min",
+    shortDesc: "Desenho e alinhamento na navalha, toalha quente relaxante, óleos essenciais e balm hidratante.",
+    fullDesc: "Experiência tradicional de barboterapia. Toalha quente para abrir os poros e amaciar os pelos, lâmina descartável para linhas perfeitas e pós-barba refrescante.",
+    category: "barba",
+    isPopular: true,
+    imageUrl: "https://images.unsplash.com/photo-1517832606299-7ae9b720a186?q=80&w=800&auto=format&fit=crop",
+    benefits: [
+      "Toalha quente relaxante amaciante",
+      "Desenho preciso na navalha descartável",
+      "Hidratação com óleo e balm",
+      "Pós-barba calmante sem irritação"
+    ]
+  },
+  {
+    id: "design-sobrancelha",
+    slug: "design-de-sobrancelha",
+    title: "Design de Sobrancelha",
     price: 15,
     formattedPrice: "R$ 15,00",
     duration: "15 min",
-    shortDesc: "Design e alinhamento preciso respeitando o desenho natural do rosto.",
-    fullDesc: "Limpeza de fios sobressalentes e harmonização do olhar. Feito com lâmina afiada e gel de barbear transparente para máxima precisão e higiene.",
-    category: "cabelo",
+    shortDesc: "Alinhamento e limpeza precisa respeitando o formato masculino natural do olhar.",
+    fullDesc: "Remoção de pelos sobressalentes e harmonização do olhar masculino feita com rapidez e precisão na lâmina descartável.",
+    category: "cuidado",
     imageUrl: "https://images.unsplash.com/photo-1605497788044-5a32c7078486?q=80&w=800&auto=format&fit=crop",
     benefits: [
       "Design masculino natural",
-      "Remoção de excesso do centro e arcos",
-      "Sem dores de pinça, processo rápido"
+      "Limpeza rápida entre as sobrancelhas",
+      "Harmonização do rosto"
     ]
   },
   {
-    id: "pezinho-acabamento",
-    slug: "pezinho-acabamento",
-    title: "Acabamento / Pezinho",
-    price: 15,
-    formattedPrice: "R$ 15,00",
-    duration: "15 min",
-    shortDesc: "Manutenção do contorno do cabelo e nuca para manter o corte em dia.",
-    fullDesc: "Ideal para o intervalo entre grandes cortes. Alinha o contorno das orelhas, nuca e têmporas mantendo a sensação de corte fresco por mais tempo.",
-    category: "cabelo",
-    imageUrl: "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=800&auto=format&fit=crop",
-    benefits: [
-      "Limpeza rápida de nuca e laterais",
-      "Desenho limpo na navalha",
-      "Economia para manter o visual em dia"
-    ]
-  },
-  {
-    id: "platinado-nevou",
-    slug: "platinado-nevou",
-    title: "Platinado / Nevou",
-    price: 120,
-    formattedPrice: "R$ 120,00",
-    duration: "120 min",
-    shortDesc: "Descoloração profissional uniforme sem agredir o couro cabeludo + matização.",
-    fullDesc: "Processo técnico de descoloração e matização para atingir o loiro platinado/branco neve perfeito. Utilizamos protetores capilares para preservar a saúde do fio e do couro.",
-    category: "quimica",
-    imageUrl: "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?q=80&w=800&auto=format&fit=crop",
-    benefits: [
-      "Descoloração profissional com protetor de couro cabeludo",
-      "Matização cinza/branco neve sem amarelar",
-      "Hidratação profunda pós-química",
-      "Orientação de manutenção em casa"
-    ]
-  },
-  {
-    id: "pigmentacao",
-    slug: "pigmentacao",
-    title: "Pigmentação de Barba / Cabelo",
+    id: "depilacao-nariz",
+    slug: "depilacao-de-nariz",
+    title: "Depilação de Nariz",
     price: 25,
     formattedPrice: "R$ 25,00",
-    duration: "20 min",
-    shortDesc: "Correção de falhas e realce de contorno para uma barba ou cabelo mais denso.",
-    fullDesc: "Aplicação de pigmento especial temporário para cobrir fios brancos ou preencher falhas na barba e cabelo. Proporciona aspecto mais denso e desenhado.",
-    category: "quimica",
-    imageUrl: "https://images.unsplash.com/photo-1517832606299-7ae9b720a186?q=80&w=800&auto=format&fit=crop",
+    duration: "15 min",
+    shortDesc: "Remoção higiênica e rápida dos pelos nasais com cera morna hipoalergênica.",
+    fullDesc: "Procedimento seguro e rápido que retira os pelos visíveis do nariz com conforto e máxima higiene, garantindo respiração livre e visual limpo.",
+    category: "cuidado",
+    imageUrl: "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=800&auto=format&fit=crop",
     benefits: [
-      "Disfarce instantâneo de falhas",
-      "Efeito degradê mais marcado",
-      "Cobre fios brancos com aspecto natural"
+      "Cera morna hipoalergênica",
+      "Procedimento rápido e indolor",
+      "Higiene e visual impecável"
     ]
   },
   {
-    id: "selagem-botox",
-    slug: "selagem-botox",
-    title: "Selagem / Botox Capilar",
-    price: 70,
-    formattedPrice: "R$ 70,00",
-    duration: "45 min",
-    shortDesc: "Alinhamento dos fios, redução de frizz e facilidade na hora de pentear.",
-    fullDesc: "Tratamento de reconstrução e alinhamento. Reduz o volume excessivo, disciplina fios rebeldes e dá brilho sem tirar a masculinidade do penteado.",
+    id: "depilacao-ouvido",
+    slug: "depilacao-de-ouvido",
+    title: "Depilação de Ouvido",
+    price: 25,
+    formattedPrice: "R$ 25,00",
+    duration: "15 min",
+    shortDesc: "Limpeza precisa dos pelos das orelhas e canal auricular externo com cera morna.",
+    fullDesc: "Elimina pelos incômodos nas orelhas de forma higiênica e duradoura com produto específico e aplicação cuidadosa.",
+    category: "cuidado",
+    imageUrl: "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=800&auto=format&fit=crop",
+    benefits: [
+      "Aplicação cuidadosa e segura",
+      "Eliminação completa dos pelos visíveis",
+      "Duração de várias semanas"
+    ]
+  },
+  {
+    id: "hidratacao-capilar",
+    slug: "hidratacao-capilar",
+    title: "Hidratação Capilar",
+    price: 35,
+    formattedPrice: "R$ 35,00",
+    duration: "25 min",
+    shortDesc: "Recuperação do brilho, maciez e vitalidade dos fios com máscara nutritiva profissional.",
+    fullDesc: "Tratamento de nutrição intensa para cabelos secos ou danificados pelo sol e poluição. Devolve maciez, brilho e maleabilidade.",
+    category: "cabelo",
+    imageUrl: "https://images.unsplash.com/photo-1622286342621-4bd786c2447c?q=80&w=800&auto=format&fit=crop",
+    benefits: [
+      "Máscara nutritiva profissional",
+      "Redução de ressecamento e opacidade",
+      "Couro cabeludo revigorado"
+    ]
+  },
+  {
+    id: "limpeza-de-pele",
+    slug: "limpeza-de-pele",
+    title: "Limpeza de Pele",
+    price: 35,
+    formattedPrice: "R$ 35,00",
+    duration: "30 min",
+    shortDesc: "Esfoliação facial, remoção de impurezas e oleosidade excessiva com máscara purificante.",
+    fullDesc: "Cuidado facial masculino que renova a pele, desobstrui poros e remove células mortas, deixando o rosto revigorado e hidratado.",
+    category: "cuidado",
+    imageUrl: "https://images.unsplash.com/photo-1517832606299-7ae9b720a186?q=80&w=800&auto=format&fit=crop",
+    benefits: [
+      "Esfoliação e máscara purificante",
+      "Controle de oleosidade e brilho excessivo",
+      "Pele renovada e descansada"
+    ]
+  },
+  {
+    id: "hidratacao-de-barba",
+    slug: "hidratacao-de-barba",
+    title: "Hidratação de Barba",
+    price: 35,
+    formattedPrice: "R$ 35,00",
+    duration: "20 min",
+    shortDesc: "Tratamento profundo para fios ásperos ou ressecados, proporcionando maciez e alinhamento.",
+    fullDesc: "Nutrição específica para os fios da barba com produtos de alta absorção. Evita coceiras, pontas duplas e fios espetados.",
+    category: "barba",
+    imageUrl: "https://images.unsplash.com/photo-1517832606299-7ae9b720a186?q=80&w=800&auto=format&fit=crop",
+    benefits: [
+      "Nutrição profunda dos fios da barba",
+      "Toque macio e sedoso",
+      "Elimina coceira e ressecamento"
+    ]
+  },
+  {
+    id: "selagem",
+    slug: "selagem",
+    title: "Selagem",
+    price: 80,
+    formattedPrice: "R$ 80,00",
+    duration: "50 min",
+    shortDesc: "Redução de volume e frizz, alinhando os fios com aspecto natural e fácil manutenção.",
+    fullDesc: "Procedimento que alinha a estrutura dos fios, fecha as cutículas capilares e elimina o frizz sem perder a naturalidade do corte masculino.",
     category: "quimica",
     imageUrl: "https://images.unsplash.com/photo-1622286342621-4bd786c2447c?q=80&w=800&auto=format&fit=crop",
     benefits: [
-      "Eliminação total do frizz",
       "Redução controlada de volume",
-      "Facilidade para pentear diariamente"
+      "Eliminação do frizz diário",
+      "Praticidade total ao pentear"
+    ]
+  },
+  {
+    id: "luzes",
+    slug: "luzes",
+    title: "Luzes",
+    price: 100,
+    formattedPrice: "R$ 100,00",
+    duration: "90 min",
+    shortDesc: "Mechas e reflexos com descoloração controlada na touca ou pente para efeito luminoso.",
+    fullDesc: "Clareamento uniforme em mechas distribuídas estrategicamente para criar destaque e modernidade no corte com produtos que protegem os fios.",
+    category: "quimica",
+    imageUrl: "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?q=80&w=800&auto=format&fit=crop",
+    benefits: [
+      "Descoloração profissional dosada",
+      "Matização para evitar tons amarelados",
+      "Realce e destaque do corte"
+    ]
+  },
+  {
+    id: "progressiva",
+    slug: "progressiva",
+    title: "Progressiva",
+    price: 120,
+    formattedPrice: "R$ 120,00",
+    duration: "90 min",
+    shortDesc: "Alisamento duradouro e disciplina dos fios com brilho e maleabilidade.",
+    fullDesc: "Tratamento de alisamento capilar masculino com fórmula moderna que sela a fibra capilar, elimina ondas rebeldes e dura semanas.",
+    category: "quimica",
+    imageUrl: "https://images.unsplash.com/photo-1622286342621-4bd786c2447c?q=80&w=800&auto=format&fit=crop",
+    benefits: [
+      "Alisamento duradouro e uniforme",
+      "Facilidade ao lavar e secar",
+      "Brilho e maciez intensa"
+    ]
+  },
+  {
+    id: "platinado",
+    slug: "platinado",
+    title: "Platinado",
+    price: 120,
+    formattedPrice: "R$ 120,00",
+    duration: "120 min",
+    shortDesc: "Descoloração profissional uniforme (Nevou) com matização prata/branco neve de respeito.",
+    fullDesc: "Processo técnico de descoloração e matização para atingir o loiro platinado ou branco neve perfeito. Utilizamos protetor capilar e hidratação para manter a saúde dos fios.",
+    category: "quimica",
+    imageUrl: "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?q=80&w=800&auto=format&fit=crop",
+    benefits: [
+      "Nevou perfeito e uniforme",
+      "Matização cinza/branco sem amarelo",
+      "Proteção e hidratação pós-química"
     ]
   }
 ];

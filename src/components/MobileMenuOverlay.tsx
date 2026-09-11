@@ -4,17 +4,15 @@ import {
   X,
   Scissors,
   Tag,
-  Calendar,
   MapPin,
   Clock,
   Phone,
   MessageCircle,
   Award,
   HelpCircle,
-  BookOpen,
-  Info,
   ChevronRight,
-  Sparkles
+  Sparkles,
+  ExternalLink
 } from "lucide-react";
 import { BUSINESS_INFO } from "../data/business";
 
@@ -28,188 +26,265 @@ export default function MobileMenuOverlay({ isOpen, onClose }: MobileMenuOverlay
 
   return (
     <div
-      className="fixed inset-0 z-50 bg-[#0f0f0f]/98 backdrop-blur-xl flex flex-col overflow-y-auto animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 bg-[#121214] flex flex-col overflow-y-auto animate-in fade-in duration-200"
       role="dialog"
       aria-modal="true"
       aria-label="Menu de Navegação Principal"
     >
       {/* Top Header inside overlay */}
-      <div className="sticky top-0 z-10 bg-[#0f0f0f] border-b border-[#27272a] px-5 py-4 flex items-center justify-between">
+      <div className="sticky top-0 z-20 bg-[#18181b] border-b border-[#27272a] px-4 py-3.5 flex items-center justify-between shadow-md">
         <div className="flex items-center gap-3">
           <img
             src={BUSINESS_INFO.logoUrl}
-            alt="Gustavinho do Corte Logo"
-            className="w-10 h-10 object-contain rounded-full border border-[#d4af37]"
+            alt="Gustavinho do Corte"
+            className="w-11 h-11 object-contain rounded-full border-2 border-[#d4af37] bg-[#0f0f0f]"
           />
           <div>
-            <div className="font-extrabold text-base text-white">GUSTAVINHO DO CORTE</div>
-            <div className="text-[11px] text-[#d4af37] font-medium">Barbearia no CIC • Curitiba</div>
+            <div className="font-bold text-base text-white leading-tight">
+              Gustavinho <span className="text-[#d4af37]">do Corte</span>
+            </div>
+            <div className="text-xs text-[#a1a1aa]">
+              Barbearia no CIC • Curitiba
+            </div>
           </div>
         </div>
 
+        {/* Big, easy to tap Close button with text */}
         <button
           onClick={onClose}
-          className="p-3 rounded-full bg-[#18181b] border border-[#27272a] text-[#a1a1aa] hover:text-white hover:border-[#d4af37] min-h-[48px] min-w-[48px] flex items-center justify-center active:scale-95 transition-all"
+          className="flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-[#27272a] hover:bg-[#3f3f46] text-white border border-[#3f3f46] min-h-[48px] font-bold text-sm active:scale-95 transition-all"
           aria-label="Fechar Menu"
         >
-          <X className="w-6 h-6" />
+          <X className="w-5 h-5 text-white" />
+          <span>Fechar</span>
         </button>
       </div>
 
-      <div className="p-5 flex-1 flex flex-col justify-between max-w-lg mx-auto w-full pb-10">
-        {/* Greeting */}
-        <div className="mb-6 pt-2">
-          <span className="inline-block text-xs uppercase tracking-widest text-[#d4af37] font-semibold mb-1">
-            Navegação Direta
+      <div className="p-4 sm:p-6 flex-1 flex flex-col justify-between max-w-lg mx-auto w-full pb-12">
+        {/* Notice for seniors / customers */}
+        <div className="mb-5 bg-[#1f1f23] border border-[#d4af37]/30 rounded-2xl p-4 text-left">
+          <span className="text-xs font-bold uppercase tracking-wider text-[#d4af37] block mb-1">
+            Atendimento Rápido
           </span>
-          <h2 className="text-2xl font-black text-white">Olá. O que você procura?</h2>
+          <p className="text-white text-sm sm:text-base font-medium leading-relaxed">
+            Agendamento exclusivo pelo WhatsApp ou ligue diretamente para a barbearia.
+          </p>
         </div>
 
-        {/* Primary Priority Actions Grid (2 Touches Access) */}
-        <div className="grid grid-cols-2 gap-3 mb-8">
+        {/* Priority 1: Large WhatsApp Direct Action Button */}
+        <div className="space-y-3 mb-6">
           <a
             href={BUSINESS_INFO.whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
             onClick={onClose}
-            className="col-span-2 p-4 rounded-xl bg-[#d4af37] text-[#0f0f0f] font-bold text-base flex items-center justify-between active:scale-[0.98] transition-all min-h-[56px]"
+            className="w-full p-4 rounded-2xl bg-[#25D366] hover:bg-[#20bd5a] text-[#0f0f0f] font-extrabold flex items-center justify-between shadow-lg active:scale-[0.98] transition-all min-h-[64px]"
           >
-            <div className="flex items-center gap-3">
-              <Calendar className="w-6 h-6 text-[#0f0f0f]" />
-              <div className="flex flex-col items-start leading-tight">
-                <span className="text-xs uppercase tracking-wider opacity-80">Prioridade</span>
-                <span className="text-base font-extrabold">AGENDAR HORÁRIO</span>
+            <div className="flex items-center gap-3.5">
+              <div className="w-12 h-12 rounded-xl bg-black/10 flex items-center justify-center shrink-0">
+                <MessageCircle className="w-7 h-7 text-[#0f0f0f]" />
+              </div>
+              <div className="flex flex-col text-left">
+                <span className="text-xs font-bold uppercase tracking-wider text-black/70">
+                  Agendamento Exclusivo
+                </span>
+                <span className="text-lg sm:text-xl font-black leading-tight text-[#0f0f0f]">
+                  Chamar no WhatsApp
+                </span>
+                <span className="text-xs font-semibold text-black/80">
+                  (41) 99838-4885 • Resposta rápida
+                </span>
               </div>
             </div>
-            <ChevronRight className="w-5 h-5 text-[#0f0f0f]" />
+            <ChevronRight className="w-6 h-6 text-[#0f0f0f] shrink-0" />
           </a>
 
-          <Link
-            to="/servicos"
+          {/* Priority 2: Traditional Phone Call Button for elderly clients */}
+          <a
+            href={`tel:${BUSINESS_INFO.phoneRaw}`}
             onClick={onClose}
-            className="p-4 rounded-xl bg-[#18181b] border border-[#27272a] hover:border-[#d4af37] text-white flex flex-col gap-2 justify-between min-h-[72px] active:scale-95 transition-all"
+            className="w-full p-4 rounded-2xl bg-[#1f1f23] hover:bg-[#27272a] border-2 border-[#3f3f46] hover:border-[#d4af37] text-white flex items-center justify-between min-h-[58px] active:scale-[0.98] transition-all"
           >
-            <Scissors className="w-6 h-6 text-[#d4af37]" />
-            <span className="font-bold text-sm text-white">Serviços</span>
-          </Link>
+            <div className="flex items-center gap-3.5">
+              <div className="w-11 h-11 rounded-xl bg-[#27272a] flex items-center justify-center shrink-0">
+                <Phone className="w-6 h-6 text-[#d4af37]" />
+              </div>
+              <div className="flex flex-col text-left">
+                <span className="text-base font-bold text-white leading-tight">
+                  Ligar pelo Telefone
+                </span>
+                <span className="text-xs text-[#a1a1aa]">
+                  (41) 99838-4885 • Chamada normal
+                </span>
+              </div>
+            </div>
+            <ChevronRight className="w-5 h-5 text-[#a1a1aa] shrink-0" />
+          </a>
+        </div>
+
+        {/* Main Sections Navigation with big buttons */}
+        <div className="space-y-2.5 mb-6">
+          <span className="text-xs uppercase tracking-wider text-[#a1a1aa] font-bold px-1 block mb-2 text-left">
+            Páginas e Valores
+          </span>
 
           <Link
             to="/precos"
             onClick={onClose}
-            className="p-4 rounded-xl bg-[#18181b] border border-[#27272a] hover:border-[#d4af37] text-white flex flex-col gap-2 justify-between min-h-[72px] active:scale-95 transition-all"
+            className="w-full p-4 rounded-2xl bg-[#18181b] border border-[#27272a] hover:border-[#d4af37] flex items-center justify-between min-h-[56px] active:scale-[0.98] transition-all"
           >
-            <Tag className="w-6 h-6 text-[#d4af37]" />
-            <span className="font-bold text-sm text-white">Preços</span>
+            <div className="flex items-center gap-3.5">
+              <Tag className="w-6 h-6 text-[#d4af37] shrink-0" />
+              <div className="text-left">
+                <span className="font-bold text-base text-white block">
+                  Tabela de Preços Completa
+                </span>
+                <span className="text-xs text-[#a1a1aa]">
+                  Corte R$ 50 • Barba R$ 50 • Químicas
+                </span>
+              </div>
+            </div>
+            <ChevronRight className="w-5 h-5 text-[#a1a1aa] shrink-0" />
+          </Link>
+
+          <Link
+            to="/servicos"
+            onClick={onClose}
+            className="w-full p-4 rounded-2xl bg-[#18181b] border border-[#27272a] hover:border-[#d4af37] flex items-center justify-between min-h-[56px] active:scale-[0.98] transition-all"
+          >
+            <div className="flex items-center gap-3.5">
+              <Scissors className="w-6 h-6 text-[#d4af37] shrink-0" />
+              <div className="text-left">
+                <span className="font-bold text-base text-white block">
+                  Serviços e Tratamentos
+                </span>
+                <span className="text-xs text-[#a1a1aa]">
+                  Detalhes de cada serviço capilar e facial
+                </span>
+              </div>
+            </div>
+            <ChevronRight className="w-5 h-5 text-[#a1a1aa] shrink-0" />
+          </Link>
+
+          <Link
+            to="/planos"
+            onClick={onClose}
+            className="w-full p-4 rounded-2xl bg-[#18181b] border border-[#27272a] hover:border-[#d4af37] flex items-center justify-between min-h-[56px] active:scale-[0.98] transition-all"
+          >
+            <div className="flex items-center gap-3.5">
+              <Sparkles className="w-6 h-6 text-[#d4af37] shrink-0" />
+              <div className="text-left">
+                <span className="font-bold text-base text-white block">
+                  Planos Mensais
+                </span>
+                <span className="text-xs text-[#a1a1aa]">
+                  Assinaturas a partir de R$ 90/mês
+                </span>
+              </div>
+            </div>
+            <ChevronRight className="w-5 h-5 text-[#a1a1aa] shrink-0" />
           </Link>
 
           <Link
             to="/localizacao"
             onClick={onClose}
-            className="p-4 rounded-xl bg-[#18181b] border border-[#27272a] hover:border-[#d4af37] text-white flex flex-col gap-2 justify-between min-h-[72px] active:scale-95 transition-all"
+            className="w-full p-4 rounded-2xl bg-[#18181b] border border-[#27272a] hover:border-[#d4af37] flex items-center justify-between min-h-[56px] active:scale-[0.98] transition-all"
           >
-            <MapPin className="w-6 h-6 text-[#d4af37]" />
-            <span className="font-bold text-sm text-white">Como Chegar</span>
-          </Link>
-
-          <a
-            href={`tel:${BUSINESS_INFO.phoneRaw}`}
-            onClick={onClose}
-            className="p-4 rounded-xl bg-[#18181b] border border-[#27272a] hover:border-[#d4af37] text-white flex flex-col gap-2 justify-between min-h-[72px] active:scale-95 transition-all"
-          >
-            <Phone className="w-6 h-6 text-[#d4af37]" />
-            <span className="font-bold text-sm text-white">Ligar Agora</span>
-          </a>
-        </div>
-
-        {/* Quick Info Badge */}
-        <div className="p-3.5 rounded-xl bg-[#18181b]/70 border border-[#27272a] mb-8 flex items-center justify-between text-xs text-[#a1a1aa]">
-          <div className="flex items-center gap-2">
-            <Clock className="w-4 h-4 text-[#d4af37]" />
-            <span>Seg a Sáb • 09h às 19h</span>
-          </div>
-          <span className="px-2 py-0.5 rounded bg-[#d4af37]/20 text-[#d4af37] font-semibold text-[10px]">
-            ABERTO
-          </span>
-        </div>
-
-        {/* Secondary Navigation Links */}
-        <div className="space-y-1 border-t border-[#27272a] pt-6 mb-8">
-          <span className="text-[11px] uppercase tracking-widest text-[#a1a1aa] font-semibold px-2 mb-2 block">
-            Todas as Seções
-          </span>
-
-          <Link
-            to="/planos"
-            onClick={onClose}
-            className="w-full px-3 py-3 rounded-lg text-white font-medium hover:bg-[#18181b] hover:text-[#d4af37] flex items-center justify-between min-h-[48px]"
-          >
-            <div className="flex items-center gap-3">
-              <Sparkles className="w-5 h-5 text-[#d4af37]" />
-              <span>Planos de Assinatura</span>
+            <div className="flex items-center gap-3.5">
+              <MapPin className="w-6 h-6 text-[#d4af37] shrink-0" />
+              <div className="text-left">
+                <span className="font-bold text-base text-white block">
+                  Endereço e Como Chegar
+                </span>
+                <span className="text-xs text-[#a1a1aa]">
+                  Rua Des. Cid Campelo, 5212 — CIC
+                </span>
+              </div>
             </div>
-            <ChevronRight className="w-4 h-4 text-[#a1a1aa]" />
+            <ChevronRight className="w-5 h-5 text-[#a1a1aa] shrink-0" />
           </Link>
 
           <Link
             to="/resultados"
             onClick={onClose}
-            className="w-full px-3 py-3 rounded-lg text-white font-medium hover:bg-[#18181b] hover:text-[#d4af37] flex items-center justify-between min-h-[48px]"
+            className="w-full p-4 rounded-2xl bg-[#18181b] border border-[#27272a] hover:border-[#d4af37] flex items-center justify-between min-h-[56px] active:scale-[0.98] transition-all"
           >
-            <div className="flex items-center gap-3">
-              <Award className="w-5 h-5 text-[#d4af37]" />
-              <span>Galeria & Resultados</span>
+            <div className="flex items-center gap-3.5">
+              <Award className="w-6 h-6 text-[#d4af37] shrink-0" />
+              <div className="text-left">
+                <span className="font-bold text-base text-white block">
+                  Fotos e Resultados
+                </span>
+                <span className="text-xs text-[#a1a1aa]">
+                  Galeria de cortes realizados
+                </span>
+              </div>
             </div>
-            <ChevronRight className="w-4 h-4 text-[#a1a1aa]" />
-          </Link>
-
-          <Link
-            to="/sobre"
-            onClick={onClose}
-            className="w-full px-3 py-3 rounded-lg text-white font-medium hover:bg-[#18181b] hover:text-[#d4af37] flex items-center justify-between min-h-[48px]"
-          >
-            <div className="flex items-center gap-3">
-              <Info className="w-5 h-5 text-[#d4af37]" />
-              <span>Sobre o Gustavinho</span>
-            </div>
-            <ChevronRight className="w-4 h-4 text-[#a1a1aa]" />
+            <ChevronRight className="w-5 h-5 text-[#a1a1aa] shrink-0" />
           </Link>
 
           <Link
             to="/faq"
             onClick={onClose}
-            className="w-full px-3 py-3 rounded-lg text-white font-medium hover:bg-[#18181b] hover:text-[#d4af37] flex items-center justify-between min-h-[48px]"
+            className="w-full p-4 rounded-2xl bg-[#18181b] border border-[#27272a] hover:border-[#d4af37] flex items-center justify-between min-h-[56px] active:scale-[0.98] transition-all"
           >
-            <div className="flex items-center gap-3">
-              <HelpCircle className="w-5 h-5 text-[#d4af37]" />
-              <span>Perguntas Frequentes</span>
+            <div className="flex items-center gap-3.5">
+              <HelpCircle className="w-6 h-6 text-[#d4af37] shrink-0" />
+              <div className="text-left">
+                <span className="font-bold text-base text-white block">
+                  Dúvidas Frequentes
+                </span>
+                <span className="text-xs text-[#a1a1aa]">
+                  Horários, formas de pagamento e localização
+                </span>
+              </div>
             </div>
-            <ChevronRight className="w-4 h-4 text-[#a1a1aa]" />
-          </Link>
-
-          <Link
-            to="/blog"
-            onClick={onClose}
-            className="w-full px-3 py-3 rounded-lg text-white font-medium hover:bg-[#18181b] hover:text-[#d4af37] flex items-center justify-between min-h-[48px]"
-          >
-            <div className="flex items-center gap-3">
-              <BookOpen className="w-5 h-5 text-[#d4af37]" />
-              <span>Blog de Estilo Masculino</span>
-            </div>
-            <ChevronRight className="w-4 h-4 text-[#a1a1aa]" />
+            <ChevronRight className="w-5 h-5 text-[#a1a1aa] shrink-0" />
           </Link>
         </div>
 
-        {/* Footer Contact Direct Button */}
-        <a
-          href={BUSINESS_INFO.whatsappUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="p-4 rounded-xl bg-[#18181b] border border-[#d4af37]/40 text-[#f4f4f5] flex items-center gap-3 justify-center text-sm font-semibold hover:bg-[#d4af37] hover:text-[#0f0f0f] transition-all min-h-[48px]"
+        {/* Clear Business Location & Hours Summary */}
+        <div className="bg-[#18181b] border border-[#27272a] rounded-2xl p-4 text-left space-y-3 mb-6">
+          <div className="flex items-start gap-3">
+            <MapPin className="w-5 h-5 text-[#d4af37] shrink-0 mt-0.5" />
+            <div>
+              <span className="text-xs font-bold text-white uppercase tracking-wide block">
+                Localização
+              </span>
+              <p className="text-sm text-[#d4af37] font-semibold">
+                Rua Desembargador Cid Campelo, 5212
+              </p>
+              <p className="text-xs text-[#a1a1aa]">
+                Bairro CIC — Curitiba - PR
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-start gap-3 pt-2 border-t border-[#27272a]">
+            <Clock className="w-5 h-5 text-[#d4af37] shrink-0 mt-0.5" />
+            <div>
+              <span className="text-xs font-bold text-white uppercase tracking-wide block">
+                Horário de Atendimento
+              </span>
+              <p className="text-sm font-semibold text-white">
+                Segunda a Sábado: 09:00 às 19:00
+              </p>
+              <p className="text-xs text-[#a1a1aa]">
+                Domingos e Feriados: Fechado
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Big Close Button at Bottom */}
+        <button
+          onClick={onClose}
+          className="w-full py-3.5 rounded-xl bg-[#27272a] text-white font-bold text-base hover:bg-[#3f3f46] active:scale-95 transition-all min-h-[48px]"
         >
-          <MessageCircle className="w-5 h-5 text-[#d4af37] group-hover:text-[#0f0f0f]" />
-          <span>Falar com Barbeiro no WhatsApp</span>
-        </a>
+          Voltar para o site (Fechar Menu)
+        </button>
       </div>
     </div>
   );
 }
+

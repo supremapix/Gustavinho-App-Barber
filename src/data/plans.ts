@@ -4,6 +4,8 @@ export interface SubscriptionPlan {
   price: number;
   formattedPrice: string;
   period: string;
+  days: string;
+  economy: string;
   shortDesc: string;
   features: string[];
   ctaText: string;
@@ -13,51 +15,79 @@ export interface SubscriptionPlan {
 
 export const SUBSCRIPTION_PLANS: SubscriptionPlan[] = [
   {
-    id: "plano-cabelo",
-    name: "Plano Cabelo Livre",
+    id: "plano-cabelo-essencial",
+    name: "Plano Cabelo Essencial",
     price: 90,
-    formattedPrice: "R$ 90,00",
+    formattedPrice: "R$ 90",
     period: "/mês",
-    shortDesc: "Mantenha o cabelo sempre na régua sem se preocupar com o valor por visita.",
+    days: "Segunda a Quarta",
+    economy: "R$ 110",
+    shortDesc: "Cortes frequentes no início da semana com máxima economia para você estar sempre alinhado.",
     features: [
-      "Cortes masculinos ilimitados no mês",
-      "Prioridade de agendamento no WhatsApp",
-      "Pezinho de manutenção cortesia",
-      "10% de desconto em produtos da barbearia"
+      "Atendimento de Segunda a Quarta",
+      "Economia calculada de R$ 110/mês",
+      "Sem fidelidade • Cancele quando quiser",
+      "Agendamento prioritário no WhatsApp",
+      "Atendimento VIP no CIC Curitiba"
     ],
-    ctaText: "ASSINAR PLANO CABELO"
+    ctaText: "ASSINAR CABELO ESSENCIAL"
   },
   {
-    id: "plano-vip",
-    name: "Plano VIP Total",
-    price: 140,
-    formattedPrice: "R$ 140,00",
+    id: "plano-completo-essencial",
+    name: "Plano Completo Essencial",
+    price: 170,
+    formattedPrice: "R$ 170",
     period: "/mês",
-    shortDesc: "Cabelo e barba alinhados o mês inteiro com custo-benefício máximo.",
+    days: "Segunda a Quarta",
+    economy: "R$ 150",
+    shortDesc: "Cabelo e barba alinhados de segunda a quarta com a maior economia mensal da barbearia.",
     isPopular: true,
-    highlightTag: "MAIS COMPLETO",
+    highlightTag: "MAIOR ECONOMIA",
     features: [
-      "Cortes e barbas ilimitados durante todo o mês",
-      "Barboterapia completa com toalha quente",
-      "Horários prioritários e flexíveis",
-      "Sobrancelha inclusa quinzenalmente",
-      "15% de desconto em produtos de cuidado"
+      "Cabelo + Barba de Segunda a Quarta",
+      "Economia calculada de R$ 150/mês",
+      "Toalha quente e barboterapia completa",
+      "Sem fidelidade • Cancele quando quiser",
+      "Atendimento VIP e exclusivo"
     ],
-    ctaText: "ASSINAR PLANO VIP"
+    ctaText: "ASSINAR COMPLETO ESSENCIAL"
   },
   {
-    id: "plano-barba",
-    name: "Plano Barba Premium",
-    price: 80,
-    formattedPrice: "R$ 80,00",
+    id: "plano-cabelo-flex",
+    name: "Plano Cabelo Flex",
+    price: 120,
+    formattedPrice: "R$ 120",
     period: "/mês",
-    shortDesc: "Para quem leva a barba a sério e quer o rosto sempre alinhado.",
+    days: "Segunda a Sábado",
+    economy: "R$ 80",
+    shortDesc: "Liberdade total para cortar o cabelo qualquer dia da semana, inclusive sextas e sábados.",
     features: [
-      "Barbas ilimitadas com toalha quente",
-      "Hidratação e alinhamento na navalha",
-      "Atendimento ágil sem filas",
-      "10% de desconto em balms e óleos"
+      "Válido de Segunda a Sábado (todos os dias)",
+      "Economia calculada de R$ 80/mês",
+      "Flexibilidade de horários no CIC",
+      "Sem fidelidade • Cancele quando quiser",
+      "Atendimento VIP prioritário"
     ],
-    ctaText: "ASSINAR PLANO BARBA"
+    ctaText: "ASSINAR CABELO FLEX"
+  },
+  {
+    id: "plano-completo-flex",
+    name: "Plano Completo Flex",
+    price: 200,
+    formattedPrice: "R$ 200",
+    period: "/mês",
+    days: "Segunda a Sábado",
+    economy: "R$ 120",
+    shortDesc: "O plano mais completo da barbearia: cabelo e barba com total liberdade de segunda a sábado.",
+    isPopular: true,
+    highlightTag: "EXPERIÊNCIA TOTAL",
+    features: [
+      "Cabelo + Barba de Segunda a Sábado",
+      "Economia calculada de R$ 120/mês",
+      "Barboterapia completa com toalha quente",
+      "Sem fidelidade • Cancele quando quiser",
+      "Horários prioritários e Atendimento VIP"
+    ],
+    ctaText: "ASSINAR COMPLETO FLEX"
   }
 ];
