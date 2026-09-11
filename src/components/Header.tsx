@@ -131,7 +131,7 @@ export default function Header() {
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black bg-[#d4af37] hover:bg-[#e5c158] text-[#0f0f0f] transition-all duration-200 shadow-md active:scale-95 whitespace-nowrap"
             >
               <Calendar className="w-4 h-4 text-[#0f0f0f]" />
-              <span>Agendar Horário</span>
+              <span>Agendar</span>
             </Link>
           </div>
 

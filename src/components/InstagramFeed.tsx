@@ -12,10 +12,10 @@ export default function InstagramFeed() {
           loop
           muted
           playsInline
-          className="w-full h-full object-cover object-center opacity-15 scale-105"
+          className="w-full h-full object-cover object-center opacity-35 sm:opacity-45 scale-105"
           src="https://img.supremasite.com.br/gusta/video-barber.mp4"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-gray-50/80 via-gray-50/60 to-gray-50/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-50/70 via-gray-50/40 to-gray-50/70" />
       </div>
 
       {/* Background Soft Glow Decorators */}
@@ -71,16 +71,21 @@ export default function InstagramFeed() {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8"
         >
-          <a
-            href="https://www.instagram.com/gustavinhodocortee/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500 text-white font-extrabold text-base shadow-lg shadow-pink-500/20 hover:opacity-95 active:scale-95 transition-all w-full sm:w-auto"
-          >
-            <Instagram className="w-5 h-5" />
-            <span>Seguir no Instagram Oficial</span>
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </a>
+          <div>
+            <a
+              href="https://www.instagram.com/gustavinhodocortee/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500 text-white font-extrabold text-base shadow-lg shadow-pink-500/20 hover:opacity-95 active:scale-95 transition-all w-full sm:w-auto"
+            >
+              <Instagram className="w-5 h-5" />
+              <span>Instagram</span>
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </a>
+            <span className="block text-[10px] text-gray-500 font-normal tracking-tight mt-1 text-center">
+              perfil oficial @gustavinhodocortee
+            </span>
+          </div>
 
           <div className="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-2xl bg-white border border-gray-200 shadow-md">
             <ShieldCheck className="w-5 h-5 text-emerald-500 shrink-0" />

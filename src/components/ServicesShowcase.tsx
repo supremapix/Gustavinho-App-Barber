@@ -62,9 +62,12 @@ export default function ServicesShowcase() {
                 to="/servicos"
                 className="inline-flex items-center gap-2 text-sm font-bold text-[#d4af37] hover:text-[#e5c158] transition-colors group"
               >
-                <span>Ver todos os serviços e preços</span>
+                <span>Serviços</span>
                 <ArrowRight className="w-4 h-4 text-[#d4af37] group-hover:translate-x-1 transition-transform" />
               </Link>
+              <span className="block text-[10px] text-gray-400 font-normal tracking-tight mt-0.5">
+                catálogo completo e tabela de valores
+              </span>
             </div>
           </div>
         </div>

@@ -34,13 +34,18 @@ export default function PriceTableSection() {
               Escolha seu serviço, veja os horários disponíveis e agende pelo nosso sistema online.
             </div>
           </div>
-          <Link
-            to="/agendar"
-            className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#d4af37] hover:bg-[#e5c158] text-[#0f0f0f] font-black text-xs active:scale-95 transition-all shadow-md shrink-0"
-          >
-            <Calendar className="w-4 h-4 text-[#0f0f0f]" />
-            <span>Agendar Horário Online</span>
-          </Link>
+          <div>
+            <Link
+              to="/agendar"
+              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#d4af37] hover:bg-[#e5c158] text-[#0f0f0f] font-black text-xs active:scale-95 transition-all shadow-md shrink-0 w-full sm:w-auto"
+            >
+              <Calendar className="w-4 h-4 text-[#0f0f0f]" />
+              <span>Agendar</span>
+            </Link>
+            <span className="block text-[9px] text-[#a1a1aa] font-normal tracking-tight mt-1 text-center">
+              reserva rápida online
+            </span>
+          </div>
         </div>
 
         {/* Clear Table Format */}
@@ -84,21 +89,31 @@ export default function PriceTableSection() {
 
         {/* Links to Full Tables */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
-          <Link
-            to="/precos"
-            className="inline-flex items-center gap-2 text-base font-bold text-[#d4af37] hover:underline group"
-          >
-            <span>Ver tabela completa (todos os 13 serviços, produtos e planos)</span>
-            <ArrowRight className="w-5 h-5 text-[#d4af37] group-hover:translate-x-1 transition-transform" />
-          </Link>
+          <div>
+            <Link
+              to="/precos"
+              className="inline-flex items-center gap-2 text-base font-bold text-[#d4af37] hover:underline group"
+            >
+              <span>Tabela</span>
+              <ArrowRight className="w-5 h-5 text-[#d4af37] group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <span className="block text-[10px] text-gray-400 font-normal tracking-tight mt-0.5">
+              ver todos os 13 serviços, produtos e planos
+            </span>
+          </div>
 
-          <a
-            href={`tel:${BUSINESS_INFO.phoneRaw}`}
-            className="inline-flex items-center gap-2 text-sm text-[#a1a1aa] hover:text-white"
-          >
-            <Phone className="w-4 h-4 text-[#d4af37]" />
-            <span>Ligar no telefone: (41) 99838-4885</span>
-          </a>
+          <div>
+            <a
+              href={`tel:${BUSINESS_INFO.phoneRaw}`}
+              className="inline-flex items-center gap-2 text-sm text-[#a1a1aa] hover:text-white"
+            >
+              <Phone className="w-4 h-4 text-[#d4af37]" />
+              <span>Ligar</span>
+            </a>
+            <span className="block text-[10px] text-gray-400 font-normal tracking-tight mt-0.5 text-right">
+              atendimento direto (41) 99838-4885
+            </span>
+          </div>
         </div>
 
       </div>

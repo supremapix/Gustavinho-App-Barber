@@ -20,23 +20,33 @@ export default function FinalCtaSection() {
         </p>
 
         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
-          <Link
-            to="/agendar"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-base font-bold bg-[#d4af37] text-[#0f0f0f] hover:bg-[#e5c158] transition-all duration-200"
-          >
-            <span>Agendar horário</span>
-            <ArrowRight className="w-4 h-4 text-[#0f0f0f]" />
-          </Link>
+          <div>
+            <Link
+              to="/agendar"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-base font-bold bg-[#d4af37] text-[#0f0f0f] hover:bg-[#e5c158] transition-all duration-200"
+            >
+              <span>Agendar</span>
+              <ArrowRight className="w-4 h-4 text-[#0f0f0f]" />
+            </Link>
+            <span className="block text-[10px] text-amber-200/70 font-normal tracking-tight mt-1 text-center sm:text-left">
+              reserva imediata online
+            </span>
+          </div>
 
-          <a
-            href={BUSINESS_INFO.whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-[#d4af37] transition-colors py-2 px-1 group"
-          >
-            <span>Dúvidas? Fale no WhatsApp</span>
-            <ArrowRight className="w-4 h-4 text-[#d4af37] group-hover:translate-x-1 transition-transform" />
-          </a>
+          <div>
+            <a
+              href={BUSINESS_INFO.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-[#d4af37] transition-colors py-2 px-1 group"
+            >
+              <span>WhatsApp</span>
+              <ArrowRight className="w-4 h-4 text-[#d4af37] group-hover:translate-x-1 transition-transform" />
+            </a>
+            <span className="block text-[10px] text-gray-400 font-normal tracking-tight mt-0.5">
+              tirar dúvidas com a equipe
+            </span>
+          </div>
         </div>
       </div>
     </section>

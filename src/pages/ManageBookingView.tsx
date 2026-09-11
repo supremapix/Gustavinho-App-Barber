@@ -49,7 +49,7 @@ export default function ManageBookingView() {
         <AlertCircle className="w-12 h-12 text-red-500 mb-4" />
         <h1 className="text-xl font-bold text-white mb-2">{error || "Agendamento não encontrado"}</h1>
         <Link to="/agendar" className="px-6 py-3 rounded-xl bg-[#d4af37] text-[#0f0f0f] font-bold text-xs mt-4">
-          Fazer Novo Agendamento
+          Agendar
         </Link>
       </div>
     );
@@ -142,35 +142,50 @@ export default function ManageBookingView() {
           </p>
 
           {/* Falar no WhatsApp — Botão Principal */}
-          <a
-            href={waUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full py-4 px-6 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm flex items-center justify-center gap-2.5 transition-colors shadow-lg min-h-[48px]"
-          >
-            <MessageCircle className="w-5 h-5 text-white" />
-            <span>Falar no WhatsApp</span>
-          </a>
+          <div>
+            <a
+              href={waUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full py-4 px-6 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm flex items-center justify-center gap-2.5 transition-colors shadow-lg min-h-[48px]"
+            >
+              <MessageCircle className="w-5 h-5 text-white" />
+              <span>WhatsApp</span>
+            </a>
+            <span className="block text-[9px] text-[#a1a1aa] font-normal tracking-tight mt-1 text-center">
+              solicitar cancelamento ou troca de horário
+            </span>
+          </div>
 
           {/* Ações Secundárias */}
           <div className="grid grid-cols-2 gap-3 pt-1">
-            <a
-              href={BUSINESS_INFO.mapsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="py-3 px-4 rounded-xl bg-[#242428] border border-[#27272a] hover:border-[#d4af37] text-white font-semibold text-xs flex items-center justify-center gap-2 transition-colors min-h-[48px]"
-            >
-              <MapPin className="w-4 h-4 text-[#d4af37]" />
-              <span>Como chegar</span>
-            </a>
+            <div>
+              <a
+                href={BUSINESS_INFO.mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="py-3 px-4 rounded-xl bg-[#242428] border border-[#27272a] hover:border-[#d4af37] text-white font-semibold text-xs flex items-center justify-center gap-2 transition-colors min-h-[48px] w-full"
+              >
+                <MapPin className="w-4 h-4 text-[#d4af37]" />
+                <span>Rotas</span>
+              </a>
+              <span className="block text-[9px] text-[#a1a1aa] font-normal tracking-tight mt-1 text-center">
+                abrir GPS no Google Maps
+              </span>
+            </div>
 
-            <Link
-              to="/"
-              className="py-3 px-4 rounded-xl bg-[#242428] border border-[#27272a] hover:border-[#d4af37] text-white font-semibold text-xs flex items-center justify-center gap-2 transition-colors min-h-[48px]"
-            >
-              <Home className="w-4 h-4 text-[#d4af37]" />
-              <span>Voltar ao site</span>
-            </Link>
+            <div>
+              <Link
+                to="/"
+                className="py-3 px-4 rounded-xl bg-[#242428] border border-[#27272a] hover:border-[#d4af37] text-white font-semibold text-xs flex items-center justify-center gap-2 transition-colors min-h-[48px] w-full"
+              >
+                <Home className="w-4 h-4 text-[#d4af37]" />
+                <span>Início</span>
+              </Link>
+              <span className="block text-[9px] text-[#a1a1aa] font-normal tracking-tight mt-1 text-center">
+                retornar à página principal
+              </span>
+            </div>
           </div>
         </div>
       </div>

@@ -20,7 +20,7 @@ export default function ServiceDetailView() {
           onClick={() => navigate("/servicos")}
           className="px-6 py-3 rounded-xl bg-[#d4af37] text-[#0f0f0f] font-bold"
         >
-          Ver Todos os Serviços
+          Serviços
         </button>
       </div>
     );
@@ -38,13 +38,18 @@ export default function ServiceDetailView() {
           <span className="text-[#d4af37] font-semibold">{service.title}</span>
         </div>
 
-        <button
-          onClick={() => navigate(-1)}
-          className="inline-flex items-center gap-1.5 text-xs text-[#a1a1aa] hover:text-[#d4af37] transition-colors"
-        >
-          <ArrowLeft className="w-3.5 h-3.5" />
-          <span>Voltar para lista</span>
-        </button>
+        <div>
+          <button
+            onClick={() => navigate(-1)}
+            className="inline-flex items-center gap-1.5 text-xs text-[#a1a1aa] hover:text-[#d4af37] transition-colors"
+          >
+            <ArrowLeft className="w-3.5 h-3.5" />
+            <span>Voltar</span>
+          </button>
+          <span className="block text-[9px] text-[#a1a1aa] font-normal tracking-tight">
+            retornar ao catálogo de serviços
+          </span>
+        </div>
       </div>
 
       {/* Main Service Content */}
@@ -104,14 +109,19 @@ export default function ServiceDetailView() {
             </div>
 
             {/* CTA Button */}
-            <div className="pt-6 border-t border-[#27272a] flex flex-col sm:flex-row gap-3">
-              <Link
-                to={`/agendar?service=${service.id}`}
-                className="flex-1 py-4 px-6 rounded-xl text-sm font-extrabold bg-[#d4af37] text-[#0f0f0f] hover:bg-[#e5c158] flex items-center justify-center gap-2 active:scale-95 transition-all shadow-lg"
-              >
-                <Calendar className="w-4 h-4 text-[#0f0f0f]" />
-                <span>AGENDAR {service.title.toUpperCase()} NO SISTEMA</span>
-              </Link>
+            <div className="pt-6 border-t border-[#27272a]">
+              <div>
+                <Link
+                  to={`/agendar?service=${service.id}`}
+                  className="w-full py-4 px-6 rounded-xl text-sm font-extrabold bg-[#d4af37] text-[#0f0f0f] hover:bg-[#e5c158] flex items-center justify-center gap-2 active:scale-95 transition-all shadow-lg"
+                >
+                  <Calendar className="w-4 h-4 text-[#0f0f0f]" />
+                  <span>Agendar</span>
+                </Link>
+                <span className="block text-[9px] text-[#0f0f0f]/80 font-normal tracking-tight mt-1 text-center">
+                  reserva imediata no sistema online
+                </span>
+              </div>
             </div>
           </div>
         </div>

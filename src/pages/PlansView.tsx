@@ -69,19 +69,24 @@ export default function PlansView() {
                 </ul>
               </div>
 
-              <a
-                href={`${BUSINESS_INFO.whatsappUrl}&text=Ol%C3%A1!%20Tenho%20interesse%20em%20assinar%20o%20${encodeURIComponent(plan.name)}%20(${plan.formattedPrice}%2Fm%C3%AAs).`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`w-full py-3.5 px-4 rounded-xl text-xs sm:text-sm font-black flex items-center justify-center gap-2 active:scale-95 transition-all shadow-md ${
-                  plan.isPopular
-                    ? "bg-[#d4af37] text-[#0f0f0f] hover:bg-[#e5c158]"
-                    : "bg-[#27272a] text-white hover:bg-[#3f3f46] hover:text-[#d4af37]"
-                }`}
-              >
-                <MessageCircle className="w-4 h-4" />
-                <span>{plan.ctaText}</span>
-              </a>
+              <div>
+                <a
+                  href={`${BUSINESS_INFO.whatsappUrl}&text=Ol%C3%A1!%20Tenho%20interesse%20em%20assinar%20o%20${encodeURIComponent(plan.name)}%20(${plan.formattedPrice}%2Fm%C3%AAs).`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`w-full py-3.5 px-4 rounded-xl text-xs sm:text-sm font-black flex items-center justify-center gap-2 active:scale-95 transition-all shadow-md ${
+                    plan.isPopular
+                      ? "bg-[#d4af37] text-[#0f0f0f] hover:bg-[#e5c158]"
+                      : "bg-[#27272a] text-white hover:bg-[#3f3f46] hover:text-[#d4af37]"
+                  }`}
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  <span>Assinar</span>
+                </a>
+                <span className="block text-[9px] text-[#25D366] font-medium tracking-tight mt-1 text-center">
+                  contratação direta via WhatsApp
+                </span>
+              </div>
             </div>
           ))}
         </div>

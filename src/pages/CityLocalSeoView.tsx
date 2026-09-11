@@ -184,33 +184,48 @@ export default function CityLocalSeoView() {
 
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 mb-10">
-          <Link
-            to="/agendar"
-            className="px-6 py-4 rounded-xl bg-[#d4af37] text-[#0f0f0f] font-black text-base flex items-center justify-center gap-2.5 shadow-lg hover:bg-[#e5c158] transition-all min-h-[52px]"
-          >
-            <Calendar className="w-5 h-5 text-[#0f0f0f]" />
-            <span>Agendar Horário Online</span>
-          </Link>
+          <div>
+            <Link
+              to="/agendar"
+              className="px-6 py-4 rounded-xl bg-[#d4af37] text-[#0f0f0f] font-black text-base flex items-center justify-center gap-2.5 shadow-lg hover:bg-[#e5c158] transition-all min-h-[52px] w-full"
+            >
+              <Calendar className="w-5 h-5 text-[#0f0f0f]" />
+              <span>Agendar</span>
+            </Link>
+            <span className="block text-[9px] text-amber-200/70 font-normal tracking-tight mt-1 text-center">
+              reserva online com confirmação
+            </span>
+          </div>
 
-          <a
-            href={BUSINESS_INFO.whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-6 py-4 rounded-xl bg-[#25D366] text-[#0f0f0f] font-extrabold text-base flex items-center justify-center gap-2.5 shadow-lg hover:bg-[#20bd5a] transition-all min-h-[52px]"
-          >
-            <MessageCircle className="w-5 h-5 text-[#0f0f0f]" />
-            <span>WhatsApp (41) 99838-4885</span>
-          </a>
+          <div>
+            <a
+              href={BUSINESS_INFO.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-4 rounded-xl bg-[#25D366] text-[#0f0f0f] font-extrabold text-base flex items-center justify-center gap-2.5 shadow-lg hover:bg-[#20bd5a] transition-all min-h-[52px] w-full"
+            >
+              <MessageCircle className="w-5 h-5 text-[#0f0f0f]" />
+              <span>WhatsApp</span>
+            </a>
+            <span className="block text-[9px] text-[#0f0f0f]/80 font-normal tracking-tight mt-1 text-center">
+              contato direto (41) 99838-4885
+            </span>
+          </div>
 
-          <a
-            href={mapsRouteUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-6 py-4 rounded-xl bg-[#27272a] text-white border border-[#3f3f46] hover:border-[#d4af37] font-bold text-base flex items-center justify-center gap-2.5 transition-all min-h-[52px]"
-          >
-            <Navigation className="w-5 h-5 text-[#d4af37]" />
-            <span>Rota do {loc.name}</span>
-          </a>
+          <div>
+            <a
+              href={mapsRouteUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-4 rounded-xl bg-[#27272a] text-white border border-[#3f3f46] hover:border-[#d4af37] font-bold text-base flex items-center justify-center gap-2.5 transition-all min-h-[52px] w-full"
+            >
+              <Navigation className="w-5 h-5 text-[#d4af37]" />
+              <span>Rota</span>
+            </a>
+            <span className="block text-[9px] text-[#a1a1aa] font-normal tracking-tight mt-1 text-center">
+              saindo do {loc.name}
+            </span>
+          </div>
         </div>
       </div>
 

@@ -28,9 +28,9 @@ export default function TransformationShowcase() {
           <div className="flex flex-wrap items-center gap-4 text-xs font-medium text-[#a1a1aa]">
             {[
               { id: "todos", label: "Todos" },
-              { id: "cabelo", label: "Degradê" },
+              { id: "cabelo", label: "Cabelo" },
               { id: "barba", label: "Barba" },
-              { id: "quimica", label: "Nevou / Platinado" }
+              { id: "quimica", label: "Química" }
             ].map((tab) => (
               <button
                 key={tab.id}
@@ -81,9 +81,12 @@ export default function TransformationShowcase() {
             to="/resultados"
             className="inline-flex items-center gap-2 text-sm font-bold text-[#d4af37] hover:text-[#e5c158] transition-colors group"
           >
-            <span>Ver galeria completa com os 8 modelos de corte</span>
+            <span>Galeria</span>
             <ArrowRight className="w-4 h-4 text-[#d4af37] group-hover:translate-x-1 transition-transform" />
           </Link>
+          <span className="block text-[10px] text-gray-400 font-normal tracking-tight mt-0.5">
+            portfólio com todos os modelos de corte
+          </span>
         </div>
       </div>
     </section>

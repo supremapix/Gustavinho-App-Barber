@@ -91,45 +91,63 @@ export default function StepSuccess({ booking }: StepSuccessProps) {
 
       {/* Action Buttons */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
-        <a
-          href={googleCalendarUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="p-3.5 rounded-xl bg-[#242428] border border-[#27272a] text-white text-xs font-bold hover:border-[#d4af37] flex items-center justify-center gap-2 transition-all min-h-[48px]"
-        >
-          <CalendarPlus className="w-4 h-4 text-[#d4af37]" />
-          <span>Adicionar à agenda</span>
-        </a>
+        <div>
+          <a
+            href={googleCalendarUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-3.5 rounded-xl bg-[#242428] border border-[#27272a] text-white text-xs font-bold hover:border-[#d4af37] flex items-center justify-center gap-2 transition-all min-h-[48px] w-full"
+          >
+            <CalendarPlus className="w-4 h-4 text-[#d4af37]" />
+            <span>Agenda</span>
+          </a>
+          <span className="block text-[9px] text-[#a1a1aa] font-normal tracking-tight mt-1 text-center">
+            salvar no Google Agenda
+          </span>
+        </div>
 
-        <a
-          href={BUSINESS_INFO.mapsUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="p-3.5 rounded-xl bg-[#242428] border border-[#27272a] text-white text-xs font-bold hover:border-[#d4af37] flex items-center justify-center gap-2 transition-all min-h-[48px]"
-        >
-          <Navigation className="w-4 h-4 text-[#d4af37]" />
-          <span>Como chegar</span>
-        </a>
+        <div>
+          <a
+            href={BUSINESS_INFO.mapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-3.5 rounded-xl bg-[#242428] border border-[#27272a] text-white text-xs font-bold hover:border-[#d4af37] flex items-center justify-center gap-2 transition-all min-h-[48px] w-full"
+          >
+            <Navigation className="w-4 h-4 text-[#d4af37]" />
+            <span>Rotas</span>
+          </a>
+          <span className="block text-[9px] text-[#a1a1aa] font-normal tracking-tight mt-1 text-center">
+            abrir GPS no Google Maps
+          </span>
+        </div>
 
-        <a
-          href={waUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="sm:col-span-2 p-4 rounded-xl bg-[#d4af37] text-[#0f0f0f] hover:bg-[#e5c158] text-xs font-bold flex items-center justify-center gap-2 transition-all min-h-[48px]"
-        >
-          <MessageCircle className="w-4 h-4 text-[#0f0f0f]" />
-          <span>Falar no WhatsApp com seu código</span>
-        </a>
+        <div className="sm:col-span-2">
+          <a
+            href={waUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-4 rounded-xl bg-[#d4af37] text-[#0f0f0f] hover:bg-[#e5c158] text-xs font-bold flex items-center justify-center gap-2 transition-all min-h-[48px] w-full"
+          >
+            <MessageCircle className="w-4 h-4 text-[#0f0f0f]" />
+            <span>WhatsApp</span>
+          </a>
+          <span className="block text-[9px] text-[#0f0f0f]/80 font-normal tracking-tight mt-1 text-center">
+            enviar código de confirmação
+          </span>
+        </div>
       </div>
 
-      <div className="border-t border-[#27272a] pt-6 flex justify-center">
+      <div className="border-t border-[#27272a] pt-6 flex flex-col items-center justify-center">
         <Link
           to="/"
           className="inline-flex items-center gap-2 text-xs font-bold text-[#a1a1aa] hover:text-[#d4af37]"
         >
           <Home className="w-4 h-4" />
-          <span>Voltar ao início do site</span>
+          <span>Início</span>
         </Link>
+        <span className="block text-[9px] text-[#a1a1aa] font-normal tracking-tight mt-0.5">
+          retornar à página principal
+        </span>
       </div>
     </div>
   );

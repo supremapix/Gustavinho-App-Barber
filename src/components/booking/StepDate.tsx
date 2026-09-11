@@ -92,39 +92,47 @@ export default function StepDate({
       {/* Quick Convenient Options: Today & Tomorrow */}
       <div className="flex items-center justify-center gap-3 mb-8">
         {todayItem && (
-          <button
-            type="button"
-            disabled={!todayItem.isAvailable}
-            onClick={() => todayItem.isAvailable && onSelectDate(todayStr)}
-            className={`px-5 py-3 rounded-xl text-xs sm:text-sm font-extrabold transition-all min-h-[48px] ${
-              selectedDate === todayStr
-                ? "bg-[#d4af37] text-[#0f0f0f]"
-                : todayItem.isAvailable
-                ? "bg-[#18181b] border border-[#27272a] text-white hover:border-[#d4af37]"
-                : "bg-[#18181b]/40 border border-[#27272a]/40 text-[#a1a1aa]/40 cursor-not-allowed"
-            }`}
-          >
-            Hoje ({todayItem.dayNum} {todayItem.monthName})
-            {!todayItem.isAvailable && " (Esgotado)"}
-          </button>
+          <div className="text-center">
+            <button
+              type="button"
+              disabled={!todayItem.isAvailable}
+              onClick={() => todayItem.isAvailable && onSelectDate(todayStr)}
+              className={`px-5 py-3 rounded-xl text-xs sm:text-sm font-extrabold transition-all min-h-[48px] w-full ${
+                selectedDate === todayStr
+                  ? "bg-[#d4af37] text-[#0f0f0f]"
+                  : todayItem.isAvailable
+                  ? "bg-[#18181b] border border-[#27272a] text-white hover:border-[#d4af37]"
+                  : "bg-[#18181b]/40 border border-[#27272a]/40 text-[#a1a1aa]/40 cursor-not-allowed"
+              }`}
+            >
+              Hoje
+            </button>
+            <span className="block text-[9px] text-[#a1a1aa] font-normal tracking-tight mt-0.5">
+              {todayItem.dayNum} {todayItem.monthName} {!todayItem.isAvailable && "(Esgotado)"}
+            </span>
+          </div>
         )}
 
         {tomorrowItem && (
-          <button
-            type="button"
-            disabled={!tomorrowItem.isAvailable}
-            onClick={() => tomorrowItem.isAvailable && onSelectDate(tomorrowStr)}
-            className={`px-5 py-3 rounded-xl text-xs sm:text-sm font-extrabold transition-all min-h-[48px] ${
-              selectedDate === tomorrowStr
-                ? "bg-[#d4af37] text-[#0f0f0f]"
-                : tomorrowItem.isAvailable
-                ? "bg-[#18181b] border border-[#27272a] text-white hover:border-[#d4af37]"
-                : "bg-[#18181b]/40 border border-[#27272a]/40 text-[#a1a1aa]/40 cursor-not-allowed"
-            }`}
-          >
-            Amanhã ({tomorrowItem.dayNum} {tomorrowItem.monthName})
-            {!tomorrowItem.isAvailable && " (Esgotado)"}
-          </button>
+          <div className="text-center">
+            <button
+              type="button"
+              disabled={!tomorrowItem.isAvailable}
+              onClick={() => tomorrowItem.isAvailable && onSelectDate(tomorrowStr)}
+              className={`px-5 py-3 rounded-xl text-xs sm:text-sm font-extrabold transition-all min-h-[48px] w-full ${
+                selectedDate === tomorrowStr
+                  ? "bg-[#d4af37] text-[#0f0f0f]"
+                  : tomorrowItem.isAvailable
+                  ? "bg-[#18181b] border border-[#27272a] text-white hover:border-[#d4af37]"
+                  : "bg-[#18181b]/40 border border-[#27272a]/40 text-[#a1a1aa]/40 cursor-not-allowed"
+              }`}
+            >
+              Amanhã
+            </button>
+            <span className="block text-[9px] text-[#a1a1aa] font-normal tracking-tight mt-0.5">
+              {tomorrowItem.dayNum} {tomorrowItem.monthName} {!tomorrowItem.isAvailable && "(Esgotado)"}
+            </span>
+          </div>
         )}
       </div>
 
@@ -174,14 +182,19 @@ export default function StepDate({
       </div>
 
       <div className="flex justify-start">
-        <button
-          type="button"
-          onClick={onBack}
-          className="px-5 py-3 rounded-xl bg-[#18181b] border border-[#27272a] text-white text-xs font-bold hover:border-[#d4af37] flex items-center gap-1.5"
-        >
-          <ChevronLeft className="w-4 h-4 text-[#d4af37]" />
-          <span>Voltar aos Serviços</span>
-        </button>
+        <div>
+          <button
+            type="button"
+            onClick={onBack}
+            className="px-5 py-3 rounded-xl bg-[#18181b] border border-[#27272a] text-white text-xs font-bold hover:border-[#d4af37] flex items-center gap-1.5"
+          >
+            <ChevronLeft className="w-4 h-4 text-[#d4af37]" />
+            <span>Voltar</span>
+          </button>
+          <span className="block text-[9px] text-[#a1a1aa] font-normal tracking-tight mt-0.5">
+            trocar o serviço selecionado
+          </span>
+        </div>
       </div>
     </div>
   );

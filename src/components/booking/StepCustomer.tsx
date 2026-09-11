@@ -128,24 +128,34 @@ export default function StepCustomer({
           </div>
         </div>
 
-        <button
-          type="submit"
-          className="w-full py-4 rounded-xl font-bold text-sm bg-[#d4af37] text-[#0f0f0f] hover:bg-[#e5c158] flex items-center justify-center gap-2 active:scale-95 transition-all min-h-[48px]"
-        >
-          <span>Continuar para revisão</span>
-          <ChevronRight className="w-4 h-4 text-[#0f0f0f]" />
-        </button>
+        <div>
+          <button
+            type="submit"
+            className="w-full py-4 rounded-xl font-bold text-sm bg-[#d4af37] text-[#0f0f0f] hover:bg-[#e5c158] flex items-center justify-center gap-2 active:scale-95 transition-all min-h-[48px]"
+          >
+            <span>Continuar</span>
+            <ChevronRight className="w-4 h-4 text-[#0f0f0f]" />
+          </button>
+          <span className="block text-[9px] text-[#0f0f0f]/70 font-normal tracking-tight mt-1 text-center">
+            revisar dados antes de finalizar
+          </span>
+        </div>
       </form>
 
       <div className="flex justify-start">
-        <button
-          type="button"
-          onClick={onBackToTime}
-          className="px-5 py-3 rounded-xl bg-[#18181b] border border-[#27272a] text-white text-xs font-bold hover:border-[#d4af37] flex items-center gap-1.5"
-        >
-          <ChevronLeft className="w-4 h-4 text-[#d4af37]" />
-          <span>Voltar ao Horário</span>
-        </button>
+        <div>
+          <button
+            type="button"
+            onClick={onBackToTime}
+            className="px-5 py-3 rounded-xl bg-[#18181b] border border-[#27272a] text-white text-xs font-bold hover:border-[#d4af37] flex items-center gap-1.5"
+          >
+            <ChevronLeft className="w-4 h-4 text-[#d4af37]" />
+            <span>Voltar</span>
+          </button>
+          <span className="block text-[9px] text-[#a1a1aa] font-normal tracking-tight mt-0.5">
+            escolher outro horário
+          </span>
+        </div>
       </div>
     </div>
   );

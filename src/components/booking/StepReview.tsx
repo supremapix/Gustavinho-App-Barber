@@ -141,34 +141,44 @@ export default function StepReview({
       </div>
 
       <div className="space-y-3">
-        <button
-          type="button"
-          disabled={isSubmitting}
-          onClick={onConfirm}
-          className="w-full py-4 rounded-xl font-bold text-base bg-[#d4af37] text-[#0f0f0f] hover:bg-[#e5c158] flex items-center justify-center gap-2 active:scale-95 transition-all min-h-[52px] disabled:opacity-50"
-        >
-          {isSubmitting ? (
-            <>
-              <Loader2 className="w-5 h-5 animate-spin text-[#0f0f0f]" />
-              <span>Confirmando seu horário...</span>
-            </>
-          ) : (
-            <>
-              <CheckCircle className="w-5 h-5 text-[#0f0f0f]" />
-              <span>Confirmar agendamento</span>
-            </>
-          )}
-        </button>
+        <div>
+          <button
+            type="button"
+            disabled={isSubmitting}
+            onClick={onConfirm}
+            className="w-full py-4 rounded-xl font-bold text-base bg-[#d4af37] text-[#0f0f0f] hover:bg-[#e5c158] flex items-center justify-center gap-2 active:scale-95 transition-all min-h-[52px] disabled:opacity-50"
+          >
+            {isSubmitting ? (
+              <>
+                <Loader2 className="w-5 h-5 animate-spin text-[#0f0f0f]" />
+                <span>Confirmando...</span>
+              </>
+            ) : (
+              <>
+                <CheckCircle className="w-5 h-5 text-[#0f0f0f]" />
+                <span>Confirmar</span>
+              </>
+            )}
+          </button>
+          <span className="block text-[9px] text-amber-200/70 font-normal tracking-tight mt-1 text-center">
+            reserva imediata no sistema
+          </span>
+        </div>
 
-        <button
-          type="button"
-          disabled={isSubmitting}
-          onClick={() => onEditStep(1)}
-          className="w-full py-3 rounded-xl bg-[#18181b] border border-[#27272a] text-white text-xs font-bold hover:border-[#d4af37] flex items-center justify-center gap-1.5"
-        >
-          <Edit3 className="w-4 h-4 text-[#d4af37]" />
-          <span>Alterar dados</span>
-        </button>
+        <div>
+          <button
+            type="button"
+            disabled={isSubmitting}
+            onClick={() => onEditStep(1)}
+            className="w-full py-3 rounded-xl bg-[#18181b] border border-[#27272a] text-white text-xs font-bold hover:border-[#d4af37] flex items-center justify-center gap-1.5"
+          >
+            <Edit3 className="w-4 h-4 text-[#d4af37]" />
+            <span>Alterar</span>
+          </button>
+          <span className="block text-[9px] text-[#a1a1aa] font-normal tracking-tight mt-0.5 text-center">
+            trocar serviço, data ou telefone
+          </span>
+        </div>
       </div>
     </div>
   );

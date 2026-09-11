@@ -39,25 +39,35 @@ export default function LocationSection() {
             </div>
 
             <div className="flex flex-col gap-3 pt-4 border-t border-[#27272a]">
-              <a
-                href={BUSINESS_INFO.mapsShareUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm font-bold text-[#d4af37] hover:text-[#e5c158] transition-colors group"
-              >
-                <span>Abrir perfil no Google Maps</span>
-                <ArrowRight className="w-4 h-4 text-[#d4af37] group-hover:translate-x-1 transition-transform" />
-              </a>
+              <div>
+                <a
+                  href={BUSINESS_INFO.mapsShareUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm font-bold text-[#d4af37] hover:text-[#e5c158] transition-colors group"
+                >
+                  <span>Navegar</span>
+                  <ArrowRight className="w-4 h-4 text-[#d4af37] group-hover:translate-x-1 transition-transform" />
+                </a>
+                <span className="block text-[10px] text-gray-400 font-normal tracking-tight mt-0.5">
+                  abrir mapa e rotas no Google Maps
+                </span>
+              </div>
 
-              <a
-                href={BUSINESS_INFO.reviewUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-[#d4af37] transition-colors group"
-              >
-                <span>★ Avalie no Google Maps (Deixar opinião)</span>
-                <ArrowRight className="w-4 h-4 text-[#d4af37] group-hover:translate-x-1 transition-transform" />
-              </a>
+              <div>
+                <a
+                  href={BUSINESS_INFO.reviewUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-[#d4af37] transition-colors group"
+                >
+                  <span>Avaliar</span>
+                  <ArrowRight className="w-4 h-4 text-[#d4af37] group-hover:translate-x-1 transition-transform" />
+                </a>
+                <span className="block text-[10px] text-gray-400 font-normal tracking-tight mt-0.5">
+                  deixar sua avaliação no Google
+                </span>
+              </div>
             </div>
           </div>
 

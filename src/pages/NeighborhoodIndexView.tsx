@@ -97,7 +97,7 @@ export default function NeighborhoodIndexView() {
               }}
               className="text-xs font-bold text-[#d4af37] hover:underline"
             >
-              Limpar filtros
+              Limpar
             </button>
           )}
         </div>
@@ -127,7 +127,7 @@ export default function NeighborhoodIndexView() {
               </div>
 
               <div className="mt-4 pt-3 border-t border-[#27272a] flex items-center justify-between text-xs font-bold text-[#d4af37]">
-                <span>Ver rota e preços</span>
+                <span>Rota</span>
                 <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </div>
             </Link>

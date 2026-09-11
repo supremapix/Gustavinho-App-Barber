@@ -64,13 +64,18 @@ export default function StepTime({
           <p className="text-xs sm:text-sm text-[#a1a1aa] mb-6">
             Por favor, escolha outra data para visualizar novos horários livres.
           </p>
-          <button
-            type="button"
-            onClick={onBackToDate}
-            className="px-6 py-3 rounded-xl bg-[#d4af37] text-[#0f0f0f] text-xs font-bold hover:bg-[#e5c158] transition-colors"
-          >
-            Escolher outro dia
-          </button>
+          <div>
+            <button
+              type="button"
+              onClick={onBackToDate}
+              className="px-6 py-3 rounded-xl bg-[#d4af37] text-[#0f0f0f] text-xs font-bold hover:bg-[#e5c158] transition-colors"
+            >
+              Voltar
+            </button>
+            <span className="block text-[9px] text-[#a1a1aa] font-normal tracking-tight mt-1">
+              escolher outra data no calendário
+            </span>
+          </div>
         </div>
       ) : (
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
@@ -97,14 +102,19 @@ export default function StepTime({
       )}
 
       <div className="flex justify-start pt-4 border-t border-[#27272a]">
-        <button
-          type="button"
-          onClick={onBackToDate}
-          className="px-5 py-3 rounded-xl bg-[#18181b] border border-[#27272a] text-white text-xs font-bold hover:border-[#d4af37] flex items-center gap-1.5"
-        >
-          <ChevronLeft className="w-4 h-4 text-[#d4af37]" />
-          <span>Voltar para escolha do dia</span>
-        </button>
+        <div>
+          <button
+            type="button"
+            onClick={onBackToDate}
+            className="px-5 py-3 rounded-xl bg-[#18181b] border border-[#27272a] text-white text-xs font-bold hover:border-[#d4af37] flex items-center gap-1.5"
+          >
+            <ChevronLeft className="w-4 h-4 text-[#d4af37]" />
+            <span>Voltar</span>
+          </button>
+          <span className="block text-[9px] text-[#a1a1aa] font-normal tracking-tight mt-0.5">
+            escolher outra data no calendário
+          </span>
+        </div>
       </div>
     </div>
   );

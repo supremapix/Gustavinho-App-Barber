@@ -100,12 +100,12 @@ export default function ResultsView() {
       {/* Filter Tabs */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 flex flex-wrap gap-2 justify-center">
         {[
-          { id: "todos", label: "Todos os Trabalhos" },
-          { id: "cabelo", label: "Cabelo & Degradê" },
-          { id: "barba", label: "Barboterapia" },
-          { id: "quimica", label: "Platinado / Nevou" },
-          { id: "combo", label: "Combo Completo" },
-          { id: "cuidado", label: "Sobrancelha & Cuidados" }
+          { id: "todos", label: "Todos" },
+          { id: "cabelo", label: "Cabelo" },
+          { id: "barba", label: "Barba" },
+          { id: "quimica", label: "Química" },
+          { id: "combo", label: "Combo" },
+          { id: "cuidado", label: "Cuidados" }
         ].map((tab) => (
           <button
             key={tab.id}
@@ -159,8 +159,11 @@ export default function ResultsView() {
                   className="w-full py-2.5 px-3 rounded-xl text-xs font-bold bg-[#242428] border border-[#27272a] text-white hover:border-[#d4af37] hover:text-[#d4af37] flex items-center justify-center gap-1.5 transition-all min-h-[42px]"
                 >
                   <Calendar className="w-3.5 h-3.5 text-[#d4af37]" />
-                  <span>Quero um visual assim</span>
+                  <span>Agendar</span>
                 </a>
+                <span className="block text-[9px] text-[#a1a1aa] font-normal tracking-tight mt-1 text-center">
+                  solicitar modelo de corte igual
+                </span>
               </div>
             </div>
           ))}

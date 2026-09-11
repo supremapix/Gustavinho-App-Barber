@@ -80,20 +80,28 @@ export default function PlansSection() {
                 }`}
               >
                 <MessageCircle className="w-4 h-4" />
-                <span>Assinar no WhatsApp</span>
+                <span>Assinar</span>
               </a>
+              <span className="block text-[9px] text-[#25D366] font-medium tracking-tight mt-1 text-center">
+                contratação via WhatsApp
+              </span>
             </div>
           ))}
         </div>
 
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-[#27272a]">
-          <Link
-            to="/planos"
-            className="inline-flex items-center gap-2 text-sm font-bold text-[#d4af37] hover:underline group"
-          >
-            <span>Ver comparação completa de todos os planos</span>
-            <ArrowRight className="w-4 h-4 text-[#d4af37] group-hover:translate-x-1 transition-transform" />
-          </Link>
+          <div>
+            <Link
+              to="/planos"
+              className="inline-flex items-center gap-2 text-sm font-bold text-[#d4af37] hover:underline group"
+            >
+              <span>Comparar</span>
+              <ArrowRight className="w-4 h-4 text-[#d4af37] group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <span className="block text-[10px] text-gray-400 font-normal tracking-tight mt-0.5">
+              comparação completa de todos os planos e vantagens
+            </span>
+          </div>
 
           <span className="text-xs text-[#a1a1aa]">
             Agendamento exclusivo pelo WhatsApp (41) 99838-4885

@@ -55,15 +55,20 @@ export default function LocationView() {
             </div>
 
             <div className="grid grid-cols-2 gap-3 mt-8 pt-6 border-t border-[#27272a]">
-              <a
-                href={BUSINESS_INFO.mapsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-3.5 rounded-xl bg-[#d4af37] text-[#0f0f0f] hover:bg-[#e5c158] text-xs font-bold flex items-center justify-center gap-2 active:scale-95 transition-all min-h-[48px]"
-              >
-                <Navigation className="w-4 h-4 text-[#0f0f0f]" />
-                <span>Como chegar</span>
-              </a>
+              <div>
+                <a
+                  href={BUSINESS_INFO.mapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3.5 rounded-xl bg-[#d4af37] text-[#0f0f0f] hover:bg-[#e5c158] text-xs font-bold flex items-center justify-center gap-2 active:scale-95 transition-all min-h-[48px] w-full"
+                >
+                  <Navigation className="w-4 h-4 text-[#0f0f0f]" />
+                  <span>Rotas</span>
+                </a>
+                <span className="block text-[9px] text-[#0f0f0f]/80 font-normal tracking-tight mt-1 text-center">
+                  abrir GPS no Google Maps
+                </span>
+              </div>
 
               <a
                 href={BUSINESS_INFO.mapsUrl}

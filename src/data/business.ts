@@ -36,10 +36,10 @@ export const BUSINESS_INFO = {
     platform: "Google Reviews"
   },
   images: {
-    hero: "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=1200&auto=format&fit=crop",
-    cutting: "https://images.unsplash.com/photo-1622286342621-4bd786c2447c?q=80&w=800&auto=format&fit=crop",
-    beard: "https://images.unsplash.com/photo-1517832606299-7ae9b720a186?q=80&w=800&auto=format&fit=crop",
-    interior: "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=1200&auto=format&fit=crop",
+    hero: "https://img.supremasite.com.br/gusta/barber.webp",
+    cutting: "https://img.supremasite.com.br/gusta/01-gustavinho-corte-masculino.jpg",
+    beard: "https://img.supremasite.com.br/gusta/03-gustavinho-barba-completa.jpg",
+    interior: "https://img.supremasite.com.br/gusta/barber.webp",
     transformation: "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?q=80&w=800&auto=format&fit=crop"
   }
 };

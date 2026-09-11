@@ -38,24 +38,34 @@ export default function PricesView() {
           </div>
 
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto shrink-0">
-            <Link
-              to="/agendar"
-              className="px-6 py-3.5 rounded-xl bg-[#d4af37] hover:bg-[#e5c158] text-[#0f0f0f] font-black text-sm flex items-center justify-center gap-2 shadow-lg active:scale-95 transition-all min-h-[48px]"
-            >
-              <Calendar className="w-4 h-4 text-[#0f0f0f]" />
-              <span>Agendar Horário Online</span>
-            </Link>
+            <div>
+              <Link
+                to="/agendar"
+                className="px-6 py-3.5 rounded-xl bg-[#d4af37] hover:bg-[#e5c158] text-[#0f0f0f] font-black text-sm flex items-center justify-center gap-2 shadow-lg active:scale-95 transition-all min-h-[48px] w-full"
+              >
+                <Calendar className="w-4 h-4 text-[#0f0f0f]" />
+                <span>Agendar</span>
+              </Link>
+              <span className="block text-[9px] text-amber-200/70 font-normal tracking-tight mt-1 text-center">
+                reserva online com confirmação
+              </span>
+            </div>
 
-            <a
-              href={BUSINESS_INFO.whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 py-3.5 rounded-xl bg-[#27272a] hover:bg-[#3f3f46] text-[#25D366] font-bold text-xs flex items-center justify-center gap-1.5 transition-all min-h-[48px]"
-              title="Falar no WhatsApp"
-            >
-              <MessageCircle className="w-4 h-4" />
-              <span>Dúvidas no WhatsApp</span>
-            </a>
+            <div>
+              <a
+                href={BUSINESS_INFO.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-3.5 rounded-xl bg-[#27272a] hover:bg-[#3f3f46] text-[#25D366] font-bold text-xs flex items-center justify-center gap-1.5 transition-all min-h-[48px] w-full"
+                title="Falar no WhatsApp"
+              >
+                <MessageCircle className="w-4 h-4" />
+                <span>WhatsApp</span>
+              </a>
+              <span className="block text-[9px] text-[#a1a1aa] font-normal tracking-tight mt-1 text-center">
+                tirar dúvidas pelo chat
+              </span>
+            </div>
           </div>
         </div>
 
@@ -322,9 +332,14 @@ export default function PricesView() {
               <p className="text-sm text-[#d4d4d8] leading-relaxed mt-1">
                 Rua Desembargador Cid Campelo, 5212 — Bairro CIC, Curitiba - PR.
               </p>
-              <Link to="/localizacao" className="text-xs font-bold text-[#d4af37] hover:underline mt-2 inline-block">
-                Ver Mapa de Rota →
-              </Link>
+              <div>
+                <Link to="/localizacao" className="text-xs font-bold text-[#d4af37] hover:underline mt-2 inline-block">
+                  Mapa
+                </Link>
+                <span className="block text-[10px] text-gray-400 font-normal tracking-tight">
+                  visualizar rota e endereço
+                </span>
+              </div>
             </div>
           </div>
 
@@ -345,12 +360,17 @@ export default function PricesView() {
               <p className="text-sm text-[#d4d4d8] leading-relaxed mt-1">
                 Atendemos por chamada telefônica tradicional no (41) 99838-4885.
               </p>
-              <a
-                href={`tel:${BUSINESS_INFO.phoneRaw}`}
-                className="text-xs font-bold text-[#d4af37] hover:underline mt-2 inline-block"
-              >
-                Ligar Agora →
-              </a>
+              <div>
+                <a
+                  href={`tel:${BUSINESS_INFO.phoneRaw}`}
+                  className="text-xs font-bold text-[#d4af37] hover:underline mt-2 inline-block"
+                >
+                  Ligar
+                </a>
+                <span className="block text-[10px] text-gray-400 font-normal tracking-tight">
+                  falar diretamente pelo telefone
+                </span>
+              </div>
             </div>
           </div>
         </div>
