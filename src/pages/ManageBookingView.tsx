@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import { Calendar, Clock, MapPin, Scissors, AlertCircle, CheckCircle, MessageCircle, Home, XCircle, RefreshCw } from "lucide-react";
+import { AlertCircle, MapPin, MessageCircle, Home } from "lucide-react";
 import { BookingStore } from "../services/bookingStore";
-import { Booking, BookingStatus } from "../types/booking";
+import { Booking } from "../types/booking";
 import { BUSINESS_INFO } from "../data/business";
-import { calculateAvailableSlots } from "../utils/availabilityEngine";
-import ConfirmationModal from "../components/ConfirmationModal";
+import { getUserFriendlyErrorMessage } from "../utils/errorMapper";
 
 export default function ManageBookingView() {
   const { token } = useParams<{ token: string }>();
@@ -13,17 +12,6 @@ export default function ManageBookingView() {
   const [booking, setBooking] = useState<Booking | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-
-  // Reschedule state
-  const [isRescheduling, setIsRescheduling] = useState<boolean>(false);
-  const [newDate, setNewDate] = useState<string>("");
-  const [newTime, setNewTime] = useState<string>("");
-  const [availableSlots, setAvailableSlots] = useState<string[]>([]);
-  const [rescheduleMsg, setRescheduleMsg] = useState<string | null>(null);
-
-  // Cancel Confirmation Modal state
-  const [showCancelModal, setShowCancelModal] = useState<boolean>(false);
-  const [isCancelling, setIsCancelling] = useState<boolean>(false);
 
   useEffect(() => {
     async function loadBooking() {
@@ -35,69 +23,16 @@ export default function ManageBookingView() {
           setError("Agendamento não encontrado. Verifique o link enviado.");
         } else {
           setBooking(found);
-          setNewDate(found.date);
         }
       } catch (err) {
-        setError("Erro ao carregar o agendamento.");
+        console.error("Error loading booking:", err);
+        setError(getUserFriendlyErrorMessage(err, "Não foi possível carregar o agendamento."));
       } finally {
         setLoading(false);
       }
     }
     loadBooking();
   }, [token]);
-
-  // Recalculate available slots when newDate changes during reschedule
-  useEffect(() => {
-    async function updateSlots() {
-      if (!booking || !newDate || !isRescheduling) return;
-      const [allBookings, blocked, settings] = await Promise.all([
-        BookingStore.getBookings(),
-        BookingStore.getBlockedPeriods(),
-        BookingStore.getBusinessSettings()
-      ]);
-
-      const slots = calculateAvailableSlots(
-        newDate,
-        booking.serviceDurationMinutes,
-        allBookings.filter((b) => b.id !== booking.id),
-        blocked,
-        settings
-      );
-      setAvailableSlots(slots);
-    }
-    updateSlots();
-  }, [newDate, isRescheduling, booking]);
-
-  const handleCancelBooking = async () => {
-    if (!booking) return;
-    setIsCancelling(true);
-    const res = await BookingStore.updateBookingStatus(booking.id, "cancelled");
-    setIsCancelling(false);
-    setShowCancelModal(false);
-    if (res.success) {
-      setBooking({ ...booking, status: "cancelled" });
-    } else {
-      setRescheduleMsg(res.error || "Não foi possível cancelar o agendamento.");
-    }
-  };
-
-  const handleConfirmReschedule = async () => {
-    if (!booking || !newDate || !newTime) return;
-
-    const res = await BookingStore.rescheduleBooking(booking.id, newDate, newTime);
-    if (!res.success) {
-      setRescheduleMsg(res.error || "Erro ao remarcar.");
-      return;
-    }
-
-    setBooking({
-      ...booking,
-      date: newDate,
-      startTime: newTime
-    });
-    setIsRescheduling(false);
-    setRescheduleMsg("Agendamento reagendado com sucesso!");
-  };
 
   if (loading) {
     return (
@@ -127,40 +62,41 @@ export default function ManageBookingView() {
     month: "long"
   });
 
+  const waMessage = `Olá! Preciso alterar meu agendamento. Código: ${booking.bookingCode} — ${booking.serviceName}, ${formattedDate} às ${booking.startTime}.`;
+  const waUrl = `https://wa.me/${BUSINESS_INFO.phoneRaw}?text=${encodeURIComponent(waMessage)}`;
+
   return (
     <div className="w-full pt-28 pb-16 bg-[#0f0f0f] min-h-screen">
       <div className="max-w-lg mx-auto px-4">
         <div className="text-center mb-8">
           <span className="text-[11px] font-medium uppercase tracking-[0.12em] text-[#d4af37] block mb-1">
-            Gestão do Cliente
+            Consulta de Agendamento
           </span>
           <h1 className="text-2xl sm:text-3xl font-serif-brand font-bold text-white">
             Meu Agendamento
           </h1>
         </div>
 
-        {rescheduleMsg && (
-          <div className="mb-6 p-4 rounded-xl bg-[#18181b] border border-[#d4af37] text-[#d4af37] text-xs font-bold text-center">
-            {rescheduleMsg}
-          </div>
-        )}
-
+        {/* Booking Info Details */}
         <div className="bg-[#18181b] border border-[#27272a] rounded-2xl p-6 sm:p-8 space-y-5 shadow-2xl mb-8">
           <div className="flex items-center justify-between pb-4 border-b border-[#27272a]">
             <div>
               <span className="text-[10px] font-bold uppercase text-[#a1a1aa] block">Código</span>
               <span className="text-base font-black text-[#d4af37]">{booking.bookingCode}</span>
             </div>
-            <div className={`px-3 py-1 rounded-full text-xs font-bold ${
-              booking.status === "confirmed"
-                ? "bg-emerald-950 text-emerald-400 border border-emerald-800"
-                : booking.status === "cancelled"
-                ? "bg-red-950 text-red-400 border border-red-800"
-                : "bg-[#27272a] text-[#a1a1aa]"
-            }`}>
+            <div
+              className={`px-3 py-1 rounded-full text-xs font-bold ${
+                booking.status === "confirmed"
+                  ? "bg-emerald-950 text-emerald-400 border border-emerald-800"
+                  : booking.status === "cancelled"
+                  ? "bg-red-950 text-red-400 border border-red-800"
+                  : "bg-[#27272a] text-[#a1a1aa]"
+              }`}
+            >
               {booking.status === "confirmed" && "Confirmado"}
               {booking.status === "cancelled" && "Cancelado"}
               {booking.status === "completed" && "Concluído"}
+              {booking.status === "no_show" && "Não Compareceu"}
             </div>
           </div>
 
@@ -187,104 +123,58 @@ export default function ManageBookingView() {
 
             <div className="flex justify-between">
               <span className="text-[#a1a1aa]">Valor:</span>
-              <span className="font-semibold text-[18px] text-[#d4af37]">R$ {booking.servicePrice.toFixed(2).replace(".", ",")}</span>
+              <span className="font-semibold text-[18px] text-[#d4af37]">
+                R$ {booking.servicePrice.toFixed(2).replace(".", ",")}
+              </span>
+            </div>
+
+            <div className="flex justify-between pt-2 border-t border-[#27272a]/60 text-sm">
+              <span className="text-[#a1a1aa]">Endereço:</span>
+              <span className="font-medium text-right text-[#d4af37]">{BUSINESS_INFO.address.shortFormatted}</span>
             </div>
           </div>
         </div>
 
-        {/* Reschedule Drawer/Form */}
-        {isRescheduling ? (
-          <div className="bg-[#18181b] border border-[#d4af37] p-6 rounded-2xl mb-8 space-y-4">
-            <h3 className="font-semibold text-base text-white">Escolha nova data e horário:</h3>
-            <div>
-              <label className="text-xs text-[#a1a1aa] block mb-1">Nova Data:</label>
-              <input
-                type="date"
-                value={newDate}
-                onChange={(e) => setNewDate(e.target.value)}
-                className="w-full p-3 rounded-xl bg-[#0f0f0f] border border-[#27272a] text-white text-xs"
-              />
-            </div>
+        {/* Action Buttons Section */}
+        <div className="space-y-4 mb-8">
+          <p className="text-xs text-[#a1a1aa] text-center font-medium">
+            Precisa cancelar ou mudar o horário? Fale com a gente no WhatsApp.
+          </p>
 
-            <div>
-              <label className="text-xs text-[#a1a1aa] block mb-1">Horários Disponíveis:</label>
-              <div className="grid grid-cols-3 gap-2 max-h-40 overflow-y-auto">
-                {availableSlots.map((slot) => (
-                  <button
-                    key={slot}
-                    type="button"
-                    onClick={() => setNewTime(slot)}
-                    className={`p-2 rounded-lg text-xs font-bold border ${
-                      newTime === slot ? "bg-[#d4af37] text-[#0f0f0f]" : "bg-[#0f0f0f] border-[#27272a] text-white"
-                    }`}
-                  >
-                    {slot}
-                  </button>
-                ))}
-              </div>
-            </div>
+          {/* Falar no WhatsApp — Botão Principal */}
+          <a
+            href={waUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full py-4 px-6 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm flex items-center justify-center gap-2.5 transition-colors shadow-lg min-h-[48px]"
+          >
+            <MessageCircle className="w-5 h-5 text-white" />
+            <span>Falar no WhatsApp</span>
+          </a>
 
-            <div className="flex gap-2 pt-2">
-              <button
-                type="button"
-                onClick={handleConfirmReschedule}
-                disabled={!newTime}
-                className="flex-1 py-3 rounded-xl bg-[#d4af37] text-[#0f0f0f] font-bold text-xs disabled:opacity-50 min-h-[48px]"
-              >
-                Salvar novo horário
-              </button>
-              <button
-                type="button"
-                onClick={() => setIsRescheduling(false)}
-                className="px-4 py-3 rounded-xl bg-[#242428] text-white font-bold text-xs min-h-[48px]"
-              >
-                Cancelar
-              </button>
-            </div>
+          {/* Ações Secundárias */}
+          <div className="grid grid-cols-2 gap-3 pt-1">
+            <a
+              href={BUSINESS_INFO.mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="py-3 px-4 rounded-xl bg-[#242428] border border-[#27272a] hover:border-[#d4af37] text-white font-semibold text-xs flex items-center justify-center gap-2 transition-colors min-h-[48px]"
+            >
+              <MapPin className="w-4 h-4 text-[#d4af37]" />
+              <span>Como chegar</span>
+            </a>
+
+            <Link
+              to="/"
+              className="py-3 px-4 rounded-xl bg-[#242428] border border-[#27272a] hover:border-[#d4af37] text-white font-semibold text-xs flex items-center justify-center gap-2 transition-colors min-h-[48px]"
+            >
+              <Home className="w-4 h-4 text-[#d4af37]" />
+              <span>Voltar ao site</span>
+            </Link>
           </div>
-        ) : (
-          booking.status === "confirmed" && (
-            <div className="space-y-3 mb-8">
-              <button
-                type="button"
-                onClick={() => setIsRescheduling(true)}
-                className="w-full py-3.5 rounded-xl bg-[#242428] border border-[#27272a] text-white font-bold text-xs hover:border-[#d4af37] flex items-center justify-center gap-2 min-h-[48px]"
-              >
-                <RefreshCw className="w-4 h-4 text-[#d4af37]" />
-                <span>Remarcar atendimento</span>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => setShowCancelModal(true)}
-                className="w-full py-3.5 rounded-xl bg-red-950/40 border border-red-900/60 text-red-300 font-bold text-xs hover:bg-red-900/60 flex items-center justify-center gap-2 min-h-[48px]"
-              >
-                <XCircle className="w-4 h-4 text-red-400" />
-                <span>Cancelar agendamento</span>
-              </button>
-            </div>
-          )
-        )}
-
-        <div className="text-center pt-4">
-          <Link to="/" className="inline-flex items-center gap-2 text-xs text-[#a1a1aa] hover:text-[#d4af37]">
-            <Home className="w-4 h-4" />
-            <span>Voltar ao site</span>
-          </Link>
         </div>
       </div>
-
-      <ConfirmationModal
-        isOpen={showCancelModal}
-        title="Cancelar Agendamento"
-        message="Tem certeza que deseja cancelar seu agendamento? O horário será liberado para outros clientes."
-        confirmText="Sim, Cancelar Agendamento"
-        cancelText="Manter Agendamento"
-        variant="danger"
-        loading={isCancelling}
-        onConfirm={handleCancelBooking}
-        onCancel={() => setShowCancelModal(false)}
-      />
     </div>
   );
 }
+

@@ -15,6 +15,8 @@ import {
 } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
 
+import { getUserFriendlyErrorMessage } from "../utils/errorMapper";
+
 export default function AdminLoginView() {
   const navigate = useNavigate();
 
@@ -62,16 +64,7 @@ export default function AdminLoginView() {
       navigate("/admin");
     } catch (err: any) {
       console.error("Auth login error:", err);
-      const code = err?.code || "";
-      if (
-        code === "auth/user-not-found" ||
-        code === "auth/wrong-password" ||
-        code === "auth/invalid-credential"
-      ) {
-        setError("E-mail ou senha incorretos.");
-      } else {
-        setError("Erro na autenticação: " + (err?.message || "Tente novamente."));
-      }
+      setError(getUserFriendlyErrorMessage(err, "E-mail ou senha de administrador incorretos."));
     } finally {
       setLoading(false);
     }

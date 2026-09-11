@@ -7,9 +7,14 @@ service cloud.firestore {
       return request.auth != null && exists(/databases/$(database)/documents/admins/$(request.auth.uid));
     }
 
+    // Default deny all
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
     // Admins Collection:
     // Read: authenticated user can read their own admin document
-    // Write: FORBIDDEN client-side. First admin and new admins MUST be provisioned via Firebase Console / Admin SDK.
+    // Write: FORBIDDEN client-side.
     match /admins/{uid} {
       allow read: if request.auth != null && request.auth.uid == uid;
       allow write: if false;
@@ -33,37 +38,37 @@ service cloud.firestore {
       allow write: if isAdmin();
     }
 
-    // Booking Slots (Deterministic locks for double-booking prevention - NO PII stored inside)
+    // Booking Slots (Deterministic locks for double-booking prevention)
     // Public read for real-time slot checking
-    // Atomic create/delete during booking transactions
+    // Atomic create allowed during new booking creation
+    // Update and Delete strictly restricted to authenticated Admin
     match /bookingSlots/{slotId} {
       allow read: if true;
-      allow create: if request.resource.data.date is string;
-      allow update: if isAdmin();
-      allow delete: if isAdmin() || (resource.data.date is string);
+      allow create: if request.resource.data.date is string || isAdmin();
+      allow update, delete: if isAdmin();
     }
 
     // Official Bookings Document (Contains full customer PII)
     // Strictly protected: Get, List, Update, Delete ONLY permitted for authenticated admins!
-    // Public create allowed during atomic booking transaction
+    // Public create allowed during customer booking creation with valid data
     match /bookings/{bookingId} {
-      allow list, delete: if isAdmin();
-      allow get, update: if isAdmin() || (resource.data.status == "confirmed" && request.resource.data.status == "cancelled");
+      allow get, list, update, delete: if isAdmin();
       allow create: if request.resource.data.status == "confirmed"
                     && request.resource.data.customerName is string
                     && request.resource.data.customerPhone is string;
     }
 
-    // Public Customer Booking Tokens (Self-service via 48-char cryptographically strong token document ID)
-    // Get: Allowed by exact document ID (token has $10^57$ entropy, impossible to enumerate or guess)
+    // Public Customer Booking Tokens (Self-service lookup)
+    // Get: Allowed by exact document ID (individual lookup)
     // List: Forbidden to public (Admin only)
-    // Update: Allowed for customer cancellation or by Admin
+    // Create: Allowed during customer booking creation
+    // Update, Delete: Admin ONLY
     match /bookingTokens/{token} {
       allow get: if true;
       allow list: if isAdmin();
-      allow create: if request.resource.data.bookingId is string;
-      allow update: if (resource.data.status == "confirmed" && request.resource.data.status == "cancelled") || isAdmin();
-      allow delete: if isAdmin();
+      allow create: if request.resource.data.bookingId is string || isAdmin();
+      allow update, delete: if isAdmin();
     }
   }
 }
+

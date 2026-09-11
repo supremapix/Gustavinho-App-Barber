@@ -33,6 +33,7 @@ import {
 } from "../types/booking";
 import { calculateAvailableSlots, DEFAULT_BUSINESS_SETTINGS } from "../utils/availabilityEngine";
 import { auth, db } from "../services/firebase";
+import { getUserFriendlyErrorMessage } from "../utils/errorMapper";
 import { onAuthStateChanged, signOut, User as FirebaseUser } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
 import ConfirmationModal from "../components/ConfirmationModal";
@@ -320,7 +321,7 @@ export default function AdminView() {
       setTimeout(() => setSaveSettingsSuccess(false), 4000);
     } catch (err) {
       console.error("Error saving business settings:", err);
-      setSaveSettingsError("Erro ao salvar configurações no Firestore.");
+      setSaveSettingsError(getUserFriendlyErrorMessage(err, "Não foi possível salvar as configurações."));
     } finally {
       setSaveSettingsLoading(false);
     }

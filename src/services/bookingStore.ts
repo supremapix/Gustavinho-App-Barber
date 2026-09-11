@@ -26,6 +26,8 @@ import {
   runTransaction
 } from "firebase/firestore";
 
+import { getUserFriendlyErrorMessage } from "../utils/errorMapper";
+
 // Key names for local cache
 const STORAGE_KEYS = {
   BOOKINGS: "gdc_bookings_v1",
@@ -375,13 +377,9 @@ export class BookingStore {
       return { success: true, booking: newBooking };
     } catch (error: any) {
       console.error("Atomic createBooking error:", error);
-      const msg = error?.message || "";
-      if (msg.includes("reservado")) {
-        return { success: false, error: msg };
-      }
       return {
         success: false,
-        error: "Não foi possível confirmar o agendamento no servidor. Verifique sua conexão e tente novamente."
+        error: getUserFriendlyErrorMessage(error, "Não foi possível confirmar o agendamento no servidor. Verifique sua conexão e tente novamente.")
       };
     }
   }
@@ -460,7 +458,10 @@ export class BookingStore {
       return { success: true };
     } catch (error: any) {
       console.error("Atomic updateBookingStatus error:", error);
-      return { success: false, error: error?.message || "Erro ao atualizar status." };
+      return {
+        success: false,
+        error: getUserFriendlyErrorMessage(error, "Não foi possível atualizar o agendamento.")
+      };
     }
   }
 
@@ -576,7 +577,10 @@ export class BookingStore {
       return { success: true };
     } catch (error: any) {
       console.error("Atomic rescheduleBooking error:", error);
-      return { success: false, error: error?.message || "Erro ao remarcar no servidor." };
+      return {
+        success: false,
+        error: getUserFriendlyErrorMessage(error, "Não foi possível remarcar o agendamento.")
+      };
     }
   }
 }
