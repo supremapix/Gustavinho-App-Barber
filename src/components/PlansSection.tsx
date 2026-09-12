@@ -12,7 +12,7 @@ export default function PlansSection() {
           <span className="text-xs font-extrabold uppercase tracking-wider text-[#d4af37] block mb-1">
             Clube de Assinatura
           </span>
-          <h2 className="text-2xl sm:text-4xl font-black text-white tracking-tight mb-2">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight leading-snug mb-2">
             Planos Mensais
           </h2>
           <p className="text-base text-[#d4d4d8]">

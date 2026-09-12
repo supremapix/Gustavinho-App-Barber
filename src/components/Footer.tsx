@@ -226,8 +226,68 @@ export default function Footer() {
             </a>
           </div>
         </div>
+
+        {/* Suprema Credit */}
+        <SupremaCredit />
       </div>
     </footer>
+  );
+}
+
+export function SupremaCredit() {
+  return (
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 pt-5 border-t border-[#C9A227]/20">
+      <div className="flex justify-center">
+        <a
+          id="developer-suprema-link"
+          href="https://supremasite.com.br"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Site desenvolvido pela Suprema Sites Express"
+          className="
+            group
+            inline-flex items-center justify-center gap-3
+            rounded-full
+            border border-[#C9A227]/35
+            bg-black/40
+            px-5 py-2.5
+            text-xs sm:text-sm
+            text-neutral-400
+            backdrop-blur-sm
+            transition-all duration-300
+            hover:border-[#D4AF37]/70
+            hover:bg-[#D4AF37]/5
+            hover:text-neutral-200
+            hover:shadow-[0_0_20px_rgba(212,175,55,0.10)]
+          "
+        >
+          <span className="font-medium tracking-wide">
+            Site desenvolvido por
+          </span>
+
+          <span className="h-4 w-px bg-[#D4AF37]/30" />
+
+          <span className="font-semibold tracking-wide text-[#D4AF37] group-hover:text-[#E5C45B] transition-colors">
+            Suprema Sites Express
+          </span>
+
+          <img
+            src="https://img.supremamidia.com/suprema-img.png"
+            alt="Suprema Sites Express"
+            className="
+              h-[17px] w-auto
+              object-contain
+              opacity-90
+              transition-all duration-300
+              group-hover:opacity-100
+              group-hover:scale-105
+            "
+            loading="lazy"
+            referrerPolicy="no-referrer"
+          />
+        </a>
+      </div>
+    </div>
   );
 }
 

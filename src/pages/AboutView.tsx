@@ -27,7 +27,7 @@ export default function AboutView() {
           </div>
 
           <div className="md:col-span-7 space-y-4">
-            <h2 className="text-xl sm:text-2xl font-bold text-white">
+            <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight leading-snug mb-3">
               Mais do que um corte: uma experiência de confiança
             </h2>
             <p className="text-[17px] text-[#a1a1aa] leading-relaxed font-normal">

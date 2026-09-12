@@ -118,7 +118,7 @@ export default function BlogPostView() {
           {post.category}
         </span>
 
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-snug mb-4">
+        <h1 className="text-2xl sm:text-4xl font-bold text-white tracking-tight leading-snug mb-4">
           {post.title}
         </h1>
 

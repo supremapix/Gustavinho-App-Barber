@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import { MessageCircle, ShieldCheck } from "lucide-react";
-import PageHeroHeader from "../components/PageHeroHeader";
+import { MessageCircle, ShieldCheck, Sparkles, Scissors, Clock } from "lucide-react";
 import BookingStepper from "../components/booking/BookingStepper";
 import StepService from "../components/booking/StepService";
 import StepDate from "../components/booking/StepDate";
@@ -150,17 +149,84 @@ export default function BookingView() {
 
   return (
     <div className="w-full bg-[#0f0f0f] pb-16 min-h-screen">
-      {/* Header Breadcrumb / Title */}
+      {/* Compact & Subtle Header */}
       {currentStep < 6 && (
-        <PageHeroHeader
-          breadcrumbs={[{ label: "Agendamento Online" }]}
-          badge="Agendamento Online"
-          title="Agendar Horário"
-          description="Escolha seu serviço e encontre um horário disponível sem sair do site."
-        />
+        <div className="pt-24 sm:pt-28 pb-4 sm:pb-5 bg-gradient-to-b from-[#141416] via-[#101012] to-[#0f0f0f] border-b border-zinc-800/80 mb-5 sm:mb-6">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+              <div>
+                {/* Breadcrumbs */}
+                <div className="flex items-center gap-1.5 text-[11px] text-zinc-400 mb-1">
+                  <Link to="/" className="hover:text-[#d4af37] transition-colors">Início</Link>
+                  <span className="text-zinc-600">/</span>
+                  <span className="text-[#d4af37] font-medium">Agendamento</span>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <h1 className="text-lg sm:text-xl font-medium text-white tracking-tight">
+                    Agendar Horário
+                  </h1>
+                  <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#d4af37]/10 border border-[#d4af37]/30 text-[10px] font-medium text-[#d4af37]">
+                    <Sparkles className="w-2.5 h-2.5" />
+                    Tempo Real
+                  </span>
+                </div>
+                <p className="text-xs text-zinc-400 mt-0.5">
+                  Escolha o serviço e selecione seu horário em poucos toques.
+                </p>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <a
+                  href={BUSINESS_INFO.whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-3 py-1.5 rounded-lg bg-zinc-900 border border-zinc-800 text-xs text-zinc-300 hover:text-[#d4af37] hover:border-[#d4af37]/60 transition-all inline-flex items-center gap-1.5"
+                >
+                  <MessageCircle className="w-3.5 h-3.5 text-[#25D366]" />
+                  <span>Dúvidas?</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Active Service Recap Pill when in steps 2 to 5 */}
+            {selectedService && currentStep > 1 && (
+              <div className="mt-3 pt-2.5 border-t border-zinc-800/80 flex items-center justify-between flex-wrap gap-2 text-xs">
+                <div className="flex items-center gap-2 text-zinc-300 flex-wrap">
+                  <span className="w-2 h-2 rounded-full bg-[#d4af37] shrink-0" />
+                  <span className="font-semibold text-white">{selectedService.name}</span>
+                  <span className="text-zinc-600">•</span>
+                  <span className="text-[#d4af37] font-semibold">{selectedService.formattedPrice}</span>
+                  <span className="text-zinc-600">•</span>
+                  <span className="text-zinc-400">{selectedService.durationMinutes} min</span>
+                  {selectedDate && (
+                    <>
+                      <span className="text-zinc-600">•</span>
+                      <span className="text-zinc-300">{selectedDate.split("-").reverse().join("/")}</span>
+                    </>
+                  )}
+                  {selectedTime && (
+                    <>
+                      <span className="text-zinc-600">•</span>
+                      <span className="text-[#d4af37] font-semibold">{selectedTime}</span>
+                    </>
+                  )}
+                </div>
+
+                <button
+                  type="button"
+                  onClick={() => setCurrentStep(1)}
+                  className="text-[11px] text-[#d4af37] hover:underline font-medium ml-auto"
+                >
+                  Trocar
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
       )}
 
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6">
 
         {/* Stepper */}
         {currentStep < 6 && (
@@ -171,7 +237,7 @@ export default function BookingView() {
         )}
 
         {/* Step Views */}
-        <div className="mb-12">
+        <div className="mb-10">
           {currentStep === 1 && (
             <StepService
               services={services}
@@ -240,19 +306,24 @@ export default function BookingView() {
 
         {/* WhatsApp Direct Option Banner */}
         {currentStep < 6 && (
-          <div className="max-w-md mx-auto p-4 rounded-2xl bg-[#18181b] border border-[#27272a] text-center">
-            <p className="text-xs text-[#a1a1aa] mb-2 font-medium">
-              Prefere agendar diretamente conversando com o barbeiro?
+          <div className="max-w-sm mx-auto p-3.5 rounded-xl bg-[#141416] border border-zinc-800/80 text-center">
+            <p className="text-[11px] text-zinc-400 mb-2 font-normal">
+              Dúvidas ou prefere agendar conversando com o barbeiro?
             </p>
-            <a
-              href={BUSINESS_INFO.whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#242428] border border-[#27272a] text-xs font-bold text-[#d4af37] hover:border-[#d4af37] transition-all min-h-[40px]"
-            >
-              <MessageCircle className="w-4 h-4 text-[#d4af37]" />
-              <span>FALAR NO WHATSAPP</span>
-            </a>
+            <div className="inline-block">
+              <a
+                href={BUSINESS_INFO.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl bg-zinc-900 border border-zinc-800 text-xs font-semibold text-[#d4af37] hover:border-[#d4af37] transition-all min-h-[38px]"
+              >
+                <MessageCircle className="w-3.5 h-3.5 text-[#25D366]" />
+                <span>WhatsApp</span>
+              </a>
+              <span className="block text-[9px] text-zinc-500 font-normal tracking-tight mt-0.5 text-center">
+                agendar direto pelo chat
+              </span>
+            </div>
           </div>
         )}
       </div>

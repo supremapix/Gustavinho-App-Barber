@@ -403,7 +403,7 @@ export default function AdminView() {
             <span className="text-[10px] uppercase font-bold tracking-[0.2em] text-[#d4af37] block mb-1">
               Painel de Controle
             </span>
-            <h1 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
+            <h1 className="text-2xl sm:text-3xl font-bold text-white tracking-tight leading-snug">
               Gestão da Barbearia
             </h1>
             <p className="text-xs text-[#a1a1aa] mt-1">

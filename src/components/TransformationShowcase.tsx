@@ -19,7 +19,7 @@ export default function TransformationShowcase() {
               <Sparkles className="w-3.5 h-3.5" />
               <span>Portfólio Real</span>
             </span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+            <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight leading-snug">
               Galeria de Resultados
             </h2>
           </div>

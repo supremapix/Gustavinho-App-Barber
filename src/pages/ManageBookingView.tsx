@@ -72,7 +72,7 @@ export default function ManageBookingView() {
           <span className="text-[11px] font-medium uppercase tracking-[0.12em] text-[#d4af37] block mb-1">
             Consulta de Agendamento
           </span>
-          <h1 className="text-2xl sm:text-3xl font-serif-brand font-bold text-white">
+          <h1 className="text-2xl sm:text-3xl font-bold text-white tracking-tight leading-snug text-center">
             Meu Agendamento
           </h1>
         </div>

@@ -80,7 +80,7 @@ export default function ServiceDetailView() {
                 </div>
               </div>
 
-              <h1 className="text-2xl sm:text-4xl font-black text-white mb-3">
+              <h1 className="text-2xl sm:text-3xl font-bold text-white tracking-tight leading-snug mb-3">
                 {service.title}
               </h1>
 

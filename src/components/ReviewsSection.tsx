@@ -15,7 +15,7 @@ export default function ReviewsSection() {
               <Star className="w-3.5 h-3.5 fill-[#d4af37]" />
               <span>5.0 no Google Maps • 150+ Avaliações Reais</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-serif-brand font-bold text-white tracking-tight">
+            <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight leading-snug">
               Quem corta com o Gustavinho recomenda
             </h2>
             <p className="text-base text-[#a1a1aa] mt-2 max-w-2xl">

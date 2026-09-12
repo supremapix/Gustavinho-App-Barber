@@ -11,7 +11,7 @@ export default function FinalCtaSection() {
           Atendimento no CIC
         </span>
 
-        <h2 className="text-2xl sm:text-4xl font-bold text-white tracking-tight leading-tight mb-4">
+        <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight leading-snug mb-4">
           Agende seu horário em poucos segundos.
         </h2>
 

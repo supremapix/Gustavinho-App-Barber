@@ -16,11 +16,11 @@ const STEPS = [
 
 export default function BookingStepper({ currentStep, onStepClick }: BookingStepperProps) {
   return (
-    <div className="w-full mb-8">
+    <div className="w-full mb-6">
       {/* Desktop & Tablet Stepper */}
-      <div className="hidden sm:flex items-center justify-between relative max-w-2xl mx-auto">
+      <div className="hidden sm:flex items-center justify-between relative max-w-xl mx-auto px-4">
         {/* Background Line */}
-        <div className="absolute top-1/2 left-0 w-full h-0.5 bg-[#27272a] -translate-y-1/2 z-0" />
+        <div className="absolute top-1/2 left-8 right-8 h-px bg-zinc-800 -translate-y-1/2 z-0" />
 
         {STEPS.map((s) => {
           const isCompleted = s.step < currentStep;
@@ -36,19 +36,19 @@ export default function BookingStepper({ currentStep, onStepClick }: BookingStep
                 type="button"
                 disabled={!isClickable}
                 onClick={() => isClickable && onStepClick(s.step)}
-                className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-xs transition-all ${
+                className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-semibold transition-all ${
                   isCompleted
-                    ? "bg-[#d4af37] text-[#0f0f0f] cursor-pointer hover:scale-110"
+                    ? "bg-[#d4af37] text-[#0f0f0f] cursor-pointer hover:scale-105"
                     : isCurrent
-                    ? "bg-gradient-to-br from-[#e5c158] to-[#b8860b] text-[#0f0f0f] ring-4 ring-[#d4af37]/20 font-black shadow-lg shadow-[#d4af37]/20 scale-105"
-                    : "bg-[#18181b] border border-[#27272a] text-[#a1a1aa]"
+                    ? "bg-[#d4af37] text-[#0f0f0f] ring-2 ring-[#d4af37]/30 font-bold shadow-md shadow-[#d4af37]/20 scale-105"
+                    : "bg-[#18181b] border border-zinc-800 text-zinc-500"
                 }`}
               >
-                {isCompleted ? <Check className="w-4 h-4 text-[#0f0f0f]" /> : s.step}
+                {isCompleted ? <Check className="w-3.5 h-3.5 text-[#0f0f0f] stroke-[2.5]" /> : s.step}
               </button>
               <span
-                className={`text-[11px] font-bold mt-2 transition-colors ${
-                  isCurrent ? "text-[#d4af37]" : isCompleted ? "text-white" : "text-[#a1a1aa]"
+                className={`text-[10px] font-medium mt-1.5 transition-colors ${
+                  isCurrent ? "text-[#d4af37]" : isCompleted ? "text-zinc-300" : "text-zinc-500"
                 }`}
               >
                 {s.label}
@@ -59,23 +59,23 @@ export default function BookingStepper({ currentStep, onStepClick }: BookingStep
       </div>
 
       {/* Mobile Condensed Stepper */}
-      <div className="flex sm:hidden flex-col items-center justify-center bg-[#18181b] border border-[#27272a] p-3 rounded-xl max-w-xs mx-auto">
-        <div className="flex items-center gap-1.5 mb-2">
+      <div className="flex sm:hidden items-center justify-between bg-[#18181b] border border-zinc-800/80 px-3.5 py-2 rounded-xl max-w-sm mx-auto">
+        <div className="flex items-center gap-1.5">
           {STEPS.map((s) => (
             <div
               key={s.step}
-              className={`h-1.5 rounded-full transition-all ${
+              className={`h-1 rounded-full transition-all ${
                 s.step === currentStep
-                  ? "w-8 bg-[#d4af37]"
+                  ? "w-6 bg-[#d4af37]"
                   : s.step < currentStep
-                  ? "w-3 bg-[#d4af37]/60"
-                  : "w-3 bg-[#27272a]"
+                  ? "w-2.5 bg-[#d4af37]/60"
+                  : "w-2 bg-zinc-800"
               }`}
             />
           ))}
         </div>
-        <div className="text-xs font-bold text-[#d4af37] flex items-center gap-1.5">
-          <span className="text-[10px] text-[#a1a1aa] uppercase tracking-wider">Passo {currentStep} de 5:</span>
+        <div className="text-[11px] font-medium text-[#d4af37] flex items-center gap-1">
+          <span className="text-[10px] text-zinc-500">Etapa {currentStep}/5:</span>
           <span>{STEPS[currentStep - 1]?.label}</span>
         </div>
       </div>

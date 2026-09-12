@@ -12,7 +12,7 @@ export default function InstagramFeed() {
           loop
           muted
           playsInline
-          className="w-full h-full object-cover object-center opacity-35 sm:opacity-45 scale-105"
+          className="w-full h-full object-cover object-center opacity-60 sm:opacity-70 scale-105"
           src="https://img.supremasite.com.br/gusta/video-barber.mp4"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-gray-50/70 via-gray-50/40 to-gray-50/70" />
@@ -36,7 +36,7 @@ export default function InstagramFeed() {
             <span>Social Real @gustavinhodocortee</span>
           </div>
 
-          <h3 className="text-2xl sm:text-4xl font-black uppercase text-gray-950 tracking-tight mb-3">
+          <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-gray-950 mb-3 leading-snug">
             Siga-nos no Instagram • <span className="text-amber-500">@gustavinhodocortee</span>
           </h3>
 

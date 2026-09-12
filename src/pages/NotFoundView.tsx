@@ -11,7 +11,9 @@ export default function NotFoundView() {
           <Scissors className="w-8 h-8 text-[#d4af37]" />
         </div>
 
-        <h1 className="text-4xl font-black text-white mb-2">Página Não Encontrada (404)</h1>
+        <h1 className="text-2xl sm:text-3xl font-bold text-white tracking-tight leading-snug mb-2">
+          Página Não Encontrada (404)
+        </h1>
         <p className="text-sm text-[#a1a1aa] mb-8 leading-relaxed">
           A página que você procurou não existe ou mudou de endereço. Acesse as seções principais da barbearia abaixo.
         </p>

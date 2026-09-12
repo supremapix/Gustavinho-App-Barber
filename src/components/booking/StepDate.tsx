@@ -79,35 +79,35 @@ export default function StepDate({
   const tomorrowItem = availableDatesList.find((d) => d.isTomorrow);
 
   return (
-    <div className="w-full max-w-3xl mx-auto">
-      <div className="text-center mb-8">
-        <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">
-          Qual dia fica melhor para você?
+    <div className="w-full max-w-2xl mx-auto">
+      <div className="text-center mb-5">
+        <h2 className="text-base sm:text-lg font-medium text-white tracking-tight mb-1">
+          Escolha a data
         </h2>
-        <p className="text-[17px] text-[#a1a1aa] font-normal">
-          Dias sem horários disponíveis ou fechados ficam desabilitados.
+        <p className="text-xs sm:text-sm text-zinc-400">
+          Dias sem horários livres ou fechados aparecem desabilitados.
         </p>
       </div>
 
       {/* Quick Convenient Options: Today & Tomorrow */}
-      <div className="flex items-center justify-center gap-3 mb-8">
+      <div className="flex items-center justify-center gap-2.5 mb-5">
         {todayItem && (
           <div className="text-center">
             <button
               type="button"
               disabled={!todayItem.isAvailable}
               onClick={() => todayItem.isAvailable && onSelectDate(todayStr)}
-              className={`px-5 py-3 rounded-xl text-xs sm:text-sm font-extrabold transition-all min-h-[48px] w-full ${
+              className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all min-h-[40px] w-full ${
                 selectedDate === todayStr
                   ? "bg-[#d4af37] text-[#0f0f0f]"
                   : todayItem.isAvailable
-                  ? "bg-[#18181b] border border-[#27272a] text-white hover:border-[#d4af37]"
-                  : "bg-[#18181b]/40 border border-[#27272a]/40 text-[#a1a1aa]/40 cursor-not-allowed"
+                  ? "bg-[#18181b] border border-zinc-800 text-white hover:border-[#d4af37]"
+                  : "bg-[#18181b]/40 border border-zinc-800/40 text-zinc-600 cursor-not-allowed"
               }`}
             >
               Hoje
             </button>
-            <span className="block text-[9px] text-[#a1a1aa] font-normal tracking-tight mt-0.5">
+            <span className="block text-[9px] text-zinc-500 font-normal tracking-tight mt-0.5">
               {todayItem.dayNum} {todayItem.monthName} {!todayItem.isAvailable && "(Esgotado)"}
             </span>
           </div>
@@ -119,17 +119,17 @@ export default function StepDate({
               type="button"
               disabled={!tomorrowItem.isAvailable}
               onClick={() => tomorrowItem.isAvailable && onSelectDate(tomorrowStr)}
-              className={`px-5 py-3 rounded-xl text-xs sm:text-sm font-extrabold transition-all min-h-[48px] w-full ${
+              className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all min-h-[40px] w-full ${
                 selectedDate === tomorrowStr
                   ? "bg-[#d4af37] text-[#0f0f0f]"
                   : tomorrowItem.isAvailable
-                  ? "bg-[#18181b] border border-[#27272a] text-white hover:border-[#d4af37]"
-                  : "bg-[#18181b]/40 border border-[#27272a]/40 text-[#a1a1aa]/40 cursor-not-allowed"
+                  ? "bg-[#18181b] border border-zinc-800 text-white hover:border-[#d4af37]"
+                  : "bg-[#18181b]/40 border border-zinc-800/40 text-zinc-600 cursor-not-allowed"
               }`}
             >
               Amanhã
             </button>
-            <span className="block text-[9px] text-[#a1a1aa] font-normal tracking-tight mt-0.5">
+            <span className="block text-[9px] text-zinc-500 font-normal tracking-tight mt-0.5">
               {tomorrowItem.dayNum} {tomorrowItem.monthName} {!tomorrowItem.isAvailable && "(Esgotado)"}
             </span>
           </div>
@@ -137,7 +137,7 @@ export default function StepDate({
       </div>
 
       {/* Date Horizontal Picker Grid */}
-      <div className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-7 gap-2.5 mb-8">
+      <div className="grid grid-cols-4 sm:grid-cols-7 gap-2 mb-6">
         {availableDatesList.map((item) => {
           const isSelected = selectedDate === item.dateStr;
 
@@ -147,31 +147,31 @@ export default function StepDate({
               type="button"
               disabled={!item.isAvailable}
               onClick={() => item.isAvailable && onSelectDate(item.dateStr)}
-              className={`p-3 rounded-2xl border flex flex-col items-center justify-center transition-all min-h-[80px] ${
+              className={`p-2.5 rounded-xl border flex flex-col items-center justify-center transition-all min-h-[68px] ${
                 isSelected
-                  ? "bg-gradient-to-br from-[#18181b] to-[#242428] border-[#d4af37] ring-2 ring-[#d4af37]/40 shadow-xl shadow-[#d4af37]/15"
+                  ? "bg-[#18181b] border-[#d4af37] ring-1 ring-[#d4af37]/40 shadow-md shadow-[#d4af37]/15"
                   : item.isAvailable
-                  ? "bg-[#18181b] border-[#27272a] hover:border-[#d4af37]/60 hover:bg-[#242428]"
-                  : "bg-[#18181b]/30 border-[#27272a]/30 text-[#a1a1aa]/30 cursor-not-allowed opacity-50"
+                  ? "bg-[#141416] border-zinc-800 hover:border-[#d4af37]/60 hover:bg-[#18181b]"
+                  : "bg-[#141416]/40 border-zinc-900 text-zinc-700 cursor-not-allowed opacity-40"
               }`}
             >
               <span
-                className={`text-[10px] font-bold tracking-wider mb-1 ${
-                  isSelected ? "text-[#d4af37]" : item.isAvailable ? "text-[#a1a1aa]" : "text-[#a1a1aa]/40"
+                className={`text-[10px] font-medium tracking-wide mb-0.5 ${
+                  isSelected ? "text-[#d4af37]" : item.isAvailable ? "text-zinc-400" : "text-zinc-600"
                 }`}
               >
                 {item.dayName}
               </span>
               <span
-                className={`text-xl font-black ${
-                  isSelected ? "text-[#d4af37]" : item.isAvailable ? "text-white" : "text-[#a1a1aa]/40"
+                className={`text-base font-bold ${
+                  isSelected ? "text-[#d4af37]" : item.isAvailable ? "text-white" : "text-zinc-600"
                 }`}
               >
                 {item.dayNum}
               </span>
               <span
                 className={`text-[9px] font-medium ${
-                  isSelected ? "text-[#d4af37]" : item.isAvailable ? "text-[#a1a1aa]" : "text-[#a1a1aa]/40"
+                  isSelected ? "text-[#d4af37]" : item.isAvailable ? "text-zinc-500" : "text-zinc-700"
                 }`}
               >
                 {item.monthName}
@@ -186,12 +186,12 @@ export default function StepDate({
           <button
             type="button"
             onClick={onBack}
-            className="px-5 py-3 rounded-xl bg-[#18181b] border border-[#27272a] text-white text-xs font-bold hover:border-[#d4af37] flex items-center gap-1.5"
+            className="px-4 py-2 rounded-xl bg-[#18181b] border border-zinc-800 text-white text-xs font-semibold hover:border-[#d4af37] flex items-center gap-1.5"
           >
             <ChevronLeft className="w-4 h-4 text-[#d4af37]" />
             <span>Voltar</span>
           </button>
-          <span className="block text-[9px] text-[#a1a1aa] font-normal tracking-tight mt-0.5">
+          <span className="block text-[9px] text-zinc-500 font-normal tracking-tight mt-0.5">
             trocar o serviço selecionado
           </span>
         </div>

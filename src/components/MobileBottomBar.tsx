@@ -8,7 +8,7 @@ export default function MobileBottomBar() {
 
   return (
     <nav
-      className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#121214] border-t border-[#27272a] h-[68px] shadow-2xl"
+      className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#121214] border-t border-[#27272a] h-[68px] shadow-2xl w-full max-w-[100vw] overflow-x-hidden"
       style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
       aria-label="Barra de Navegação Rápida"
     >

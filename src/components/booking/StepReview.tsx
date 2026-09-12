@@ -36,54 +36,54 @@ export default function StepReview({
   });
 
   return (
-    <div className="w-full max-w-lg mx-auto">
-      <div className="text-center mb-8">
-        <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">
-          Confira seu agendamento
+    <div className="w-full max-w-md mx-auto">
+      <div className="text-center mb-5">
+        <h2 className="text-base sm:text-lg font-medium text-white tracking-tight mb-1">
+          Revisão do agendamento
         </h2>
-        <p className="text-[17px] text-[#a1a1aa] font-normal">
-          Revise os detalhes abaixo antes de confirmar seu horário.
+        <p className="text-xs sm:text-sm text-zinc-400">
+          Confira os detalhes abaixo antes de confirmar seu horário.
         </p>
       </div>
 
       {submitError && (
-        <div className="mb-6 p-4 rounded-xl bg-red-950/80 border border-red-800 text-red-200 text-xs sm:text-sm font-bold flex items-start gap-3 shadow-lg">
-          <AlertTriangle className="w-5 h-5 text-red-400 shrink-0 mt-0.5" />
+        <div className="mb-4 p-3.5 rounded-xl bg-red-950/80 border border-red-800 text-red-200 text-xs font-medium flex items-start gap-2.5 shadow-lg">
+          <AlertTriangle className="w-4 h-4 text-red-400 shrink-0 mt-0.5" />
           <div>
-            <p className="mb-2">{submitError}</p>
+            <p className="mb-1.5">{submitError}</p>
             <button
               type="button"
               onClick={() => onEditStep(3)}
-              className="px-3 py-1.5 rounded-lg bg-red-900/80 text-white text-xs font-bold hover:bg-red-800"
+              className="px-2.5 py-1 rounded-lg bg-red-900/80 text-white text-[11px] font-semibold hover:bg-red-800"
             >
-              Escolher Outro Horário
+              Horários
             </button>
           </div>
         </div>
       )}
 
-      <div className="bg-[#18181b] border border-[#27272a] rounded-2xl p-6 sm:p-8 space-y-5 shadow-2xl mb-8">
+      <div className="bg-[#18181b] border border-zinc-800 rounded-2xl p-5 space-y-4 shadow-xl mb-5">
         {/* Service Item */}
-        <div className="flex items-center justify-between pb-4 border-b border-[#27272a]">
-          <div className="flex items-start gap-3">
-            <div className="w-10 h-10 rounded-xl bg-[#0f0f0f] border border-[#27272a] flex items-center justify-center shrink-0">
-              <Scissors className="w-5 h-5 text-[#d4af37]" />
+        <div className="flex items-center justify-between pb-3 border-b border-zinc-800">
+          <div className="flex items-start gap-2.5">
+            <div className="w-8 h-8 rounded-lg bg-[#0f0f0f] border border-zinc-800 flex items-center justify-center shrink-0">
+              <Scissors className="w-4 h-4 text-[#d4af37]" />
             </div>
             <div>
-              <span className="text-[11px] font-medium uppercase tracking-wider text-[#a1a1aa] block">
+              <span className="text-[10px] font-medium uppercase tracking-wider text-zinc-500 block">
                 Serviço
               </span>
-              <h3 className="font-semibold text-base text-white">{service.name}</h3>
-              <p className="text-xs text-[#a1a1aa]">Duração: {service.durationMinutes} min</p>
+              <h3 className="font-semibold text-sm text-white">{service.name}</h3>
+              <p className="text-[11px] text-zinc-400">Duração: {service.durationMinutes} min</p>
             </div>
           </div>
 
           <div className="text-right">
-            <span className="text-[18px] font-bold text-[#d4af37]">{service.formattedPrice}</span>
+            <span className="text-base font-bold text-[#d4af37]">{service.formattedPrice}</span>
             <button
               type="button"
               onClick={() => onEditStep(1)}
-              className="text-[11px] text-[#a1a1aa] hover:text-[#d4af37] block mt-1"
+              className="text-[11px] text-zinc-400 hover:text-[#d4af37] block mt-0.5"
             >
               Alterar
             </button>
@@ -91,24 +91,24 @@ export default function StepReview({
         </div>
 
         {/* Date & Time */}
-        <div className="flex items-center justify-between pb-4 border-b border-[#27272a]">
-          <div className="flex items-start gap-3">
-            <div className="w-10 h-10 rounded-xl bg-[#0f0f0f] border border-[#27272a] flex items-center justify-center shrink-0">
-              <Calendar className="w-5 h-5 text-[#d4af37]" />
+        <div className="flex items-center justify-between pb-3 border-b border-zinc-800">
+          <div className="flex items-start gap-2.5">
+            <div className="w-8 h-8 rounded-lg bg-[#0f0f0f] border border-zinc-800 flex items-center justify-center shrink-0">
+              <Calendar className="w-4 h-4 text-[#d4af37]" />
             </div>
             <div>
-              <span className="text-[11px] font-medium uppercase tracking-wider text-[#a1a1aa] block">
+              <span className="text-[10px] font-medium uppercase tracking-wider text-zinc-500 block">
                 Data & Horário
               </span>
-              <h4 className="font-semibold text-sm text-white capitalize">{formattedDate}</h4>
-              <p className="text-[18px] font-bold text-[#d4af37]">Horário: {timeStr}</p>
+              <h4 className="font-semibold text-xs text-white capitalize">{formattedDate}</h4>
+              <p className="text-sm font-bold text-[#d4af37]">Às {timeStr}</p>
             </div>
           </div>
 
           <button
             type="button"
             onClick={() => onEditStep(2)}
-            className="text-[11px] text-[#a1a1aa] hover:text-[#d4af37]"
+            className="text-[11px] text-zinc-400 hover:text-[#d4af37]"
           >
             Alterar
           </button>
@@ -116,46 +116,46 @@ export default function StepReview({
 
         {/* Customer Info */}
         <div className="flex items-center justify-between">
-          <div className="flex items-start gap-3">
-            <div className="w-10 h-10 rounded-xl bg-[#0f0f0f] border border-[#27272a] flex items-center justify-center shrink-0">
-              <User className="w-5 h-5 text-[#d4af37]" />
+          <div className="flex items-start gap-2.5">
+            <div className="w-8 h-8 rounded-lg bg-[#0f0f0f] border border-zinc-800 flex items-center justify-center shrink-0">
+              <User className="w-4 h-4 text-[#d4af37]" />
             </div>
             <div>
-              <span className="text-[11px] font-medium uppercase tracking-wider text-[#a1a1aa] block">
+              <span className="text-[10px] font-medium uppercase tracking-wider text-zinc-500 block">
                 Cliente
               </span>
-              <h4 className="font-semibold text-sm text-white">{customerName}</h4>
-              <p className="text-xs text-[#a1a1aa]">{customerPhone}</p>
-              {notes && <p className="text-xs text-[#a1a1aa] italic mt-1">Obs: {notes}</p>}
+              <h4 className="font-semibold text-xs text-white">{customerName}</h4>
+              <p className="text-[11px] text-zinc-400">{customerPhone}</p>
+              {notes && <p className="text-[11px] text-zinc-500 italic mt-0.5">Obs: {notes}</p>}
             </div>
           </div>
 
           <button
             type="button"
             onClick={() => onEditStep(4)}
-            className="text-[11px] text-[#a1a1aa] hover:text-[#d4af37]"
+            className="text-[11px] text-zinc-400 hover:text-[#d4af37]"
           >
             Alterar
           </button>
         </div>
       </div>
 
-      <div className="space-y-3">
+      <div className="space-y-2.5">
         <div>
           <button
             type="button"
             disabled={isSubmitting}
             onClick={onConfirm}
-            className="w-full py-4 rounded-xl font-bold text-base bg-[#d4af37] text-[#0f0f0f] hover:bg-[#e5c158] flex items-center justify-center gap-2 active:scale-95 transition-all min-h-[52px] disabled:opacity-50"
+            className="w-full py-3.5 rounded-xl font-semibold text-sm bg-[#d4af37] text-[#0f0f0f] hover:bg-[#e5c158] flex items-center justify-center gap-1.5 active:scale-95 transition-all min-h-[46px] disabled:opacity-50"
           >
             {isSubmitting ? (
               <>
-                <Loader2 className="w-5 h-5 animate-spin text-[#0f0f0f]" />
+                <Loader2 className="w-4 h-4 animate-spin text-[#0f0f0f]" />
                 <span>Confirmando...</span>
               </>
             ) : (
               <>
-                <CheckCircle className="w-5 h-5 text-[#0f0f0f]" />
+                <CheckCircle className="w-4 h-4 text-[#0f0f0f]" />
                 <span>Confirmar</span>
               </>
             )}
@@ -170,12 +170,12 @@ export default function StepReview({
             type="button"
             disabled={isSubmitting}
             onClick={() => onEditStep(1)}
-            className="w-full py-3 rounded-xl bg-[#18181b] border border-[#27272a] text-white text-xs font-bold hover:border-[#d4af37] flex items-center justify-center gap-1.5"
+            className="w-full py-2.5 rounded-xl bg-[#18181b] border border-zinc-800 text-white text-xs font-semibold hover:border-[#d4af37] flex items-center justify-center gap-1.5"
           >
-            <Edit3 className="w-4 h-4 text-[#d4af37]" />
+            <Edit3 className="w-3.5 h-3.5 text-[#d4af37]" />
             <span>Alterar</span>
           </button>
-          <span className="block text-[9px] text-[#a1a1aa] font-normal tracking-tight mt-0.5 text-center">
+          <span className="block text-[9px] text-zinc-500 font-normal tracking-tight mt-0.5 text-center">
             trocar serviço, data ou telefone
           </span>
         </div>

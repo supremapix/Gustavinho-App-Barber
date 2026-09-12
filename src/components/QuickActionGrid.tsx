@@ -48,7 +48,7 @@ export default function QuickActionGrid() {
               <span>BARBEARIA NO CIC</span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif-brand font-bold text-white tracking-tight leading-[1.15] mb-6">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-tight leading-snug mb-6">
               Atendimento exclusivo, ambiente moderno e precisão em cada detalhe.
             </h2>
 

@@ -235,7 +235,7 @@ export default function CityLocalSeoView() {
           <div className="flex items-center gap-2 text-xs font-extrabold text-[#d4af37] uppercase tracking-wider mb-1">
             <Sparkles className="w-4 h-4" /> Linha de Cosméticos Masculinos
           </div>
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-4">
+          <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight leading-snug mb-4">
             Produtos Premium Disponíveis na Barbearia
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
@@ -265,7 +265,7 @@ export default function CityLocalSeoView() {
       {/* 6. Differentials */}
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 my-16">
         <div className="bg-[#18181b] border border-[#27272a] p-6 sm:p-8 rounded-2xl">
-          <h2 className="text-2xl font-extrabold text-white mb-6">
+          <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight leading-snug mb-6">
             Por que moradores do {loc.name} escolhem a Gustavinho do Corte?
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -325,7 +325,7 @@ export default function CityLocalSeoView() {
         <div className="bg-[#18181b] border border-[#27272a] p-6 sm:p-8 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-2">
             <span className="text-xs font-extrabold uppercase text-[#d4af37]">Como Chegar</span>
-            <h2 className="text-2xl font-bold text-white">Saindo do {loc.name} rumo à barbearia no CIC</h2>
+            <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight leading-snug">Saindo do {loc.name} rumo à barbearia no CIC</h2>
             <p className="text-sm text-[#d4d4d8] max-w-xl">
               Endereço: <strong>Rua Desembargador Cid Campelo, 5212 — Cidade Industrial de Curitiba (CIC)</strong>. Trajeto aproximado: <strong>{loc.distancia}</strong>.
             </p>
@@ -347,7 +347,7 @@ export default function CityLocalSeoView() {
 
       {/* 9. Local FAQ */}
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 my-16">
-        <h2 className="text-2xl font-extrabold text-white mb-6">
+        <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight leading-snug mb-6">
           Perguntas Frequentes — Atendimento no {loc.name}
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -383,7 +383,7 @@ export default function CityLocalSeoView() {
 
       {/* 10. Internal Links to 6 Neighboring Localities */}
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
-        <h2 className="text-xl font-bold text-white mb-4">
+        <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight leading-snug mb-4">
           Outros Bairros e Regiões Próximas Atendidas no CIC
         </h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">

@@ -16,7 +16,7 @@ export default function PriceTableSection() {
           <span className="text-xs font-extrabold uppercase tracking-wider text-[#d4af37] block mb-1">
             Barbearia no CIC Curitiba
           </span>
-          <h2 className="text-2xl sm:text-4xl font-black text-white tracking-tight mb-2">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight leading-snug mb-2">
             Tabela de Preços e Serviços
           </h2>
           <p className="text-base text-[#d4d4d8]">

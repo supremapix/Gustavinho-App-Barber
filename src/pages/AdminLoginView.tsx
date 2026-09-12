@@ -84,7 +84,7 @@ export default function AdminLoginView() {
           <span className="text-xs font-bold uppercase tracking-widest text-[#d4af37] block mb-1">
             Gustavinho do Corte
           </span>
-          <h1 className="text-2xl font-black text-white">Login Administrativo</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold text-white tracking-tight leading-snug">Login Administrativo</h1>
           <p className="text-xs text-[#a1a1aa] mt-1 max-w-xs">
             Acesso exclusivo para gerenciamento da barbearia. Autenticação restrita via Firebase.
           </p>
