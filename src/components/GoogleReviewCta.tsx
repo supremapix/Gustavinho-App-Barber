@@ -1,4 +1,5 @@
 import React from "react";
+import HappyReviewIllustration from "./HappyReviewIllustration";
 import { ExternalLink, Star } from "lucide-react";
 import { BUSINESS_INFO } from "../data/business";
 
@@ -8,14 +9,17 @@ export default function GoogleReviewCta() {
       aria-labelledby="google-review-heading"
       className="border-y border-[#d4af37]/30 bg-[#121214] py-7 sm:py-8"
     >
-      <div className="mx-auto flex max-w-7xl flex-col items-center gap-5 px-5 text-center sm:flex-row sm:justify-between sm:gap-8 sm:px-6 sm:text-left lg:px-8">
-        <div>
+      <div className="mx-auto flex max-w-7xl flex-col items-center gap-5 px-5 text-center lg:flex-row lg:justify-between lg:gap-8 sm:px-6 lg:text-left lg:px-8">
+        <div className="flex min-w-0 flex-col items-center gap-4 sm:flex-row sm:gap-6 sm:text-left">
+          <HappyReviewIllustration />
+          <div className="min-w-0">
           <h2 id="google-review-heading" className="text-lg font-bold text-white sm:text-xl">
             Já cortou com o Gustavinho?
           </h2>
           <p className="mt-1 text-sm leading-relaxed text-[#d4d4d8]">
             Conte como foi sua experiência. Sua opinião faz a diferença!
           </p>
+          </div>
         </div>
         <a
           href={BUSINESS_INFO.reviewUrl}
