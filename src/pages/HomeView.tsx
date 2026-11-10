@@ -1,4 +1,5 @@
 import React from "react";
+import GoogleReviewCta from "../components/GoogleReviewCta";
 import Hero from "../components/Hero";
 import QuickActionGrid from "../components/QuickActionGrid";
 import ServicesShowcase from "../components/ServicesShowcase";
@@ -14,6 +15,7 @@ export default function HomeView() {
   return (
     <div className="w-full">
       <Hero />
+      <GoogleReviewCta />
       <QuickActionGrid />
       <ServicesShowcase />
       <TransformationShowcase />
