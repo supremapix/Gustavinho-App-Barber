@@ -70,18 +70,20 @@ export default function StepCustomer({
 
       <form onSubmit={handleSubmit} className="space-y-4 bg-[#18181b] border border-zinc-800 p-5 sm:p-6 rounded-2xl shadow-xl mb-4">
         {error && (
-          <div className="p-3 rounded-xl bg-red-950/60 border border-red-800/80 text-red-200 text-xs font-medium">
+          <div role="alert" className="p-3 rounded-xl bg-red-950/60 border border-red-800/80 text-red-200 text-xs font-medium">
             {error}
           </div>
         )}
 
         <div>
-          <label className="block text-xs font-medium text-[#d4af37] mb-1.5">
+          <label htmlFor="booking-customer-name" className="block text-xs font-medium text-[#d4af37] mb-1.5">
             Seu Nome Completo *
           </label>
           <div className="relative">
             <User className="w-4 h-4 text-zinc-500 absolute left-3.5 top-1/2 -translate-y-1/2" />
             <input
+              id="booking-customer-name"
+              autoComplete="name"
               type="text"
               required
               value={customerName}
@@ -93,12 +95,14 @@ export default function StepCustomer({
         </div>
 
         <div>
-          <label className="block text-xs font-medium text-[#d4af37] mb-1.5">
+          <label htmlFor="booking-customer-phone" className="block text-xs font-medium text-[#d4af37] mb-1.5">
             WhatsApp para Confirmação *
           </label>
           <div className="relative">
             <Phone className="w-4 h-4 text-zinc-500 absolute left-3.5 top-1/2 -translate-y-1/2" />
             <input
+              id="booking-customer-phone"
+              autoComplete="tel"
               type="tel"
               required
               value={customerPhone}
@@ -113,12 +117,13 @@ export default function StepCustomer({
         </div>
 
         <div>
-          <label className="block text-xs font-medium text-zinc-400 mb-1.5">
+          <label htmlFor="booking-customer-notes" className="block text-xs font-medium text-zinc-400 mb-1.5">
             Observações (Opcional)
           </label>
           <div className="relative">
             <MessageSquare className="w-4 h-4 text-zinc-500 absolute left-3.5 top-3" />
             <textarea
+              id="booking-customer-notes"
               rows={2}
               value={notes}
               onChange={(e) => onChangeNotes(e.target.value)}

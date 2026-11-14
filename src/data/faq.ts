@@ -19,7 +19,7 @@ export const FAQ_DATA: FAQItem[] = [
   },
   {
     question: "Como faço para agendar um horário?",
-    answer: "O agendamento é feito de forma rápida e direta pelo WhatsApp (41) 99838-4885. Basta clicar em qualquer botão 'AGENDAR HORÁRIO' no site para abrir a conversa instantaneamente."
+    answer: "Use a opção Agendar para escolher o serviço, a data e o horário no sistema online. Preencha seus dados, revise as informações e conclua a confirmação. O agendamento só está concluído quando o sistema mostrar a confirmação. Se preferir atendimento pelo WhatsApp, use o botão específico ou fale com (41) 99838-4885."
   },
   {
     question: "Quais serviços a barbearia oferece?",

@@ -31,8 +31,12 @@ export default function FaqView() {
               className="bg-[#18181b] border border-[#27272a] rounded-xl overflow-hidden transition-colors hover:border-[#d4af37]/50"
             >
               <button
+                type="button"
+                id={`faq-question-${idx}`}
+                aria-expanded={isOpen}
+                aria-controls={`faq-answer-${idx}`}
                 onClick={() => toggle(idx)}
-                className="w-full p-5 text-left font-semibold text-white text-base flex items-center justify-between gap-4 focus:outline-none min-h-[56px]"
+                className="w-full p-5 text-left font-semibold text-white text-base flex items-center justify-between gap-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#d4af37] min-h-[56px]"
               >
                 <span>{item.question}</span>
                 {isOpen ? (
@@ -42,11 +46,9 @@ export default function FaqView() {
                 )}
               </button>
 
-              {isOpen && (
-                <div className="px-5 pb-5 pt-0 text-[17px] text-[#a1a1aa] leading-relaxed border-t border-[#27272a]/60 pt-3 font-normal">
+              <div id={`faq-answer-${idx}`} role="region" aria-labelledby={`faq-question-${idx}`} hidden={!isOpen} className="px-5 pb-5 pt-0 text-[17px] text-[#a1a1aa] leading-relaxed border-t border-[#27272a]/60 pt-3 font-normal">
                   {item.answer}
                 </div>
-              )}
             </div>
           );
         })}
