@@ -10,6 +10,7 @@ import StepReview from "../components/booking/StepReview";
 import StepSuccess from "../components/booking/StepSuccess";
 
 import { prepareWhatsAppTab, closeWhatsAppTab, openBookingWhatsApp } from "../utils/bookingWhatsApp";
+import { requestBookingEmailNotice } from "../utils/bookingNotify";
 import { BookingStore } from "../services/bookingStore";
 import {
   ServiceItem,
@@ -134,6 +135,8 @@ export default function BookingView() {
         return;
       }
 
+      // Fire before anything else so the e-mail does not depend on WhatsApp.
+      requestBookingEmailNotice(result.booking.id);
       setConfirmedBooking(result.booking);
       setCurrentStep(6); // Success screen
       openBookingWhatsApp(whatsAppTab, result.booking);

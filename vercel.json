@@ -28,5 +28,11 @@
       "source": "/((?!api/|assets/|robots\\.txt|sitemap\\.xml|llms\\.txt|llms-full\\.txt|favicon\\.ico).*)",
       "destination": "/index.html"
     }
+  ],
+  "crons": [
+    {
+      "path": "/api/cron/booking-notify-retry",
+      "schedule": "*/10 * * * *"
+    }
   ]
 }
