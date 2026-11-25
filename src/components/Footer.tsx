@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { MapPin, Phone, MessageCircle, Calendar, Clock, ShieldCheck, ChevronRight, ArrowRight } from "lucide-react";
+import { MapPin, Phone, MessageCircle, Calendar, Clock, ShieldCheck, ChevronRight, ArrowRight, Mail } from "lucide-react";
 import { BUSINESS_INFO } from "../data/business";
+
+const CONTACT_EMAIL = "contato@barbeiro.curitiba.br";
 
 export default function Footer() {
   return (
@@ -207,6 +209,20 @@ export default function Footer() {
             </ul>
           </div>
         </div>
+
+        <section aria-labelledby="footer-email-heading" className="mt-8 rounded-2xl border border-[#d4af37]/50 bg-[#18181b] px-4 py-6 text-center sm:px-8">
+          <h3 id="footer-email-heading" className="text-xs font-extrabold uppercase tracking-wider text-[#d4af37]">
+            Fale com a barbearia por e-mail
+          </h3>
+          <p className="mt-2 break-words text-lg font-bold text-white sm:text-xl">{CONTACT_EMAIL}</p>
+          <a
+            href={`mailto:${CONTACT_EMAIL}`}
+            className="mt-4 inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-xl bg-[#d4af37] px-6 py-3 font-bold text-[#0f0f0f] transition-colors hover:bg-[#e5c158] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#d4af37] sm:w-auto"
+          >
+            <Mail className="h-5 w-5" aria-hidden="true" />
+            Enviar e-mail
+          </a>
+        </section>
 
         {/* Bottom Rights */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-[#a1a1aa]">
