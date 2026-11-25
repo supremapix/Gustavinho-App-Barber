@@ -161,7 +161,7 @@ export default function StepReview({
             )}
           </button>
           <span className="block text-[9px] text-amber-200/70 font-normal tracking-tight mt-1 text-center">
-            reserva imediata no sistema
+            Ao confirmar, o site abre o WhatsApp para você avisar a barbearia.
           </span>
         </div>
 

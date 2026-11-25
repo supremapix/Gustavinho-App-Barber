@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { CheckCircle2, CalendarPlus, Navigation, MessageCircle, Home, MapPin, Hash } from "lucide-react";
+import { CheckCircle2, CalendarPlus, Navigation, MessageCircle, Home, MapPin } from "lucide-react";
 import { Booking } from "../../types/booking";
 import { BUSINESS_INFO } from "../../data/business";
+import { bookingWhatsAppUrl } from "../../utils/bookingWhatsApp";
 import { generateGoogleCalendarUrl } from "../../utils/availabilityEngine";
 
 interface StepSuccessProps {
@@ -25,11 +26,7 @@ export default function StepSuccess({ booking }: StepSuccessProps) {
     booking.serviceDurationMinutes
   );
 
-  // WhatsApp pre-filled text
-  const waText = encodeURIComponent(
-    `Olá! Acabei de fazer um agendamento pelo site Gustavinho do Corte.\n\nCódigo: ${booking.bookingCode}\nServiço: ${booking.serviceName}\nData: ${booking.date}\nHorário: ${booking.startTime}\nNome: ${booking.customerName}`
-  );
-  const waUrl = `${BUSINESS_INFO.whatsappUrl}&text=${waText}`;
+  const waUrl = bookingWhatsAppUrl(booking);
 
   return (
     <div className="w-full max-w-md mx-auto text-center py-2">
@@ -89,6 +86,18 @@ export default function StepSuccess({ booking }: StepSuccessProps) {
         </div>
       </div>
 
+      <div className="mb-5 rounded-2xl border border-[#d4af37]/50 bg-[#18181b] p-4">
+        <p className="mb-3 text-sm leading-relaxed text-zinc-200">
+          Para avisar a barbearia, toque em <strong>Enviar</strong> no WhatsApp.
+          Se ele não abrir sozinho, use o botão abaixo. Não faça outra reserva.
+        </p>
+        <a href={waUrl} target="_blank" rel="noopener noreferrer"
+          className="flex min-h-[48px] w-full items-center justify-center gap-2 rounded-xl bg-[#d4af37] p-3 text-sm font-bold text-[#0f0f0f] hover:bg-[#e5c158]">
+          <MessageCircle className="h-4 w-4" aria-hidden="true" />
+          Abrir WhatsApp da barbearia
+        </a>
+      </div>
+
       {/* Action Buttons */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
         <div>
@@ -121,20 +130,6 @@ export default function StepSuccess({ booking }: StepSuccessProps) {
           </span>
         </div>
 
-        <div className="sm:col-span-2">
-          <a
-            href={waUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-4 rounded-xl bg-[#d4af37] text-[#0f0f0f] hover:bg-[#e5c158] text-xs font-bold flex items-center justify-center gap-2 transition-all min-h-[48px] w-full"
-          >
-            <MessageCircle className="w-4 h-4 text-[#0f0f0f]" />
-            <span>WhatsApp</span>
-          </a>
-          <span className="block text-[9px] text-[#0f0f0f]/80 font-normal tracking-tight mt-1 text-center">
-            enviar código de confirmação
-          </span>
-        </div>
       </div>
 
       <div className="border-t border-[#27272a] pt-6 flex flex-col items-center justify-center">

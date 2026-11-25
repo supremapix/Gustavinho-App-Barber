@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { MessageCircle, ShieldCheck, Sparkles, Scissors, Clock } from "lucide-react";
 import BookingStepper from "../components/booking/BookingStepper";
@@ -9,6 +9,7 @@ import StepCustomer from "../components/booking/StepCustomer";
 import StepReview from "../components/booking/StepReview";
 import StepSuccess from "../components/booking/StepSuccess";
 
+import { prepareWhatsAppTab, closeWhatsAppTab, openBookingWhatsApp } from "../utils/bookingWhatsApp";
 import { BookingStore } from "../services/bookingStore";
 import {
   ServiceItem,
@@ -40,6 +41,7 @@ export default function BookingView() {
   const [notes, setNotes] = useState<string>("");
 
   // Submitting states
+  const submissionInFlight = useRef(false);
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [confirmedBooking, setConfirmedBooking] = useState<Booking | null>(null);
@@ -103,11 +105,14 @@ export default function BookingView() {
   };
 
   const handleConfirmBooking = async () => {
+    if (submissionInFlight.current) return;
     if (!selectedService || !selectedDate || !selectedTime || !customerName || !customerPhone) {
       setSubmitError("Preencha todos os campos obrigatórios antes de confirmar.");
       return;
     }
 
+    submissionInFlight.current = true;
+    const whatsAppTab = prepareWhatsAppTab();
     setIsSubmitting(true);
     setSubmitError(null);
 
@@ -125,15 +130,18 @@ export default function BookingView() {
         setSubmitError(
           result.error || "Não foi possível concluir o agendamento. Tente novamente."
         );
-        setIsSubmitting(false);
+        closeWhatsAppTab(whatsAppTab);
         return;
       }
 
       setConfirmedBooking(result.booking);
       setCurrentStep(6); // Success screen
+      openBookingWhatsApp(whatsAppTab, result.booking);
     } catch (err) {
+      closeWhatsAppTab(whatsAppTab);
       setSubmitError("Erro de conexão. Verifique sua internet e tente novamente.");
     } finally {
+      submissionInFlight.current = false;
       setIsSubmitting(false);
     }
   };
