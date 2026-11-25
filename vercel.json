@@ -8,11 +8,24 @@
           "value": "noindex, nofollow"
         }
       ]
+    },
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
+        }
+      ]
     }
   ],
   "rewrites": [
     {
-      "source": "/((?!assets/|robots\\.txt|sitemap\\.xml|llms\\.txt|llms-full\\.txt|favicon\\.ico).*)",
+      "source": "/((?!api/|assets/|robots\\.txt|sitemap\\.xml|llms\\.txt|llms-full\\.txt|favicon\\.ico).*)",
       "destination": "/index.html"
     }
   ]
