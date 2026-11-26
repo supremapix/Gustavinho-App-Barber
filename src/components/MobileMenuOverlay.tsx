@@ -11,11 +11,13 @@ import {
   Calendar,
   Award,
   HelpCircle,
+  FileText,
   ChevronRight,
   Sparkles,
   ExternalLink
 } from "lucide-react";
 import { BUSINESS_INFO } from "../data/business";
+import { MINOXIDIL_GUIDE_PDF } from "../data/guides";
 
 interface MobileMenuOverlayProps {
   isOpen: boolean;
@@ -273,6 +275,24 @@ export default function MobileMenuOverlay({ isOpen, onClose }: MobileMenuOverlay
             </div>
             <ChevronRight className="w-5 h-5 text-[#a1a1aa] shrink-0" />
           </Link>
+
+          <a
+            href={MINOXIDIL_GUIDE_PDF}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={onClose}
+            aria-label="Guia de minoxidil tópico (PDF, abre em nova aba)"
+            className="w-full p-4 rounded-2xl bg-[#18181b] border border-[#27272a] hover:border-[#d4af37] flex items-center justify-between min-h-[56px] active:scale-[0.98] transition-all"
+          >
+            <div className="flex items-center gap-3.5">
+              <FileText className="w-6 h-6 text-[#d4af37] shrink-0" aria-hidden="true" />
+              <div className="text-left">
+                <span className="font-bold text-base text-white block">Guia de minoxidil</span>
+                <span className="text-xs text-[#a1a1aa]">Como aplicar no couro cabeludo (PDF)</span>
+              </div>
+            </div>
+            <ExternalLink className="w-5 h-5 text-[#a1a1aa] shrink-0" aria-hidden="true" />
+          </a>
 
           <Link
             to="/faq"

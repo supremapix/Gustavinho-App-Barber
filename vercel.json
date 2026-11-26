@@ -25,7 +25,7 @@
   ],
   "rewrites": [
     {
-      "source": "/((?!api/|assets/|robots\\.txt|sitemap\\.xml|llms\\.txt|llms-full\\.txt|favicon\\.ico).*)",
+      "source": "/((?!api/|assets/|guias/minoxidil-topico\\.pdf|robots\\.txt|sitemap\\.xml|llms\\.txt|llms-full\\.txt|favicon\\.ico).*)",
       "destination": "/index.html"
     }
   ],

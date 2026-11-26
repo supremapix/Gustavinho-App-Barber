@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { MapPin, Phone, MessageCircle, Calendar, Clock, ShieldCheck, ChevronRight, ArrowRight, Mail } from "lucide-react";
+import { MapPin, Phone, MessageCircle, Calendar, Clock, ShieldCheck, ChevronRight, ArrowRight, Mail, FileText } from "lucide-react";
 import { BUSINESS_INFO } from "../data/business";
+import { MINOXIDIL_GUIDE_PDF } from "../data/guides";
 
 const CONTACT_EMAIL = "contato@barbeiro.curitiba.br";
 
@@ -128,6 +129,11 @@ export default function Footer() {
                 <Link to="/resultados" className="hover:text-white transition-colors flex items-center gap-1.5 font-medium">
                   <ChevronRight className="w-4 h-4 text-[#d4af37]" /> Galeria de Cortes
                 </Link>
+              </li>
+              <li>
+                <a href={MINOXIDIL_GUIDE_PDF} target="_blank" rel="noopener noreferrer" className="hover:text-white hover:underline transition-colors flex items-center gap-1.5 font-medium" aria-label="Guia de minoxidil tópico (PDF, abre em nova aba)">
+                  <FileText className="w-4 h-4 text-[#d4af37]" aria-hidden="true" /> Guia de minoxidil (PDF)
+                </a>
               </li>
               <li>
                 <Link to="/faq" className="hover:text-white transition-colors flex items-center gap-1.5 font-medium">
