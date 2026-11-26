@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, Calendar, Phone, MessageCircle } from "lucide-react";
 import { BUSINESS_INFO } from "../data/business";
+import { MINOXIDIL_GUIDE_PDF } from "../data/guides";
 import MobileMenuOverlay from "./MobileMenuOverlay";
 
 export default function Header() {
@@ -57,7 +58,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-5 xl:gap-7 text-sm font-medium">
+          <nav className="hidden lg:flex items-center gap-3 xl:gap-5 text-sm font-medium">
             <Link
               to="/"
               className={`transition-colors duration-200 hover:text-[#d4af37] ${
@@ -122,6 +123,9 @@ export default function Header() {
             >
               Localização
             </Link>
+            <a href={MINOXIDIL_GUIDE_PDF} target="_blank" rel="noopener noreferrer" className="whitespace-nowrap text-[#e5c158] hover:text-white hover:underline focus-visible:underline" aria-label="Guia de minoxidil tópico (PDF, abre em nova aba)">
+              Guia Minoxidil
+            </a>
           </nav>
 
           {/* Desktop Right CTA */}
